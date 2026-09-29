@@ -1,0 +1,49 @@
+src/app/(auth)/delivery-register/page.tsx(54,63): error TS2345: Argument of type 'Auth | null' is not assignable to parameter of type 'Auth'.
+  Type 'null' is not assignable to type 'Auth'.
+src/app/admin/products/ProductListClient.tsx(23,57): error TS2339: Property 'stockQuantity' does not exist on type 'CatalogProduct'.
+src/app/admin/products/ProductListClient.tsx(30,8): error TS2339: Property 'sku' does not exist on type 'CatalogProduct'.
+src/app/admin/products/ProductListClient.tsx(30,17): error TS2339: Property 'sku' does not exist on type 'CatalogProduct'.
+src/app/admin/products/ProductListClient.tsx(167,35): error TS2339: Property 'stockQuantity' does not exist on type 'CatalogProduct'.
+src/app/admin/products/ProductListClient.tsx(189,84): error TS2339: Property 'sku' does not exist on type 'CatalogProduct'.
+src/app/admin/shipments/[shipmentId]/page.tsx(12,30): error TS18047: 'adminDb' is possibly 'null'.
+src/app/admin/shipments/[shipmentId]/page.tsx(19,27): error TS18047: 'adminDb' is possibly 'null'.
+src/app/admin/shipments/[shipmentId]/page.tsx(27,30): error TS18047: 'adminDb' is possibly 'null'.
+src/app/admin/shipments/page.tsx(12,31): error TS18047: 'adminDb' is possibly 'null'.
+src/app/admin/shipments/page.tsx(16,28): error TS18047: 'adminDb' is possibly 'null'.
+src/app/api/auth/promote-delivery/route.ts(12,32): error TS18047: 'adminAuth' is possibly 'null'.
+src/app/api/auth/promote-delivery/route.ts(15,11): error TS18047: 'adminAuth' is possibly 'null'.
+src/app/api/auth/promote-delivery/route.ts(18,11): error TS18047: 'adminDb' is possibly 'null'.
+src/app/api/auth/register-delivery/route.ts(2,10): error TS2305: Module '"@/lib/firebase/admin"' has no exported member 'auth'.
+src/app/api/auth/register-delivery/route.ts(23,11): error TS18047: 'adminDb' is possibly 'null'.
+src/app/api/delivery/shipments/[shipmentId]/route.ts(16,34): error TS18047: 'adminDb' is possibly 'null'.
+src/app/api/delivery/shipments/[shipmentId]/route.ts(32,32): error TS18047: 'adminDb' is possibly 'null'.
+src/app/api/delivery/shipments/[shipmentId]/route.ts(41,19): error TS18047: 'adminDb' is possibly 'null'.
+src/app/api/delivery/shipments/[shipmentId]/route.ts(44,18): error TS18047: 'adminDb' is possibly 'null'.
+src/app/api/delivery/shipments/[shipmentId]/route.ts(51,20): error TS18047: 'adminDb' is possibly 'null'.
+src/app/api/delivery/shipments/[shipmentId]/route.ts(56,20): error TS18047: 'adminDb' is possibly 'null'.
+src/app/delivery/assignments/[shipmentId]/page.tsx(14,32): error TS18047: 'adminDb' is possibly 'null'.
+src/app/delivery/assignments/[shipmentId]/page.tsx(24,30): error TS18047: 'adminDb' is possibly 'null'.
+src/app/delivery/page.tsx(14,33): error TS18047: 'adminDb' is possibly 'null'.
+src/app/delivery/page.tsx(27,31): error TS18047: 'adminDb' is possibly 'null'.
+src/app/orders/[orderId]/tracking/page.tsx(14,27): error TS18047: 'adminDb' is possibly 'null'.
+src/app/orders/[orderId]/tracking/page.tsx(21,30): error TS18047: 'adminDb' is possibly 'null'.
+src/components/admin/ProductForm.tsx(49,59): error TS2339: Property 'tags' does not exist on type 'CatalogProduct'.
+src/components/admin/ProductForm.tsx(671,16): error TS2304: Cannot find name 'Loader2'.
+src/lib/delivery/shipment-service.ts(11,23): error TS18047: 'adminDb' is possibly 'null'.
+src/lib/delivery/shipment-service.ts(17,40): error TS2367: This comparison appears to be unintentional because the types '"pending_payment" | "payment_processing" | "cancelled" | "expired"' and '"paid"' have no overlap.
+src/lib/delivery/shipment-service.ts(34,32): error TS18047: 'adminDb' is possibly 'null'.
+src/lib/delivery/shipment-service.ts(40,28): error TS18047: 'adminDb' is possibly 'null'.
+src/lib/delivery/shipment-service.ts(54,11): error TS18047: 'adminDb' is possibly 'null'.
+src/lib/delivery/shipment-service.ts(57,11): error TS18047: 'adminDb' is possibly 'null'.
+src/lib/delivery/shipment-service.ts(66,20): error TS18047: 'adminDb' is possibly 'null'.
+src/lib/delivery/shipment-service.ts(67,11): error TS18047: 'adminDb' is possibly 'null'.
+src/lib/delivery/shipment-service.ts(88,32): error TS18047: 'adminDb' is possibly 'null'.
+src/lib/delivery/shipment-service.ts(97,30): error TS18047: 'adminDb' is possibly 'null'.
+src/lib/delivery/shipment-service.ts(116,19): error TS18047: 'adminDb' is possibly 'null'.
+src/lib/delivery/shipment-service.ts(117,15): error TS18047: 'adminDb' is possibly 'null'.
+src/lib/delivery/shipment-service.ts(118,18): error TS18047: 'adminDb' is possibly 'null'.
+tests/design-interactions.test.tsx(37,69): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(role: ByRoleMatcher, options?: ByRoleOptions | undefined): HTMLElement[]', gave the following error.
+    Object literal may only specify known properties, and 'exact' does not exist in type 'ByRoleOptions'.
+  Overload 2 of 2, '(role: ByRoleMatcher, options?: ByRoleOptions | undefined): HTMLElement[]', gave the following error.
+    Object literal may only specify known properties, and 'exact' does not exist in type 'ByRoleOptions'.

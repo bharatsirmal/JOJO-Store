@@ -1,0 +1,193 @@
+
+> jojo-store@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.35
+  - Environments: .env.local
+
+   Creating an optimized production build ...
+ ⚠ Compiled with warnings
+
+./src/app/api/auth/register-delivery/route.ts
+Attempted import error: 'auth' is not exported from '@/lib/firebase/admin' (imported as 'auth').
+
+Import trace for requested module:
+./src/app/api/auth/register-delivery/route.ts
+
+./src/app/api/auth/register-delivery/route.ts
+Attempted import error: 'auth' is not exported from '@/lib/firebase/admin' (imported as 'auth').
+
+Import trace for requested module:
+./src/app/api/auth/register-delivery/route.ts
+
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+
+Failed to compile.
+
+./src/app/(auth)/admin-login/page.tsx
+14:10  Error: 'Shield' is defined but never used.  @typescript-eslint/no-unused-vars
+24:9  Error: 'router' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/(auth)/delivery-login/page.tsx
+50:14  Error: 'err' is defined but never used.  @typescript-eslint/no-unused-vars
+85:14  Error: 'err' is defined but never used.  @typescript-eslint/no-unused-vars
+167:16  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+
+./src/app/(auth)/delivery-register/page.tsx
+70:19  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/admin/categories/page.tsx
+69:75  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+
+./src/app/admin/customers/page.tsx
+64:75  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+
+./src/app/admin/page.tsx
+20:7  Error: 'confirmedOrders' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+43:30  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+45:23  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+47:37  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+48:37  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/admin/products/new/page.tsx
+4:26  Error: 'Shirt' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/admin/products/page.tsx
+34:75  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+
+./src/app/admin/products/ProductListClient.tsx
+4:8  Error: 'Link' is defined but never used.  @typescript-eslint/no-unused-vars
+6:122  Error: 'Check' is defined but never used.  @typescript-eslint/no-unused-vars
+46:14  Error: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+46:17  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+184:31  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/api/admin/shipments/route.ts
+16:19  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/api/admin/shipments/[shipmentId]/route.ts
+22:19  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/api/admin/upload/route.ts
+41:19  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/api/auth/promote-delivery/route.ts
+26:19  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/api/auth/register-delivery/route.ts
+31:19  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/api/delivery/shipments/[shipmentId]/route.ts
+4:10  Error: 'ShipmentStatus' is defined but never used.  @typescript-eslint/no-unused-vars
+64:19  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/cart/CartClient.tsx
+85:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/delivery/assignments/[shipmentId]/page.tsx
+4:20  Error: 'DeliveryAssignment' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/orders/[orderId]/page.tsx
+86:38  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/admin/AdminSidebar.tsx
+26:85  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/admin/DashboardClient.tsx
+47:91  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+47:112  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+99:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/admin/fix-submit.tsx
+3:6  Error: Parsing error: Declaration or statement expected.
+
+./src/components/admin/missing-part.tsx
+2:8  Error: Parsing error: ';' expected.
+
+./src/components/admin/ProductForm.tsx
+14:62  Error: 'AlertCircle' is defined but never used.  @typescript-eslint/no-unused-vars
+78:9  Error: 'fileInputRefs' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+89:33  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+90:41  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+91:40  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+92:28  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+93:38  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+94:30  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+96:30  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+97:37  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+98:40  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+98:80  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+108:11  Error: 'allFiles' is never reassigned. Use 'const' instead.  prefer-const
+177:21  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+251:28  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+253:52  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+377:29  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+564:16  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+671:16  Error: 'Loader2' is not defined.  react/jsx-no-undef
+
+./src/components/admin/ShipmentDetailClient.tsx
+5:10  Error: 'motion' is defined but never used.  @typescript-eslint/no-unused-vars
+18:22  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+46:14  Error: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+86:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+139:32  Error: 'err' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/admin/ShipmentsClient.tsx
+4:19  Error: 'Truck' is defined but never used.  @typescript-eslint/no-unused-vars
+4:26  Error: 'CheckCircle' is defined but never used.  @typescript-eslint/no-unused-vars
+4:39  Error: 'AlertTriangle' is defined but never used.  @typescript-eslint/no-unused-vars
+4:54  Error: 'Eye' is defined but never used.  @typescript-eslint/no-unused-vars
+30:14  Error: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/CartDrawer.tsx
+106:29  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/CheckoutClient.tsx
+208:38  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/delivery/DeliveryAssignmentDetailClient.tsx
+4:10  Error: 'Package' is defined but never used.  @typescript-eslint/no-unused-vars
+4:19  Error: 'Truck' is defined but never used.  @typescript-eslint/no-unused-vars
+4:71  Error: 'AlertTriangle' is defined but never used.  @typescript-eslint/no-unused-vars
+5:10  Error: 'motion' is defined but never used.  @typescript-eslint/no-unused-vars
+28:14  Error: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/delivery/DeliveryDashboardClient.tsx
+4:10  Error: 'Package' is defined but never used.  @typescript-eslint/no-unused-vars
+4:19  Error: 'Truck' is defined but never used.  @typescript-eslint/no-unused-vars
+4:26  Error: 'CheckCircle' is defined but never used.  @typescript-eslint/no-unused-vars
+18:9  Error: 'completedDeliveries' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/HomeClient.tsx
+26:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/Navbar.tsx
+19:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/ProductCard.tsx
+59:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+65:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/ProductDetailClient.tsx
+136:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+184:25  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/TrackingClient.tsx
+4:54  Error: 'ChevronRight' is defined but never used.  @typescript-eslint/no-unused-vars
+8:66  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/lib/delivery/courier-adapter.ts
+15:20  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+16:18  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+29:11  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/lib/delivery/shipment-service.ts
+2:20  Error: 'ShipmentStatus' is defined but never used.  @typescript-eslint/no-unused-vars
+2:36  Error: 'TrackingEvent' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/middleware.ts
+13:9  Error: 'isHomePath' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+34:13  Error: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules

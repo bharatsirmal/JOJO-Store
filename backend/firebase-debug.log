@@ -1,0 +1,1308 @@
+[debug] [2026-09-21T17:51:40.291Z] ----------------------------------------------------------------------
+[debug] [2026-09-21T17:51:40.295Z] Command:       C:\Program Files\nodejs\node.exe D:\JOJO Store\backend\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2026-09-21T17:51:40.296Z] CLI Version:   15.30.2
+[debug] [2026-09-21T17:51:40.296Z] Platform:      win32
+[debug] [2026-09-21T17:51:40.296Z] Node Version:  v26.7.0
+[debug] [2026-09-21T17:51:40.296Z] Detected Agent: antigravity
+[debug] [2026-09-21T17:51:40.297Z] Time:          Mon Sep 21 2026 23:21:40 GMT+0530 (India Standard Time)
+[debug] [2026-09-21T17:51:40.297Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-09-21T17:51:42.290Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-21T17:51:42.290Z] > authorizing via signed-in user (osbert2060@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2026-09-21T17:51:42.330Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-21T17:51:42.330Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2026-09-21T17:51:42.338Z] Write emulator hub locator at C:\Users\sirmal\AppData\Local\Temp\hub-jojo-store-2027.json
+[debug] [2026-09-21T17:51:42.390Z] Checked if tokens are valid: false, expires at: 1790003812283
+[debug] [2026-09-21T17:51:42.391Z] Checked if tokens are valid: false, expires at: 1790003812283
+[debug] [2026-09-21T17:51:42.391Z] > refreshing access token with scopes: []
+[debug] [2026-09-21T17:51:42.395Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-09-21T17:51:42.395Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-21T17:51:43.297Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-09-21T17:51:43.297Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-21T17:51:43.328Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 [none]
+[debug] [2026-09-21T17:51:43.877Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 200
+[debug] [2026-09-21T17:51:43.878Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 {"projectId":"jojo-store-2027","projectNumber":"692212815168","displayName":"JoJo Store","name":"projects/jojo-store-2027","resources":{"hostingSite":"jojo-store-2027"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_c2a4cc3b-b799-45af-9945-8b765fd662dd"}
+[debug] [2026-09-21T17:51:43.902Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-21T17:51:43.902Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-21T17:51:43.902Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-21T17:51:43.902Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2026-09-21T17:51:43.948Z] defaultcredentials: writing to file C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json
+[debug] [2026-09-21T17:51:43.951Z] Setting GAC to C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\sirmal\\AppData\\Roaming\\firebase\\osbert2060_gmail_com_application_default_credentials.json"}}
+[debug] [2026-09-21T17:51:43.953Z] Checked if tokens are valid: true, expires at: 1790016702298
+[debug] [2026-09-21T17:51:43.953Z] Checked if tokens are valid: true, expires at: 1790016702298
+[debug] [2026-09-21T17:51:43.954Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig [none]
+[debug] [2026-09-21T17:51:44.380Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig 200
+[debug] [2026-09-21T17:51:44.381Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig {"projectId":"jojo-store-2027","storageBucket":"jojo-store-2027.firebasestorage.app"}
+[info] i  ui: downloading ui-v1.15.0.zip... {"metadata":{"emulator":{"name":"ui"},"message":"downloading ui-v1.15.0.zip..."}}
+[debug] [2026-09-21T17:51:44.449Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.15.0.zip 
+[debug] [2026-09-21T17:51:44.846Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.15.0.zip 200
+[debug] [2026-09-21T17:51:44.847Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.15.0.zip [stream]
+[debug] [2026-09-21T17:51:47.245Z] Data is 3538469
+[debug] [2026-09-21T17:51:47.245Z] [unzip] Entry: client/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2026-09-21T17:51:47.246Z] [unzip] Processing entry: client\
+[debug] [2026-09-21T17:51:47.246Z] [unzip] mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\
+[debug] [2026-09-21T17:51:47.248Z] [unzip] Entry: client/favicon-16x16.png (compressed_size=293 bytes, uncompressed_size=293 bytes)
+[debug] [2026-09-21T17:51:47.249Z] [unzip] Processing entry: client\favicon-16x16.png
+[debug] [2026-09-21T17:51:47.249Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client
+[debug] [2026-09-21T17:51:47.249Z] [unzip] Writing file: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\favicon-16x16.png
+[debug] [2026-09-21T17:51:47.253Z] [unzip] Entry: client/safari-pinned-tab.svg (compressed_size=1433 bytes, uncompressed_size=2611 bytes)
+[debug] [2026-09-21T17:51:47.253Z] [unzip] Processing entry: client\safari-pinned-tab.svg
+[debug] [2026-09-21T17:51:47.253Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client
+[debug] [2026-09-21T17:51:47.254Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\safari-pinned-tab.svg
+[debug] [2026-09-21T17:51:47.258Z] [unzip] Entry: client/favicon.ico (compressed_size=2933 bytes, uncompressed_size=13294 bytes)
+[debug] [2026-09-21T17:51:47.258Z] [unzip] Processing entry: client\favicon.ico
+[debug] [2026-09-21T17:51:47.258Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client
+[debug] [2026-09-21T17:51:47.259Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\favicon.ico
+[debug] [2026-09-21T17:51:47.262Z] [unzip] Entry: client/index.html (compressed_size=1364 bytes, uncompressed_size=3071 bytes)
+[debug] [2026-09-21T17:51:47.263Z] [unzip] Processing entry: client\index.html
+[debug] [2026-09-21T17:51:47.263Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client
+[debug] [2026-09-21T17:51:47.264Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\index.html
+[debug] [2026-09-21T17:51:47.268Z] [unzip] Entry: client/android-chrome-192x192.png (compressed_size=2684 bytes, uncompressed_size=2684 bytes)
+[debug] [2026-09-21T17:51:47.268Z] [unzip] Processing entry: client\android-chrome-192x192.png
+[debug] [2026-09-21T17:51:47.269Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client
+[debug] [2026-09-21T17:51:47.269Z] [unzip] Writing file: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\android-chrome-192x192.png
+[debug] [2026-09-21T17:51:47.270Z] [unzip] Entry: client/apple-touch-icon.png (compressed_size=2123 bytes, uncompressed_size=2152 bytes)
+[debug] [2026-09-21T17:51:47.271Z] [unzip] Processing entry: client\apple-touch-icon.png
+[debug] [2026-09-21T17:51:47.271Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client
+[debug] [2026-09-21T17:51:47.271Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\apple-touch-icon.png
+[debug] [2026-09-21T17:51:47.273Z] [unzip] Entry: client/android-chrome-512x512.png (compressed_size=5369 bytes, uncompressed_size=5411 bytes)
+[debug] [2026-09-21T17:51:47.274Z] [unzip] Processing entry: client\android-chrome-512x512.png
+[debug] [2026-09-21T17:51:47.274Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client
+[debug] [2026-09-21T17:51:47.274Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\android-chrome-512x512.png
+[debug] [2026-09-21T17:51:47.276Z] [unzip] Entry: client/manifest.json (compressed_size=245 bytes, uncompressed_size=551 bytes)
+[debug] [2026-09-21T17:51:47.276Z] [unzip] Processing entry: client\manifest.json
+[debug] [2026-09-21T17:51:47.277Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client
+[debug] [2026-09-21T17:51:47.277Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\manifest.json
+[debug] [2026-09-21T17:51:47.280Z] [unzip] Entry: client/robots.txt (compressed_size=26 bytes, uncompressed_size=26 bytes)
+[debug] [2026-09-21T17:51:47.280Z] [unzip] Processing entry: client\robots.txt
+[debug] [2026-09-21T17:51:47.280Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client
+[debug] [2026-09-21T17:51:47.281Z] [unzip] Writing file: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\robots.txt
+[debug] [2026-09-21T17:51:47.282Z] [unzip] Entry: client/mstile-150x150.png (compressed_size=2034 bytes, uncompressed_size=2034 bytes)
+[debug] [2026-09-21T17:51:47.282Z] [unzip] Processing entry: client\mstile-150x150.png
+[debug] [2026-09-21T17:51:47.282Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client
+[debug] [2026-09-21T17:51:47.283Z] [unzip] Writing file: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\mstile-150x150.png
+[debug] [2026-09-21T17:51:47.284Z] [unzip] Entry: client/assets/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2026-09-21T17:51:47.284Z] [unzip] Processing entry: client\assets\
+[debug] [2026-09-21T17:51:47.284Z] [unzip] mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\
+[debug] [2026-09-21T17:51:47.285Z] [unzip] Entry: client/assets/index-BX-A56oj.js (compressed_size=582089 bytes, uncompressed_size=2092775 bytes)
+[debug] [2026-09-21T17:51:47.285Z] [unzip] Processing entry: client\assets\index-BX-A56oj.js
+[debug] [2026-09-21T17:51:47.285Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets
+[debug] [2026-09-21T17:51:47.286Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\index-BX-A56oj.js
+[debug] [2026-09-21T17:51:47.327Z] [unzip] Entry: client/assets/index-CjB9C900.css (compressed_size=35979 bytes, uncompressed_size=298654 bytes)
+[debug] [2026-09-21T17:51:47.327Z] [unzip] Processing entry: client\assets\index-CjB9C900.css
+[debug] [2026-09-21T17:51:47.327Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets
+[debug] [2026-09-21T17:51:47.328Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\index-CjB9C900.css
+[debug] [2026-09-21T17:51:47.334Z] [unzip] Entry: client/assets/index-BX-A56oj.js.map (compressed_size=2362482 bytes, uncompressed_size=10036679 bytes)
+[debug] [2026-09-21T17:51:47.334Z] [unzip] Processing entry: client\assets\index-BX-A56oj.js.map
+[debug] [2026-09-21T17:51:47.334Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets
+[debug] [2026-09-21T17:51:47.335Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\index-BX-A56oj.js.map
+[debug] [2026-09-21T17:51:47.473Z] [unzip] Entry: client/assets/extensions/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2026-09-21T17:51:47.474Z] [unzip] Processing entry: client\assets\extensions\
+[debug] [2026-09-21T17:51:47.474Z] [unzip] mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\extensions\
+[debug] [2026-09-21T17:51:47.475Z] [unzip] Entry: client/assets/extensions/default-extension.png (compressed_size=1646 bytes, uncompressed_size=1657 bytes)
+[debug] [2026-09-21T17:51:47.475Z] [unzip] Processing entry: client\assets\extensions\default-extension.png
+[debug] [2026-09-21T17:51:47.475Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\extensions
+[debug] [2026-09-21T17:51:47.476Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\extensions\default-extension.png
+[debug] [2026-09-21T17:51:47.479Z] [unzip] Entry: client/assets/img/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2026-09-21T17:51:47.479Z] [unzip] Processing entry: client\assets\img\
+[debug] [2026-09-21T17:51:47.479Z] [unzip] mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\img\
+[debug] [2026-09-21T17:51:47.480Z] [unzip] Entry: client/assets/img/database.png (compressed_size=29449 bytes, uncompressed_size=29988 bytes)
+[debug] [2026-09-21T17:51:47.481Z] [unzip] Processing entry: client\assets\img\database.png
+[debug] [2026-09-21T17:51:47.481Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\img
+[debug] [2026-09-21T17:51:47.481Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\img\database.png
+[debug] [2026-09-21T17:51:47.484Z] [unzip] Entry: client/assets/provider-icons/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2026-09-21T17:51:47.484Z] [unzip] Processing entry: client\assets\provider-icons\
+[debug] [2026-09-21T17:51:47.484Z] [unzip] mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons\
+[debug] [2026-09-21T17:51:47.485Z] [unzip] Entry: client/assets/provider-icons/auth_service_saml.svg (compressed_size=575 bytes, uncompressed_size=1226 bytes)
+[debug] [2026-09-21T17:51:47.485Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_saml.svg
+[debug] [2026-09-21T17:51:47.485Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons
+[debug] [2026-09-21T17:51:47.486Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons\auth_service_saml.svg
+[debug] [2026-09-21T17:51:47.490Z] [unzip] Entry: client/assets/provider-icons/auth_service_phone.svg (compressed_size=261 bytes, uncompressed_size=414 bytes)
+[debug] [2026-09-21T17:51:47.491Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_phone.svg
+[debug] [2026-09-21T17:51:47.491Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons
+[debug] [2026-09-21T17:51:47.493Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons\auth_service_phone.svg
+[debug] [2026-09-21T17:51:47.495Z] [unzip] Entry: client/assets/provider-icons/auth_service_facebook.svg (compressed_size=289 bytes, uncompressed_size=457 bytes)
+[debug] [2026-09-21T17:51:47.495Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_facebook.svg
+[debug] [2026-09-21T17:51:47.495Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons
+[debug] [2026-09-21T17:51:47.496Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons\auth_service_facebook.svg
+[debug] [2026-09-21T17:51:47.498Z] [unzip] Entry: client/assets/provider-icons/auth_service_game_center.svg (compressed_size=991 bytes, uncompressed_size=3921 bytes)
+[debug] [2026-09-21T17:51:47.498Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_game_center.svg
+[debug] [2026-09-21T17:51:47.499Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons
+[debug] [2026-09-21T17:51:47.499Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons\auth_service_game_center.svg
+[debug] [2026-09-21T17:51:47.501Z] [unzip] Entry: client/assets/provider-icons/auth_service_apple.svg (compressed_size=230 bytes, uncompressed_size=334 bytes)
+[debug] [2026-09-21T17:51:47.501Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_apple.svg
+[debug] [2026-09-21T17:51:47.501Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons
+[debug] [2026-09-21T17:51:47.502Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons\auth_service_apple.svg
+[debug] [2026-09-21T17:51:47.504Z] [unzip] Entry: client/assets/provider-icons/auth_service_github.svg (compressed_size=466 bytes, uncompressed_size=838 bytes)
+[debug] [2026-09-21T17:51:47.504Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_github.svg
+[debug] [2026-09-21T17:51:47.504Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons
+[debug] [2026-09-21T17:51:47.505Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons\auth_service_github.svg
+[debug] [2026-09-21T17:51:47.506Z] [unzip] Entry: client/assets/provider-icons/auth_service_mslive.svg (compressed_size=203 bytes, uncompressed_size=378 bytes)
+[debug] [2026-09-21T17:51:47.507Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_mslive.svg
+[debug] [2026-09-21T17:51:47.507Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons
+[debug] [2026-09-21T17:51:47.507Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons\auth_service_mslive.svg
+[debug] [2026-09-21T17:51:47.510Z] [unzip] Entry: client/assets/provider-icons/auth_service_yahoo.svg (compressed_size=577 bytes, uncompressed_size=1182 bytes)
+[debug] [2026-09-21T17:51:47.510Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_yahoo.svg
+[debug] [2026-09-21T17:51:47.510Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons
+[debug] [2026-09-21T17:51:47.510Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons\auth_service_yahoo.svg
+[debug] [2026-09-21T17:51:47.513Z] [unzip] Entry: client/assets/provider-icons/auth_service_twitter.svg (compressed_size=444 bytes, uncompressed_size=751 bytes)
+[debug] [2026-09-21T17:51:47.514Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_twitter.svg
+[debug] [2026-09-21T17:51:47.514Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons
+[debug] [2026-09-21T17:51:47.515Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons\auth_service_twitter.svg
+[debug] [2026-09-21T17:51:47.518Z] [unzip] Entry: client/assets/provider-icons/auth_service_play_games.svg (compressed_size=565 bytes, uncompressed_size=1173 bytes)
+[debug] [2026-09-21T17:51:47.518Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_play_games.svg
+[debug] [2026-09-21T17:51:47.519Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons
+[debug] [2026-09-21T17:51:47.519Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons\auth_service_play_games.svg
+[debug] [2026-09-21T17:51:47.522Z] [unzip] Entry: client/assets/provider-icons/auth_service_email.svg (compressed_size=228 bytes, uncompressed_size=326 bytes)
+[debug] [2026-09-21T17:51:47.522Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_email.svg
+[debug] [2026-09-21T17:51:47.522Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons
+[debug] [2026-09-21T17:51:47.523Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons\auth_service_email.svg
+[debug] [2026-09-21T17:51:47.526Z] [unzip] Entry: client/assets/provider-icons/auth_service_google.svg (compressed_size=409 bytes, uncompressed_size=720 bytes)
+[debug] [2026-09-21T17:51:47.526Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_google.svg
+[debug] [2026-09-21T17:51:47.526Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons
+[debug] [2026-09-21T17:51:47.527Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons\auth_service_google.svg
+[debug] [2026-09-21T17:51:47.529Z] [unzip] Entry: client/assets/provider-icons/auth_service_oidc.svg (compressed_size=414 bytes, uncompressed_size=858 bytes)
+[debug] [2026-09-21T17:51:47.529Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_oidc.svg
+[debug] [2026-09-21T17:51:47.529Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons
+[debug] [2026-09-21T17:51:47.530Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\assets\provider-icons\auth_service_oidc.svg
+[debug] [2026-09-21T17:51:47.532Z] [unzip] Entry: client/browserconfig.xml (compressed_size=491 bytes, uncompressed_size=822 bytes)
+[debug] [2026-09-21T17:51:47.532Z] [unzip] Processing entry: client\browserconfig.xml
+[debug] [2026-09-21T17:51:47.532Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client
+[debug] [2026-09-21T17:51:47.533Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\browserconfig.xml
+[debug] [2026-09-21T17:51:47.538Z] [unzip] Entry: client/favicon-32x32.png (compressed_size=475 bytes, uncompressed_size=475 bytes)
+[debug] [2026-09-21T17:51:47.539Z] [unzip] Processing entry: client\favicon-32x32.png
+[debug] [2026-09-21T17:51:47.539Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client
+[debug] [2026-09-21T17:51:47.540Z] [unzip] Writing file: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\client\favicon-32x32.png
+[debug] [2026-09-21T17:51:47.543Z] [unzip] Entry: server/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2026-09-21T17:51:47.544Z] [unzip] Processing entry: server\
+[debug] [2026-09-21T17:51:47.544Z] [unzip] mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\server\
+[debug] [2026-09-21T17:51:47.545Z] [unzip] Entry: server/server.mjs.map (compressed_size=217845 bytes, uncompressed_size=944978 bytes)
+[debug] [2026-09-21T17:51:47.545Z] [unzip] Processing entry: server\server.mjs.map
+[debug] [2026-09-21T17:51:47.545Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\server
+[debug] [2026-09-21T17:51:47.546Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\server\server.mjs.map
+[debug] [2026-09-21T17:51:47.560Z] [unzip] Entry: server/server.mjs (compressed_size=276407 bytes, uncompressed_size=933701 bytes)
+[debug] [2026-09-21T17:51:47.560Z] [unzip] Processing entry: server\server.mjs
+[debug] [2026-09-21T17:51:47.560Z] [unzip] else mkdir: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\server
+[debug] [2026-09-21T17:51:47.561Z] [unzip] deflating: C:\Users\sirmal\.cache\firebase\emulators\ui-v1.15.0\server\server.mjs
+[info] i  functions: Watching "D:\JOJO Store\backend" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"D:\\JOJO Store\\backend\" for Cloud Functions..."}}
+[debug] [2026-09-21T17:51:47.585Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2026-09-21T17:51:51.461Z] > [functions] package.json contents: {
+  "name": "jojo-store-backend",
+  "description": "Firebase Cloud Functions for JOJO Store",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "firebase-tools": "^15.30.2",
+    "typescript": "^5.4.5"
+  },
+  "private": true
+}
+[debug] [2026-09-21T17:51:51.461Z] Building nodejs source
+[debug] [2026-09-21T17:51:51.462Z] Failed to find version of module node: reached end of search path D:\JOJO Store\backend\node_modules
+[warn] !  functions: Your requested "node" version "20" doesn't match your global version "26". Using node@26 from host. 
+[debug] [2026-09-21T17:51:51.471Z] Failed to validate key FIREBASE_CLIENT_EMAIL: Error: Key FIREBASE_CLIENT_EMAIL starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[debug] [2026-09-21T17:51:51.471Z] Failed to validate key FIREBASE_PRIVATE_KEY: Error: Key FIREBASE_PRIVATE_KEY starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local. {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local."}}
+[debug] [2026-09-21T17:51:51.487Z] Could not find VSCode notification endpoint: TypeError: fetch failed. If you are not running the Firebase SQL Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2026-09-21T19:41:51.493Z] ----------------------------------------------------------------------
+[debug] [2026-09-21T19:41:51.496Z] Command:       C:\Program Files\nodejs\node.exe D:\JOJO Store\backend\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2026-09-21T19:41:51.497Z] CLI Version:   15.30.2
+[debug] [2026-09-21T19:41:51.497Z] Platform:      win32
+[debug] [2026-09-21T19:41:51.497Z] Node Version:  v26.7.0
+[debug] [2026-09-21T19:41:51.497Z] Detected Agent: antigravity
+[debug] [2026-09-21T19:41:51.498Z] Time:          Tue Sep 22 2026 01:11:51 GMT+0530 (India Standard Time)
+[debug] [2026-09-21T19:41:51.498Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-09-21T19:41:52.956Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-21T19:41:52.956Z] > authorizing via signed-in user (osbert2060@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2026-09-21T19:41:52.976Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-21T19:41:52.976Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2026-09-21T19:41:52.983Z] Found emulator hub locator: {"version":"15.30.2","origins":["http://127.0.0.1:4400","http://[::1]:4400"],"pid":10828}
+[debug] [2026-09-21T19:41:52.983Z] Write emulator hub locator at C:\Users\sirmal\AppData\Local\Temp\hub-jojo-store-2027.json
+[debug] [2026-09-21T19:41:53.009Z] Checked if tokens are valid: false, expires at: 1790016702298
+[debug] [2026-09-21T19:41:53.010Z] Checked if tokens are valid: false, expires at: 1790016702298
+[debug] [2026-09-21T19:41:53.010Z] > refreshing access token with scopes: []
+[debug] [2026-09-21T19:41:53.012Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-09-21T19:41:53.012Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-21T19:41:53.359Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-09-21T19:41:53.359Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-21T19:41:53.380Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 [none]
+[debug] [2026-09-21T19:41:54.076Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 200
+[debug] [2026-09-21T19:41:54.076Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 {"projectId":"jojo-store-2027","projectNumber":"692212815168","displayName":"JoJo Store","name":"projects/jojo-store-2027","resources":{"hostingSite":"jojo-store-2027"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_c2a4cc3b-b799-45af-9945-8b765fd662dd"}
+[debug] [2026-09-21T19:41:54.087Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-21T19:41:54.088Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-21T19:41:54.088Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-21T19:41:54.088Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2026-09-21T19:41:54.119Z] defaultcredentials: writing to file C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json
+[debug] [2026-09-21T19:41:54.123Z] Setting GAC to C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\sirmal\\AppData\\Roaming\\firebase\\osbert2060_gmail_com_application_default_credentials.json"}}
+[debug] [2026-09-21T19:41:54.124Z] Checked if tokens are valid: true, expires at: 1790023312359
+[debug] [2026-09-21T19:41:54.125Z] Checked if tokens are valid: true, expires at: 1790023312359
+[debug] [2026-09-21T19:41:54.125Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig [none]
+[debug] [2026-09-21T19:41:54.781Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig 200
+[debug] [2026-09-21T19:41:54.781Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig {"projectId":"jojo-store-2027","storageBucket":"jojo-store-2027.firebasestorage.app"}
+[info] i  functions: Watching "D:\JOJO Store\backend" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"D:\\JOJO Store\\backend\" for Cloud Functions..."}}
+[debug] [2026-09-21T19:41:54.843Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2026-09-21T19:41:56.105Z] > [functions] package.json contents: {
+  "name": "jojo-store-backend",
+  "description": "Firebase Cloud Functions for JOJO Store",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "firebase-tools": "^15.30.2",
+    "typescript": "^5.4.5"
+  },
+  "private": true
+}
+[debug] [2026-09-21T19:41:56.105Z] Building nodejs source
+[debug] [2026-09-21T19:41:56.106Z] Failed to find version of module node: reached end of search path D:\JOJO Store\backend\node_modules
+[warn] !  functions: Your requested "node" version "20" doesn't match your global version "26". Using node@26 from host. 
+[debug] [2026-09-21T19:41:56.111Z] Failed to validate key FIREBASE_CLIENT_EMAIL: Error: Key FIREBASE_CLIENT_EMAIL starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[debug] [2026-09-21T19:41:56.111Z] Failed to validate key FIREBASE_PRIVATE_KEY: Error: Key FIREBASE_PRIVATE_KEY starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local. {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local."}}
+[debug] [2026-09-21T19:41:56.122Z] Could not find VSCode notification endpoint: TypeError: fetch failed. If you are not running the Firebase SQL Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2026-09-22T14:43:11.959Z] ----------------------------------------------------------------------
+[debug] [2026-09-22T14:43:11.965Z] Command:       C:\Program Files\nodejs\node.exe D:\JOJO Store\backend\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2026-09-22T14:43:11.966Z] CLI Version:   15.30.2
+[debug] [2026-09-22T14:43:11.966Z] Platform:      win32
+[debug] [2026-09-22T14:43:11.966Z] Node Version:  v26.7.0
+[debug] [2026-09-22T14:43:11.966Z] Detected Agent: antigravity
+[debug] [2026-09-22T14:43:11.967Z] Time:          Tue Sep 22 2026 20:13:11 GMT+0530 (India Standard Time)
+[debug] [2026-09-22T14:43:11.967Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-09-22T14:43:12.032Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2026-09-22T14:43:39.692Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-22T14:43:39.693Z] > authorizing via signed-in user (osbert2060@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2026-09-22T14:43:39.712Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-22T14:43:39.712Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2026-09-22T14:43:39.719Z] Write emulator hub locator at C:\Users\sirmal\AppData\Local\Temp\hub-jojo-store-2027.json
+[debug] [2026-09-22T14:43:39.738Z] Checked if tokens are valid: false, expires at: 1790023312359
+[debug] [2026-09-22T14:43:39.738Z] Checked if tokens are valid: false, expires at: 1790023312359
+[debug] [2026-09-22T14:43:39.739Z] > refreshing access token with scopes: []
+[debug] [2026-09-22T14:43:39.741Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-09-22T14:43:39.741Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-22T14:43:40.047Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-09-22T14:43:40.047Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-22T14:43:40.075Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 [none]
+[debug] [2026-09-22T14:43:40.390Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2026-09-22T14:43:40.391Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2026-09-22T14:43:40.673Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 200
+[debug] [2026-09-22T14:43:40.674Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 {"projectId":"jojo-store-2027","projectNumber":"692212815168","displayName":"JoJo Store","name":"projects/jojo-store-2027","resources":{"hostingSite":"jojo-store-2027"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_c2a4cc3b-b799-45af-9945-8b765fd662dd"}
+[debug] [2026-09-22T14:43:40.696Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-22T14:43:40.696Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-22T14:43:40.696Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-22T14:43:40.696Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2026-09-22T14:43:40.823Z] defaultcredentials: writing to file C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json
+[debug] [2026-09-22T14:43:40.825Z] Setting GAC to C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\sirmal\\AppData\\Roaming\\firebase\\osbert2060_gmail_com_application_default_credentials.json"}}
+[debug] [2026-09-22T14:43:40.827Z] Checked if tokens are valid: true, expires at: 1790091819047
+[debug] [2026-09-22T14:43:40.827Z] Checked if tokens are valid: true, expires at: 1790091819047
+[debug] [2026-09-22T14:43:40.827Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig [none]
+[debug] [2026-09-22T14:43:41.337Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig 200
+[debug] [2026-09-22T14:43:41.337Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig {"projectId":"jojo-store-2027","storageBucket":"jojo-store-2027.firebasestorage.app"}
+[info] i  functions: Watching "D:\JOJO Store\backend" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"D:\\JOJO Store\\backend\" for Cloud Functions..."}}
+[debug] [2026-09-22T14:43:41.385Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2026-09-22T14:43:43.754Z] > [functions] package.json contents: {
+  "name": "jojo-store-backend",
+  "description": "Firebase Cloud Functions for JOJO Store",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "firebase-tools": "^15.30.2",
+    "typescript": "^5.4.5"
+  },
+  "private": true
+}
+[debug] [2026-09-22T14:43:43.754Z] Building nodejs source
+[debug] [2026-09-22T14:43:43.755Z] Failed to find version of module node: reached end of search path D:\JOJO Store\backend\node_modules
+[warn] !  functions: Your requested "node" version "20" doesn't match your global version "26". Using node@26 from host. 
+[debug] [2026-09-22T14:43:43.761Z] Failed to validate key FIREBASE_CLIENT_EMAIL: Error: Key FIREBASE_CLIENT_EMAIL starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[debug] [2026-09-22T14:43:43.762Z] Failed to validate key FIREBASE_PRIVATE_KEY: Error: Key FIREBASE_PRIVATE_KEY starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local. {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local."}}
+[debug] [2026-09-22T14:43:43.775Z] Could not find VSCode notification endpoint: TypeError: fetch failed. If you are not running the Firebase SQL Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2026-09-22T17:55:22.801Z] ----------------------------------------------------------------------
+[debug] [2026-09-22T17:55:22.804Z] Command:       C:\Program Files\nodejs\node.exe D:\JOJO Store\backend\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2026-09-22T17:55:22.805Z] CLI Version:   15.30.2
+[debug] [2026-09-22T17:55:22.806Z] Platform:      win32
+[debug] [2026-09-22T17:55:22.806Z] Node Version:  v26.7.0
+[debug] [2026-09-22T17:55:22.806Z] Detected Agent: antigravity
+[debug] [2026-09-22T17:55:22.807Z] Time:          Tue Sep 22 2026 23:25:22 GMT+0530 (India Standard Time)
+[debug] [2026-09-22T17:55:22.807Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-09-22T17:55:47.857Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-22T17:55:47.858Z] > authorizing via signed-in user (osbert2060@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2026-09-22T17:55:47.889Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-22T17:55:47.890Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2026-09-22T17:55:47.902Z] Found emulator hub locator: {"version":"15.30.2","origins":["http://127.0.0.1:4400","http://[::1]:4400"],"pid":10564}
+[debug] [2026-09-22T17:55:47.902Z] Write emulator hub locator at C:\Users\sirmal\AppData\Local\Temp\hub-jojo-store-2027.json
+[debug] [2026-09-22T17:55:47.951Z] Checked if tokens are valid: false, expires at: 1790091819047
+[debug] [2026-09-22T17:55:47.952Z] Checked if tokens are valid: false, expires at: 1790091819047
+[debug] [2026-09-22T17:55:47.952Z] > refreshing access token with scopes: []
+[debug] [2026-09-22T17:55:47.956Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-09-22T17:55:47.956Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-22T17:55:48.205Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-09-22T17:55:48.205Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-22T17:55:48.223Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 [none]
+[debug] [2026-09-22T17:55:48.978Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 200
+[debug] [2026-09-22T17:55:48.978Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 {"projectId":"jojo-store-2027","projectNumber":"692212815168","displayName":"JoJo Store","name":"projects/jojo-store-2027","resources":{"hostingSite":"jojo-store-2027"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_c2a4cc3b-b799-45af-9945-8b765fd662dd"}
+[debug] [2026-09-22T17:55:48.989Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-22T17:55:48.990Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-22T17:55:48.990Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-22T17:55:48.990Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2026-09-22T17:55:49.014Z] defaultcredentials: writing to file C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json
+[debug] [2026-09-22T17:55:49.016Z] Setting GAC to C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\sirmal\\AppData\\Roaming\\firebase\\osbert2060_gmail_com_application_default_credentials.json"}}
+[debug] [2026-09-22T17:55:49.017Z] Checked if tokens are valid: true, expires at: 1790103347205
+[debug] [2026-09-22T17:55:49.017Z] Checked if tokens are valid: true, expires at: 1790103347205
+[debug] [2026-09-22T17:55:49.017Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig [none]
+[debug] [2026-09-22T17:55:49.429Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig 200
+[debug] [2026-09-22T17:55:49.429Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig {"projectId":"jojo-store-2027","storageBucket":"jojo-store-2027.firebasestorage.app"}
+[info] i  functions: Watching "D:\JOJO Store\backend" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"D:\\JOJO Store\\backend\" for Cloud Functions..."}}
+[debug] [2026-09-22T17:55:49.477Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2026-09-22T17:55:51.343Z] > [functions] package.json contents: {
+  "name": "jojo-store-backend",
+  "description": "Firebase Cloud Functions for JOJO Store",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "firebase-tools": "^15.30.2",
+    "typescript": "^5.4.5"
+  },
+  "private": true
+}
+[debug] [2026-09-22T17:55:51.343Z] Building nodejs source
+[debug] [2026-09-22T17:55:51.344Z] Failed to find version of module node: reached end of search path D:\JOJO Store\backend\node_modules
+[warn] !  functions: Your requested "node" version "20" doesn't match your global version "26". Using node@26 from host. 
+[debug] [2026-09-22T17:55:51.348Z] Failed to validate key FIREBASE_CLIENT_EMAIL: Error: Key FIREBASE_CLIENT_EMAIL starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[debug] [2026-09-22T17:55:51.349Z] Failed to validate key FIREBASE_PRIVATE_KEY: Error: Key FIREBASE_PRIVATE_KEY starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local. {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local."}}
+[debug] [2026-09-22T17:55:51.361Z] Could not find VSCode notification endpoint: TypeError: fetch failed. If you are not running the Firebase SQL Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2026-09-22T21:36:27.285Z] ----------------------------------------------------------------------
+[debug] [2026-09-22T21:36:27.292Z] Command:       C:\Program Files\nodejs\node.exe D:\JOJO Store\backend\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2026-09-22T21:36:27.293Z] CLI Version:   15.30.2
+[debug] [2026-09-22T21:36:27.294Z] Platform:      win32
+[debug] [2026-09-22T21:36:27.294Z] Node Version:  v26.7.0
+[debug] [2026-09-22T21:36:27.294Z] Detected Agent: antigravity
+[debug] [2026-09-22T21:36:27.295Z] Time:          Wed Sep 23 2026 03:06:27 GMT+0530 (India Standard Time)
+[debug] [2026-09-22T21:36:27.295Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-09-22T21:37:00.682Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-22T21:37:00.684Z] > authorizing via signed-in user (osbert2060@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2026-09-22T21:37:00.752Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-22T21:37:00.752Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2026-09-22T21:37:00.770Z] Found emulator hub locator: {"version":"15.30.2","origins":["http://127.0.0.1:4400","http://[::1]:4400"],"pid":14852}
+[debug] [2026-09-22T21:37:00.771Z] Write emulator hub locator at C:\Users\sirmal\AppData\Local\Temp\hub-jojo-store-2027.json
+[debug] [2026-09-22T21:37:00.846Z] Checked if tokens are valid: false, expires at: 1790103347205
+[debug] [2026-09-22T21:37:00.847Z] Checked if tokens are valid: false, expires at: 1790103347205
+[debug] [2026-09-22T21:37:00.848Z] > refreshing access token with scopes: []
+[debug] [2026-09-22T21:37:00.858Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-09-22T21:37:00.858Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-22T21:37:01.186Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-09-22T21:37:01.186Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-22T21:37:01.226Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 [none]
+[debug] [2026-09-22T21:37:02.085Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 200
+[debug] [2026-09-22T21:37:02.085Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 {"projectId":"jojo-store-2027","projectNumber":"692212815168","displayName":"JoJo Store","name":"projects/jojo-store-2027","resources":{"hostingSite":"jojo-store-2027"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_c2a4cc3b-b799-45af-9945-8b765fd662dd"}
+[debug] [2026-09-22T21:37:02.111Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-22T21:37:02.111Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-22T21:37:02.112Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-22T21:37:02.112Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2026-09-22T21:37:02.164Z] defaultcredentials: writing to file C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json
+[debug] [2026-09-22T21:37:02.169Z] Setting GAC to C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\sirmal\\AppData\\Roaming\\firebase\\osbert2060_gmail_com_application_default_credentials.json"}}
+[debug] [2026-09-22T21:37:02.170Z] Checked if tokens are valid: true, expires at: 1790116620187
+[debug] [2026-09-22T21:37:02.171Z] Checked if tokens are valid: true, expires at: 1790116620187
+[debug] [2026-09-22T21:37:02.171Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig [none]
+[debug] [2026-09-22T21:37:02.647Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig 200
+[debug] [2026-09-22T21:37:02.648Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig {"projectId":"jojo-store-2027","storageBucket":"jojo-store-2027.firebasestorage.app"}
+[info] i  functions: Watching "D:\JOJO Store\backend" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"D:\\JOJO Store\\backend\" for Cloud Functions..."}}
+[debug] [2026-09-22T21:37:02.746Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2026-09-22T21:37:04.876Z] > [functions] package.json contents: {
+  "name": "jojo-store-backend",
+  "description": "Firebase Cloud Functions for JOJO Store",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "firebase-tools": "^15.30.2",
+    "typescript": "^5.4.5"
+  },
+  "private": true
+}
+[debug] [2026-09-22T21:37:04.876Z] Building nodejs source
+[debug] [2026-09-22T21:37:04.878Z] Failed to find version of module node: reached end of search path D:\JOJO Store\backend\node_modules
+[warn] !  functions: Your requested "node" version "20" doesn't match your global version "26". Using node@26 from host. 
+[debug] [2026-09-22T21:37:04.887Z] Failed to validate key FIREBASE_CLIENT_EMAIL: Error: Key FIREBASE_CLIENT_EMAIL starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[debug] [2026-09-22T21:37:04.887Z] Failed to validate key FIREBASE_PRIVATE_KEY: Error: Key FIREBASE_PRIVATE_KEY starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local. {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local."}}
+[debug] [2026-09-22T21:37:04.910Z] Could not find VSCode notification endpoint: TypeError: fetch failed. If you are not running the Firebase SQL Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2026-09-23T10:41:19.326Z] ----------------------------------------------------------------------
+[debug] [2026-09-23T10:41:19.331Z] Command:       C:\Program Files\nodejs\node.exe D:\JOJO Store\backend\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2026-09-23T10:41:19.332Z] CLI Version:   15.30.2
+[debug] [2026-09-23T10:41:19.332Z] Platform:      win32
+[debug] [2026-09-23T10:41:19.332Z] Node Version:  v26.7.0
+[debug] [2026-09-23T10:41:19.333Z] Detected Agent: antigravity
+[debug] [2026-09-23T10:41:19.333Z] Time:          Wed Sep 23 2026 16:11:19 GMT+0530 (India Standard Time)
+[debug] [2026-09-23T10:41:19.333Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-09-23T10:41:21.884Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-23T10:41:21.884Z] > authorizing via signed-in user (osbert2060@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2026-09-23T10:41:21.913Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-23T10:41:21.913Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2026-09-23T10:41:21.931Z] Found emulator hub locator: {"version":"15.30.2","origins":["http://127.0.0.1:4400","http://[::1]:4400"],"pid":5748}
+[debug] [2026-09-23T10:41:21.931Z] Write emulator hub locator at C:\Users\sirmal\AppData\Local\Temp\hub-jojo-store-2027.json
+[debug] [2026-09-23T10:41:21.970Z] Checked if tokens are valid: false, expires at: 1790116620187
+[debug] [2026-09-23T10:41:21.971Z] Checked if tokens are valid: false, expires at: 1790116620187
+[debug] [2026-09-23T10:41:21.971Z] > refreshing access token with scopes: []
+[debug] [2026-09-23T10:41:21.975Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-09-23T10:41:21.975Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-23T10:41:24.554Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-09-23T10:41:24.554Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-23T10:41:24.615Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 [none]
+[debug] [2026-09-23T10:41:27.595Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 200
+[debug] [2026-09-23T10:41:27.596Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 {"projectId":"jojo-store-2027","projectNumber":"692212815168","displayName":"JoJo Store","name":"projects/jojo-store-2027","resources":{"hostingSite":"jojo-store-2027"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_c2a4cc3b-b799-45af-9945-8b765fd662dd"}
+[debug] [2026-09-23T10:41:27.653Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-23T10:41:27.653Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-23T10:41:27.653Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-23T10:41:27.654Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2026-09-23T10:41:27.707Z] defaultcredentials: writing to file C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json
+[debug] [2026-09-23T10:41:27.710Z] Setting GAC to C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\sirmal\\AppData\\Roaming\\firebase\\osbert2060_gmail_com_application_default_credentials.json"}}
+[debug] [2026-09-23T10:41:27.711Z] Checked if tokens are valid: true, expires at: 1790163683555
+[debug] [2026-09-23T10:41:27.712Z] Checked if tokens are valid: true, expires at: 1790163683555
+[debug] [2026-09-23T10:41:27.712Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig [none]
+[debug] [2026-09-23T10:41:28.814Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig 200
+[debug] [2026-09-23T10:41:28.814Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig {"projectId":"jojo-store-2027","storageBucket":"jojo-store-2027.firebasestorage.app"}
+[info] i  functions: Watching "D:\JOJO Store\backend" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"D:\\JOJO Store\\backend\" for Cloud Functions..."}}
+[debug] [2026-09-23T10:41:28.888Z] Validating nodejs source
+[debug] [2026-09-23T10:41:38.944Z] checkFunctionsSDKVersion was unable to fetch information from NPM Error: spawnSync C:\WINDOWS\system32\cmd.exe ETIMEDOUT
+    at Object.spawnSync (node:internal/child_process:1144:20)
+    at Object.spawnSync (node:child_process:928:24)
+    at spawn.spawnSync [as sync] (D:\JOJO Store\backend\node_modules\cross-spawn\index.js:26:23)
+    at Object.getLatestSDKVersion (D:\JOJO Store\backend\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\versioning.js:57:25)
+    at Object.checkFunctionsSDKVersion (D:\JOJO Store\backend\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\versioning.js:79:32)
+    at Delegate.validate (D:\JOJO Store\backend\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\index.js:85:20)
+    at FunctionsEmulator.discoverTriggers (D:\JOJO Store\backend\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:358:35)
+    at async FunctionsEmulator.loadTriggers (D:\JOJO Store\backend\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:413:34)
+    at async FunctionsEmulator.connect (D:\JOJO Store\backend\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:280:13)
+    at async Object.startAll (D:\JOJO Store\backend\node_modules\firebase-tools\lib\emulator\controller.js:715:13)
+[debug] [2026-09-23T10:41:38.945Z] > [functions] package.json contents: {
+  "name": "jojo-store-backend",
+  "description": "Firebase Cloud Functions for JOJO Store",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "firebase-tools": "^15.30.2",
+    "typescript": "^5.4.5"
+  },
+  "private": true
+}
+[debug] [2026-09-23T10:41:38.946Z] Building nodejs source
+[debug] [2026-09-23T10:41:38.946Z] Failed to find version of module node: reached end of search path D:\JOJO Store\backend\node_modules
+[warn] !  functions: Your requested "node" version "20" doesn't match your global version "26". Using node@26 from host. 
+[debug] [2026-09-23T10:41:38.961Z] Failed to validate key FIREBASE_CLIENT_EMAIL: Error: Key FIREBASE_CLIENT_EMAIL starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[debug] [2026-09-23T10:41:38.961Z] Failed to validate key FIREBASE_PRIVATE_KEY: Error: Key FIREBASE_PRIVATE_KEY starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local. {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local."}}
+[debug] [2026-09-23T10:41:38.978Z] Could not find VSCode notification endpoint: TypeError: fetch failed. If you are not running the Firebase SQL Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2026-09-23T13:56:05.479Z] ----------------------------------------------------------------------
+[debug] [2026-09-23T13:56:05.483Z] Command:       C:\Program Files\nodejs\node.exe D:\JOJO Store\backend\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2026-09-23T13:56:05.483Z] CLI Version:   15.30.2
+[debug] [2026-09-23T13:56:05.484Z] Platform:      win32
+[debug] [2026-09-23T13:56:05.484Z] Node Version:  v26.7.0
+[debug] [2026-09-23T13:56:05.484Z] Detected Agent: antigravity
+[debug] [2026-09-23T13:56:05.484Z] Time:          Wed Sep 23 2026 19:26:05 GMT+0530 (India Standard Time)
+[debug] [2026-09-23T13:56:05.484Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-09-23T13:56:51.465Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-23T13:56:51.465Z] > authorizing via signed-in user (osbert2060@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2026-09-23T13:56:51.520Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-23T13:56:51.520Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2026-09-23T13:56:51.530Z] Found emulator hub locator: {"version":"15.30.2","origins":["http://127.0.0.1:4400","http://[::1]:4400"],"pid":4460}
+[debug] [2026-09-23T13:56:51.530Z] Write emulator hub locator at C:\Users\sirmal\AppData\Local\Temp\hub-jojo-store-2027.json
+[debug] [2026-09-23T13:56:51.615Z] Checked if tokens are valid: false, expires at: 1790163683555
+[debug] [2026-09-23T13:56:51.615Z] Checked if tokens are valid: false, expires at: 1790163683555
+[debug] [2026-09-23T13:56:51.616Z] > refreshing access token with scopes: []
+[debug] [2026-09-23T13:56:51.622Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-09-23T13:56:51.622Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-23T13:56:52.018Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-09-23T13:56:52.019Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-23T13:56:52.053Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 [none]
+[debug] [2026-09-23T13:56:52.974Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 200
+[debug] [2026-09-23T13:56:52.975Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 {"projectId":"jojo-store-2027","projectNumber":"692212815168","displayName":"JoJo Store","name":"projects/jojo-store-2027","resources":{"hostingSite":"jojo-store-2027"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_c2a4cc3b-b799-45af-9945-8b765fd662dd"}
+[debug] [2026-09-23T13:56:53.026Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-23T13:56:53.026Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-23T13:56:53.027Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-23T13:56:53.027Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2026-09-23T13:56:53.097Z] defaultcredentials: writing to file C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json
+[debug] [2026-09-23T13:56:53.101Z] Setting GAC to C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\sirmal\\AppData\\Roaming\\firebase\\osbert2060_gmail_com_application_default_credentials.json"}}
+[debug] [2026-09-23T13:56:53.103Z] Checked if tokens are valid: true, expires at: 1790175411019
+[debug] [2026-09-23T13:56:53.103Z] Checked if tokens are valid: true, expires at: 1790175411019
+[debug] [2026-09-23T13:56:53.104Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig [none]
+[debug] [2026-09-23T13:56:53.545Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig 200
+[debug] [2026-09-23T13:56:53.546Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig {"projectId":"jojo-store-2027","storageBucket":"jojo-store-2027.firebasestorage.app"}
+[info] i  functions: Watching "D:\JOJO Store\backend" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"D:\\JOJO Store\\backend\" for Cloud Functions..."}}
+[debug] [2026-09-23T13:56:53.681Z] Validating nodejs source
+[debug] [2026-09-23T13:57:03.774Z] checkFunctionsSDKVersion was unable to fetch information from NPM Error: spawnSync C:\WINDOWS\system32\cmd.exe ETIMEDOUT
+    at Object.spawnSync (node:internal/child_process:1144:20)
+    at Object.spawnSync (node:child_process:928:24)
+    at spawn.spawnSync [as sync] (D:\JOJO Store\backend\node_modules\cross-spawn\index.js:26:23)
+    at Object.getLatestSDKVersion (D:\JOJO Store\backend\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\versioning.js:57:25)
+    at Object.checkFunctionsSDKVersion (D:\JOJO Store\backend\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\versioning.js:79:32)
+    at Delegate.validate (D:\JOJO Store\backend\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\index.js:85:20)
+    at FunctionsEmulator.discoverTriggers (D:\JOJO Store\backend\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:358:35)
+    at async FunctionsEmulator.loadTriggers (D:\JOJO Store\backend\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:413:34)
+    at async FunctionsEmulator.connect (D:\JOJO Store\backend\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:280:13)
+    at async Object.startAll (D:\JOJO Store\backend\node_modules\firebase-tools\lib\emulator\controller.js:715:13)
+[debug] [2026-09-23T13:57:03.775Z] > [functions] package.json contents: {
+  "name": "jojo-store-backend",
+  "description": "Firebase Cloud Functions for JOJO Store",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "firebase-tools": "^15.30.2",
+    "typescript": "^5.4.5"
+  },
+  "private": true
+}
+[debug] [2026-09-23T13:57:03.775Z] Building nodejs source
+[debug] [2026-09-23T13:57:03.776Z] Failed to find version of module node: reached end of search path D:\JOJO Store\backend\node_modules
+[warn] !  functions: Your requested "node" version "20" doesn't match your global version "26". Using node@26 from host. 
+[debug] [2026-09-23T13:57:03.789Z] Failed to validate key FIREBASE_CLIENT_EMAIL: Error: Key FIREBASE_CLIENT_EMAIL starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[debug] [2026-09-23T13:57:03.789Z] Failed to validate key FIREBASE_PRIVATE_KEY: Error: Key FIREBASE_PRIVATE_KEY starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local. {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local."}}
+[debug] [2026-09-23T13:57:03.829Z] Could not find VSCode notification endpoint: TypeError: fetch failed. If you are not running the Firebase SQL Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2026-09-24T20:20:58.115Z] ----------------------------------------------------------------------
+[debug] [2026-09-24T20:20:58.119Z] Command:       C:\Program Files\nodejs\node.exe D:\JOJO Store\backend\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2026-09-24T20:20:58.119Z] CLI Version:   15.30.2
+[debug] [2026-09-24T20:20:58.119Z] Platform:      win32
+[debug] [2026-09-24T20:20:58.120Z] Node Version:  v26.7.0
+[debug] [2026-09-24T20:20:58.120Z] Detected Agent: antigravity
+[debug] [2026-09-24T20:20:58.120Z] Time:          Fri Sep 25 2026 01:50:58 GMT+0530 (India Standard Time)
+[debug] [2026-09-24T20:20:58.120Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-09-24T20:20:58.155Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2026-09-24T20:21:34.523Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-24T20:21:34.524Z] > authorizing via signed-in user (osbert2060@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2026-09-24T20:21:34.554Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-24T20:21:34.555Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2026-09-24T20:21:34.571Z] Found emulator hub locator: {"version":"15.30.2","origins":["http://127.0.0.1:4400","http://[::1]:4400"],"pid":1416}
+[debug] [2026-09-24T20:21:34.572Z] Write emulator hub locator at C:\Users\sirmal\AppData\Local\Temp\hub-jojo-store-2027.json
+[debug] [2026-09-24T20:21:34.609Z] Checked if tokens are valid: false, expires at: 1790175411019
+[debug] [2026-09-24T20:21:34.609Z] Checked if tokens are valid: false, expires at: 1790175411019
+[debug] [2026-09-24T20:21:34.610Z] > refreshing access token with scopes: []
+[debug] [2026-09-24T20:21:34.613Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-09-24T20:21:34.613Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-24T20:21:34.919Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-09-24T20:21:34.919Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-24T20:21:34.949Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 [none]
+[debug] [2026-09-24T20:21:35.369Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2026-09-24T20:21:35.369Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2026-09-24T20:21:35.692Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 200
+[debug] [2026-09-24T20:21:35.692Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 {"projectId":"jojo-store-2027","projectNumber":"692212815168","displayName":"JoJo Store","name":"projects/jojo-store-2027","resources":{"hostingSite":"jojo-store-2027"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_c2a4cc3b-b799-45af-9945-8b765fd662dd"}
+[debug] [2026-09-24T20:21:35.717Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-24T20:21:35.717Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-24T20:21:35.717Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-24T20:21:35.717Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2026-09-24T20:21:35.775Z] defaultcredentials: writing to file C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json
+[debug] [2026-09-24T20:21:35.779Z] Setting GAC to C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\sirmal\\AppData\\Roaming\\firebase\\osbert2060_gmail_com_application_default_credentials.json"}}
+[debug] [2026-09-24T20:21:35.782Z] Checked if tokens are valid: true, expires at: 1790284893920
+[debug] [2026-09-24T20:21:35.783Z] Checked if tokens are valid: true, expires at: 1790284893920
+[debug] [2026-09-24T20:21:35.783Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig [none]
+[debug] [2026-09-24T20:21:36.357Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig 200
+[debug] [2026-09-24T20:21:36.357Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig {"projectId":"jojo-store-2027","storageBucket":"jojo-store-2027.firebasestorage.app"}
+[info] i  functions: Watching "D:\JOJO Store\backend" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"D:\\JOJO Store\\backend\" for Cloud Functions..."}}
+[debug] [2026-09-24T20:21:36.420Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2026-09-24T20:21:38.574Z] > [functions] package.json contents: {
+  "name": "jojo-store-backend",
+  "description": "Firebase Cloud Functions for JOJO Store",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "firebase-tools": "^15.30.2",
+    "typescript": "^5.4.5"
+  },
+  "private": true
+}
+[debug] [2026-09-24T20:21:38.575Z] Building nodejs source
+[debug] [2026-09-24T20:21:38.576Z] Failed to find version of module node: reached end of search path D:\JOJO Store\backend\node_modules
+[warn] !  functions: Your requested "node" version "20" doesn't match your global version "26". Using node@26 from host. 
+[debug] [2026-09-24T20:21:38.586Z] Failed to validate key FIREBASE_CLIENT_EMAIL: Error: Key FIREBASE_CLIENT_EMAIL starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[debug] [2026-09-24T20:21:38.586Z] Failed to validate key FIREBASE_PRIVATE_KEY: Error: Key FIREBASE_PRIVATE_KEY starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local. {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local."}}
+[debug] [2026-09-24T20:21:38.606Z] Could not find VSCode notification endpoint: TypeError: fetch failed. If you are not running the Firebase SQL Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2026-09-25T10:10:01.204Z] ----------------------------------------------------------------------
+[debug] [2026-09-25T10:10:01.219Z] Command:       C:\Program Files\nodejs\node.exe D:\JOJO Store\backend\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2026-09-25T10:10:01.220Z] CLI Version:   15.30.2
+[debug] [2026-09-25T10:10:01.220Z] Platform:      win32
+[debug] [2026-09-25T10:10:01.221Z] Node Version:  v26.7.0
+[debug] [2026-09-25T10:10:01.221Z] Detected Agent: antigravity
+[debug] [2026-09-25T10:10:01.222Z] Time:          Fri Sep 25 2026 15:40:01 GMT+0530 (India Standard Time)
+[debug] [2026-09-25T10:10:01.222Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-09-25T10:10:50.026Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-25T10:10:50.028Z] > authorizing via signed-in user (osbert2060@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2026-09-25T10:10:50.084Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-25T10:10:50.084Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2026-09-25T10:10:50.093Z] Found emulator hub locator: {"version":"15.30.2","origins":["http://127.0.0.1:4400","http://[::1]:4400"],"pid":21384}
+[debug] [2026-09-25T10:10:50.093Z] Write emulator hub locator at C:\Users\sirmal\AppData\Local\Temp\hub-jojo-store-2027.json
+[debug] [2026-09-25T10:10:50.162Z] Checked if tokens are valid: false, expires at: 1790284893920
+[debug] [2026-09-25T10:10:50.162Z] Checked if tokens are valid: false, expires at: 1790284893920
+[debug] [2026-09-25T10:10:50.163Z] > refreshing access token with scopes: []
+[debug] [2026-09-25T10:10:50.171Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-09-25T10:10:50.171Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-25T10:10:52.073Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-09-25T10:10:52.073Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-25T10:10:52.120Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 [none]
+[debug] [2026-09-25T10:10:58.103Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 200
+[debug] [2026-09-25T10:10:58.103Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 {"projectId":"jojo-store-2027","projectNumber":"692212815168","displayName":"JoJo Store","name":"projects/jojo-store-2027","resources":{"hostingSite":"jojo-store-2027"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_c2a4cc3b-b799-45af-9945-8b765fd662dd"}
+[debug] [2026-09-25T10:10:58.125Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-25T10:10:58.125Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-25T10:10:58.126Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-25T10:10:58.126Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2026-09-25T10:10:58.187Z] defaultcredentials: writing to file C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json
+[debug] [2026-09-25T10:10:58.189Z] Setting GAC to C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\sirmal\\AppData\\Roaming\\firebase\\osbert2060_gmail_com_application_default_credentials.json"}}
+[debug] [2026-09-25T10:10:58.192Z] Checked if tokens are valid: true, expires at: 1790334651074
+[debug] [2026-09-25T10:10:58.192Z] Checked if tokens are valid: true, expires at: 1790334651074
+[debug] [2026-09-25T10:10:58.193Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig [none]
+[debug] [2026-09-25T10:10:58.936Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig 200
+[debug] [2026-09-25T10:10:58.937Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig {"projectId":"jojo-store-2027","storageBucket":"jojo-store-2027.firebasestorage.app"}
+[info] i  functions: Watching "D:\JOJO Store\backend" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"D:\\JOJO Store\\backend\" for Cloud Functions..."}}
+[debug] [2026-09-25T10:10:58.993Z] Validating nodejs source
+[debug] [2026-09-25T10:11:09.046Z] checkFunctionsSDKVersion was unable to fetch information from NPM Error: spawnSync C:\WINDOWS\system32\cmd.exe ETIMEDOUT
+    at Object.spawnSync (node:internal/child_process:1144:20)
+    at Object.spawnSync (node:child_process:928:24)
+    at spawn.spawnSync [as sync] (D:\JOJO Store\backend\node_modules\cross-spawn\index.js:26:23)
+    at Object.getLatestSDKVersion (D:\JOJO Store\backend\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\versioning.js:57:25)
+    at Object.checkFunctionsSDKVersion (D:\JOJO Store\backend\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\versioning.js:79:32)
+    at Delegate.validate (D:\JOJO Store\backend\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\index.js:85:20)
+    at FunctionsEmulator.discoverTriggers (D:\JOJO Store\backend\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:358:35)
+    at async FunctionsEmulator.loadTriggers (D:\JOJO Store\backend\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:413:34)
+    at async FunctionsEmulator.connect (D:\JOJO Store\backend\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:280:13)
+    at async Object.startAll (D:\JOJO Store\backend\node_modules\firebase-tools\lib\emulator\controller.js:715:13)
+[debug] [2026-09-25T10:11:09.047Z] > [functions] package.json contents: {
+  "name": "jojo-store-backend",
+  "description": "Firebase Cloud Functions for JOJO Store",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "firebase-tools": "^15.30.2",
+    "typescript": "^5.4.5"
+  },
+  "private": true
+}
+[debug] [2026-09-25T10:11:09.048Z] Building nodejs source
+[debug] [2026-09-25T10:11:09.049Z] Failed to find version of module node: reached end of search path D:\JOJO Store\backend\node_modules
+[warn] !  functions: Your requested "node" version "20" doesn't match your global version "26". Using node@26 from host. 
+[debug] [2026-09-25T10:11:09.057Z] Failed to validate key FIREBASE_CLIENT_EMAIL: Error: Key FIREBASE_CLIENT_EMAIL starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[debug] [2026-09-25T10:11:09.057Z] Failed to validate key FIREBASE_PRIVATE_KEY: Error: Key FIREBASE_PRIVATE_KEY starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local. {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local."}}
+[debug] [2026-09-25T10:11:09.076Z] Could not find VSCode notification endpoint: TypeError: fetch failed. If you are not running the Firebase SQL Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2026-09-26T15:06:17.169Z] ----------------------------------------------------------------------
+[debug] [2026-09-26T15:06:17.178Z] Command:       C:\Program Files\nodejs\node.exe D:\JOJO Store\backend\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2026-09-26T15:06:17.178Z] CLI Version:   15.30.2
+[debug] [2026-09-26T15:06:17.179Z] Platform:      win32
+[debug] [2026-09-26T15:06:17.179Z] Node Version:  v26.7.0
+[debug] [2026-09-26T15:06:17.179Z] Detected Agent: antigravity
+[debug] [2026-09-26T15:06:17.180Z] Time:          Sat Sep 26 2026 20:36:17 GMT+0530 (India Standard Time)
+[debug] [2026-09-26T15:06:17.180Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-09-26T15:06:17.232Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2026-09-26T15:06:58.780Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-26T15:06:58.780Z] > authorizing via signed-in user (osbert2060@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2026-09-26T15:06:58.799Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-26T15:06:58.800Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2026-09-26T15:06:58.809Z] Found emulator hub locator: {"version":"15.30.2","origins":["http://127.0.0.1:4400","http://[::1]:4400"],"pid":22284}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project jojo-store-2027. This may result in unexpected behavior. 
+[debug] [2026-09-26T15:06:58.835Z] Checked if tokens are valid: false, expires at: 1790334651074
+[debug] [2026-09-26T15:06:58.836Z] Checked if tokens are valid: false, expires at: 1790334651074
+[debug] [2026-09-26T15:06:58.836Z] > refreshing access token with scopes: []
+[debug] [2026-09-26T15:06:58.839Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-09-26T15:06:58.839Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-26T15:06:59.488Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-09-26T15:06:59.489Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-26T15:06:59.516Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 [none]
+[debug] [2026-09-26T15:06:59.667Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2026-09-26T15:06:59.667Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2026-09-26T15:07:00.326Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 200
+[debug] [2026-09-26T15:07:00.327Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 {"projectId":"jojo-store-2027","projectNumber":"692212815168","displayName":"JoJo Store","name":"projects/jojo-store-2027","resources":{"hostingSite":"jojo-store-2027"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_c2a4cc3b-b799-45af-9945-8b765fd662dd"}
+[debug] [2026-09-26T15:07:00.349Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-26T15:07:00.349Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-26T15:07:00.349Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-26T15:07:00.350Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2026-09-26T15:07:00.382Z] defaultcredentials: writing to file C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json
+[debug] [2026-09-26T15:07:00.385Z] Setting GAC to C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\sirmal\\AppData\\Roaming\\firebase\\osbert2060_gmail_com_application_default_credentials.json"}}
+[debug] [2026-09-26T15:07:00.386Z] Checked if tokens are valid: true, expires at: 1790438818489
+[debug] [2026-09-26T15:07:00.386Z] Checked if tokens are valid: true, expires at: 1790438818489
+[debug] [2026-09-26T15:07:00.387Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig [none]
+[debug] [2026-09-26T15:07:00.756Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig 200
+[debug] [2026-09-26T15:07:00.756Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig {"projectId":"jojo-store-2027","storageBucket":"jojo-store-2027.firebasestorage.app"}
+[info] i  functions: Watching "D:\JOJO Store\backend" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"D:\\JOJO Store\\backend\" for Cloud Functions..."}}
+[debug] [2026-09-26T15:07:00.811Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2026-09-26T15:07:03.761Z] > [functions] package.json contents: {
+  "name": "jojo-store-backend",
+  "description": "Firebase Cloud Functions for JOJO Store",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "firebase-tools": "^15.30.2",
+    "typescript": "^5.4.5"
+  },
+  "private": true
+}
+[debug] [2026-09-26T15:07:03.761Z] Building nodejs source
+[debug] [2026-09-26T15:07:03.763Z] Failed to find version of module node: reached end of search path D:\JOJO Store\backend\node_modules
+[warn] !  functions: Your requested "node" version "20" doesn't match your global version "26". Using node@26 from host. 
+[debug] [2026-09-26T15:07:03.769Z] Failed to validate key FIREBASE_CLIENT_EMAIL: Error: Key FIREBASE_CLIENT_EMAIL starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[debug] [2026-09-26T15:07:03.770Z] Failed to validate key FIREBASE_PRIVATE_KEY: Error: Key FIREBASE_PRIVATE_KEY starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local. {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local."}}
+[debug] [2026-09-26T15:07:03.797Z] Could not find VSCode notification endpoint: TypeError: fetch failed. If you are not running the Firebase SQL Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2026-09-26T15:33:53.992Z] ----------------------------------------------------------------------
+[debug] [2026-09-26T15:33:54.000Z] Command:       C:\Program Files\nodejs\node.exe D:\JOJO Store\backend\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2026-09-26T15:33:54.001Z] CLI Version:   15.30.2
+[debug] [2026-09-26T15:33:54.001Z] Platform:      win32
+[debug] [2026-09-26T15:33:54.001Z] Node Version:  v26.7.0
+[debug] [2026-09-26T15:33:54.001Z] Detected Agent: antigravity
+[debug] [2026-09-26T15:33:54.001Z] Time:          Sat Sep 26 2026 21:03:54 GMT+0530 (India Standard Time)
+[debug] [2026-09-26T15:33:54.001Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-09-26T15:33:56.244Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-26T15:33:56.245Z] > authorizing via signed-in user (osbert2060@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2026-09-26T15:33:56.292Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-26T15:33:56.292Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2026-09-26T15:33:56.302Z] Found emulator hub locator: {"version":"15.30.2","origins":["http://127.0.0.1:4400","http://[::1]:4400"],"pid":22284}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project jojo-store-2027. This may result in unexpected behavior. 
+[debug] [2026-09-26T15:33:56.400Z] Checked if tokens are valid: true, expires at: 1790438818489
+[debug] [2026-09-26T15:33:56.401Z] Checked if tokens are valid: true, expires at: 1790438818489
+[debug] [2026-09-26T15:33:56.404Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 [none]
+[debug] [2026-09-26T15:33:57.157Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 200
+[debug] [2026-09-26T15:33:57.158Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 {"projectId":"jojo-store-2027","projectNumber":"692212815168","displayName":"JoJo Store","name":"projects/jojo-store-2027","resources":{"hostingSite":"jojo-store-2027"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_c2a4cc3b-b799-45af-9945-8b765fd662dd"}
+[debug] [2026-09-26T15:33:57.174Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-26T15:33:57.174Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-26T15:33:57.175Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-26T15:33:57.175Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2026-09-26T15:33:57.209Z] defaultcredentials: writing to file C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json
+[debug] [2026-09-26T15:33:57.213Z] Setting GAC to C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\sirmal\\AppData\\Roaming\\firebase\\osbert2060_gmail_com_application_default_credentials.json"}}
+[debug] [2026-09-26T15:33:57.214Z] Checked if tokens are valid: true, expires at: 1790438818489
+[debug] [2026-09-26T15:33:57.215Z] Checked if tokens are valid: true, expires at: 1790438818489
+[debug] [2026-09-26T15:33:57.215Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig [none]
+[debug] [2026-09-26T15:33:57.634Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig 200
+[debug] [2026-09-26T15:33:57.634Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig {"projectId":"jojo-store-2027","storageBucket":"jojo-store-2027.firebasestorage.app"}
+[info] i  functions: Watching "D:\JOJO Store\backend" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"D:\\JOJO Store\\backend\" for Cloud Functions..."}}
+[debug] [2026-09-26T15:33:57.685Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2026-09-26T15:34:00.129Z] > [functions] package.json contents: {
+  "name": "jojo-store-backend",
+  "description": "Firebase Cloud Functions for JOJO Store",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "firebase-tools": "^15.30.2",
+    "typescript": "^5.4.5"
+  },
+  "private": true
+}
+[debug] [2026-09-26T15:34:00.130Z] Building nodejs source
+[debug] [2026-09-26T15:34:00.131Z] Failed to find version of module node: reached end of search path D:\JOJO Store\backend\node_modules
+[warn] !  functions: Your requested "node" version "20" doesn't match your global version "26". Using node@26 from host. 
+[debug] [2026-09-26T15:34:00.138Z] Failed to validate key FIREBASE_CLIENT_EMAIL: Error: Key FIREBASE_CLIENT_EMAIL starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[debug] [2026-09-26T15:34:00.138Z] Failed to validate key FIREBASE_PRIVATE_KEY: Error: Key FIREBASE_PRIVATE_KEY starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local. {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local."}}
+[debug] [2026-09-26T15:34:00.156Z] Could not find VSCode notification endpoint: TypeError: fetch failed. If you are not running the Firebase SQL Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2026-09-26T20:51:12.326Z] ----------------------------------------------------------------------
+[debug] [2026-09-26T20:51:12.330Z] Command:       C:\Program Files\nodejs\node.exe D:\JOJO Store\backend\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2026-09-26T20:51:12.331Z] CLI Version:   15.30.2
+[debug] [2026-09-26T20:51:12.331Z] Platform:      win32
+[debug] [2026-09-26T20:51:12.331Z] Node Version:  v26.7.0
+[debug] [2026-09-26T20:51:12.331Z] Detected Agent: antigravity
+[debug] [2026-09-26T20:51:12.332Z] Time:          Sun Sep 27 2026 02:21:12 GMT+0530 (India Standard Time)
+[debug] [2026-09-26T20:51:12.332Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-09-26T20:52:07.503Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-26T20:52:07.503Z] > authorizing via signed-in user (osbert2060@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2026-09-26T20:52:07.564Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-26T20:52:07.565Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2026-09-26T20:52:07.580Z] Found emulator hub locator: {"version":"15.30.2","origins":["http://127.0.0.1:4400","http://[::1]:4400"],"pid":22284}
+[debug] [2026-09-26T20:52:07.581Z] Write emulator hub locator at C:\Users\sirmal\AppData\Local\Temp\hub-jojo-store-2027.json
+[debug] [2026-09-26T20:52:07.658Z] Checked if tokens are valid: false, expires at: 1790438818489
+[debug] [2026-09-26T20:52:07.659Z] Checked if tokens are valid: false, expires at: 1790438818489
+[debug] [2026-09-26T20:52:07.659Z] > refreshing access token with scopes: []
+[debug] [2026-09-26T20:52:07.664Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-09-26T20:52:07.664Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-26T20:52:08.022Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-09-26T20:52:08.023Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-26T20:52:08.085Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 [none]
+[debug] [2026-09-26T20:52:08.852Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 200
+[debug] [2026-09-26T20:52:08.852Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027 {"projectId":"jojo-store-2027","projectNumber":"692212815168","displayName":"JoJo Store","name":"projects/jojo-store-2027","resources":{"hostingSite":"jojo-store-2027"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_c2a4cc3b-b799-45af-9945-8b765fd662dd"}
+[debug] [2026-09-26T20:52:08.889Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-26T20:52:08.889Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-26T20:52:08.889Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-09-26T20:52:08.890Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2026-09-26T20:52:08.953Z] defaultcredentials: writing to file C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json
+[debug] [2026-09-26T20:52:08.956Z] Setting GAC to C:\Users\sirmal\AppData\Roaming\firebase\osbert2060_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\sirmal\\AppData\\Roaming\\firebase\\osbert2060_gmail_com_application_default_credentials.json"}}
+[debug] [2026-09-26T20:52:08.957Z] Checked if tokens are valid: true, expires at: 1790459527024
+[debug] [2026-09-26T20:52:08.957Z] Checked if tokens are valid: true, expires at: 1790459527024
+[debug] [2026-09-26T20:52:08.957Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig [none]
+[debug] [2026-09-26T20:52:09.656Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig 200
+[debug] [2026-09-26T20:52:09.656Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jojo-store-2027/adminSdkConfig {"projectId":"jojo-store-2027","storageBucket":"jojo-store-2027.firebasestorage.app"}
+[info] i  functions: Watching "D:\JOJO Store\backend" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"D:\\JOJO Store\\backend\" for Cloud Functions..."}}
+[debug] [2026-09-26T20:52:09.717Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2026-09-26T20:52:12.514Z] > [functions] package.json contents: {
+  "name": "jojo-store-backend",
+  "description": "Firebase Cloud Functions for JOJO Store",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "firebase-tools": "^15.30.2",
+    "typescript": "^5.4.5"
+  },
+  "private": true
+}
+[debug] [2026-09-26T20:52:12.514Z] Building nodejs source
+[debug] [2026-09-26T20:52:12.516Z] Failed to find version of module node: reached end of search path D:\JOJO Store\backend\node_modules
+[warn] !  functions: Your requested "node" version "20" doesn't match your global version "26". Using node@26 from host. 
+[debug] [2026-09-26T20:52:12.524Z] Failed to validate key FIREBASE_CLIENT_EMAIL: Error: Key FIREBASE_CLIENT_EMAIL starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[debug] [2026-09-26T20:52:12.524Z] Failed to validate key FIREBASE_PRIVATE_KEY: Error: Key FIREBASE_PRIVATE_KEY starts with a reserved prefix (X_GOOGLE_ FIREBASE_ EXT_ KIT_)
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local. {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env.local."}}
+[debug] [2026-09-26T20:52:12.548Z] Could not find VSCode notification endpoint: TypeError: fetch failed. If you are not running the Firebase SQL Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 

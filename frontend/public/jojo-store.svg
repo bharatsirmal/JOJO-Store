@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="680"
+     viewBox="80 275 1080 680" role="img" aria-labelledby="logo-title logo-description">
+  <title id="logo-title">JOJO store</title>
+  <desc id="logo-description">Vector recreation of the supplied connected JOJO logo, with tall J stems, smaller O counters, blue-to-purple ribbon gradients and spaced lowercase store lettering. All lettering consists of editable closed paths. The background is transparent. Geometry and shading are an approximation of the raster reference.</desc>
+  <defs>
+    <linearGradient id="j-left-gradient" gradientUnits="userSpaceOnUse" x1="240" y1="320" x2="359" y2="686">
+      <stop offset="0" stop-color="#2bd1ef"/>
+      <stop offset=".34" stop-color="#079bfc"/>
+      <stop offset=".69" stop-color="#0066f6"/>
+      <stop offset="1" stop-color="#003ec7"/>
+    </linearGradient>
+    <linearGradient id="j-right-gradient" gradientUnits="userSpaceOnUse" x1="695" y1="320" x2="811" y2="690">
+      <stop offset="0" stop-color="#399bff"/>
+      <stop offset=".5" stop-color="#1c60ff"/>
+      <stop offset="1" stop-color="#2520bc"/>
+    </linearGradient>
+    <linearGradient id="left-ring-gradient" gradientUnits="userSpaceOnUse" x1="405" y1="566" x2="518" y2="794">
+      <stop offset="0" stop-color="#08267d"/>
+      <stop offset=".43" stop-color="#004bdd"/>
+      <stop offset="1" stop-color="#2452ff"/>
+    </linearGradient>
+    <linearGradient id="left-ribbon-gradient" gradientUnits="userSpaceOnUse" x1="143" y1="611" x2="652" y2="668">
+      <stop offset="0" stop-color="#069bff"/>
+      <stop offset=".35" stop-color="#1097ff"/>
+      <stop offset=".66" stop-color="#477dff"/>
+      <stop offset=".85" stop-color="#483eff"/>
+      <stop offset="1" stop-color="#2719b2"/>
+    </linearGradient>
+    <linearGradient id="left-ribbon-shade" gradientUnits="userSpaceOnUse" x1="300" y1="581" x2="300" y2="809">
+      <stop offset="0" stop-color="#0057ed" stop-opacity="0"/>
+      <stop offset=".3" stop-color="#0057ed" stop-opacity=".06"/>
+      <stop offset="1" stop-color="#0057ed" stop-opacity=".96"/>
+    </linearGradient>
+    <radialGradient id="left-ribbon-light" gradientUnits="userSpaceOnUse" cx="305" cy="575" r="166" gradientTransform="translate(305 575) rotate(38) scale(.5 1.6) translate(-305 -575)">
+      <stop offset="0" stop-color="#4ad9ee" stop-opacity=".62"/>
+      <stop offset="1" stop-color="#4ad9ee" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shadow-reveal" gradientUnits="userSpaceOnUse" x1="0" y1="560" x2="0" y2="630">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <mask id="right-shadow-mask" maskUnits="userSpaceOnUse" x="780" y="480" width="340" height="330">
+      <path fill="url(#shadow-reveal)" d="M780 480H1120V810H780Z"/>
+    </mask>
+    <radialGradient id="right-bottom-purple" gradientUnits="userSpaceOnUse" cx="1000" cy="850" r="290">
+      <stop offset="0" stop-color="#5d1af2" stop-opacity=".96"/>
+      <stop offset=".55" stop-color="#6420f6" stop-opacity=".72"/>
+      <stop offset="1" stop-color="#7429f9" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="right-ribbon-clip"><use href="#j-right-and-o-right"/></clipPath>
+    <linearGradient id="right-ribbon-gradient" gradientUnits="userSpaceOnUse" x1="550" y1="800" x2="1072" y2="475">
+      <stop offset="0" stop-color="#5536ef"/>
+      <stop offset=".22" stop-color="#3720e6"/>
+      <stop offset=".49" stop-color="#446aff"/>
+      <stop offset=".69" stop-color="#6150ff"/>
+      <stop offset=".86" stop-color="#a64bfa"/>
+      <stop offset="1" stop-color="#e968f3"/>
+    </linearGradient>
+    <radialGradient id="right-ring-shade" gradientUnits="userSpaceOnUse" cx="853" cy="642" r="235" gradientTransform="translate(853 642) scale(1 .8) translate(-853 -642)">
+      <stop offset="0" stop-color="#180c79" stop-opacity=".98"/>
+      <stop offset=".38" stop-color="#3214c7" stop-opacity=".85"/>
+      <stop offset=".72" stop-color="#5920f2" stop-opacity=".48"/>
+      <stop offset="1" stop-color="#6b20f4" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="left-ribbon-clip">
+      <path d="M140 698
+        C164 729 211 734 233 698
+        C269 650 321 569 375 529
+        C412 499 453 481 498 481
+        C582 481 650 548 650 633
+        C650 667 639 697 619 721
+        C586 714 564 697 569 668
+        C573 657 575 646 574 636
+        C574 592 540 556 498 556
+        C452 556 419 590 388 639
+        C372 664 360 689 348 714
+        C315 777 267 808 218 808
+        C175 808 146 787 132 753
+        C126 738 122 720 126 709
+        C128 702 133 699 140 698Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Tall stems sit behind the continuous ribbon. -->
+  <g id="j-stems">
+    <path id="j-left-stem" fill="url(#j-left-gradient)"
+      d="M235 695V375C235 342 257 317 293 317H353V537Q353 546 360 545L235 704Z"/>
+    <path id="j-right-stem" fill="url(#j-right-gradient)"
+      d="M689 695V375C689 343 713 317 750 317H812V534Q812 547 819 542L689 704Z"/>
+  </g>
+
+  <!-- The first O passes underneath the two front-facing ribbon sections. -->
+  <path id="o-left-underside" fill="url(#left-ring-gradient)" fill-rule="evenodd"
+    d="M498 481
+      C582 481 650 548 650 635
+      C650 724 579 796 490 796
+      C424 796 369 757 341 691
+      C321 641 344 570 385 530
+      C416 499 455 481 498 481Z
+      M498 556
+      C453 556 417 591 417 636
+      C417 680 452 715 497 715
+      C540 715 574 680 574 636
+      C574 592 540 556 498 556Z"/>
+
+  <g id="j-left-and-o-left-front">
+    <path id="left-ribbon" fill="url(#left-ribbon-gradient)"
+      d="M140 698
+        C164 729 211 734 233 698
+        C269 650 321 569 375 529
+        C412 499 453 481 498 481
+        C582 481 650 548 650 633
+        C650 667 639 697 619 721
+        C586 714 564 697 569 668
+        C573 657 575 646 574 636
+        C574 592 540 556 498 556
+        C452 556 419 590 388 639
+        C372 664 360 689 348 714
+        C315 777 267 808 218 808
+        C175 808 146 787 132 753
+        C126 738 122 720 126 709
+        C128 702 133 699 140 698Z"/>
+    <g id="left-ribbon-lighting" clip-path="url(#left-ribbon-clip)">
+      <path fill="url(#left-ribbon-shade)" d="M122 481H652V809H122Z"/>
+      <path fill="url(#left-ribbon-light)" d="M122 481H652V809H122Z"/>
+    </g>
+  </g>
+
+  <!-- One compound filled path connects the middle J hook to the final O.
+       The counter is a true opening, so transparency works on any background. -->
+  <path id="j-right-and-o-right" fill="url(#right-ribbon-gradient)" fill-rule="evenodd"
+    d="M497 715
+      C529 715 558 697 570 665
+      C564 694 586 719 627 722
+      C654 724 676 718 689 696
+      C728 643 778 568 826 530
+      C865 498 906 481 949 481
+      C1039 481 1110 550 1110 636
+      C1110 727 1039 799 949 799
+      C884 799 828 764 808 717
+      Q803 707 798 717
+      C766 775 716 807 662 808
+      C603 809 566 780 533 747
+      C518 732 507 721 497 715Z
+      M949 556
+      C904 556 867 592 867 637
+      C867 682 903 718 949 718
+      C994 718 1029 682 1029 637
+      C1029 592 994 556 949 556Z"/>
+  <!-- The darker lower face gives the final O its woven-ribbon depth. -->
+  <path id="o-right-underside-shading" fill="url(#right-ring-shade)" mask="url(#right-shadow-mask)"
+    d="M928 559
+      C892 568 867 600 867 637
+      C867 682 903 718 949 718
+      C994 718 1029 682 1029 637
+      C1029 592 994 556 949 556
+      C942 556 934 557 928 559
+      L928 482Q939 481 949 481
+      C1039 481 1110 550 1110 636
+      C1110 727 1039 799 949 799
+      C884 799 828 764 808 717
+      Q806 713 804 712
+      C833 647 874 578 928 559Z"/>
+  <path id="o-right-bottom-color" fill="url(#right-bottom-purple)" clip-path="url(#right-ribbon-clip)" d="M490 481H1111V810H490Z"/>
+
+  <!-- Outlined lowercase wordmark: no fonts, raster images or external assets. -->
+  <g id="store-wordmark" fill="#2d3847" aria-label="store">
+    <path id="store-s" d="M442 860L435 866
+      C431 861 427 859 422 859
+      C416 859 413 862 413 866
+      C413 870 416 872 424 874L430 876
+      C439 879 443 883 443 890
+      C443 901 435 907 423 907
+      C414 907 407 903 402 896L409 890
+      C413 896 417 899 423 899
+      C430 899 434 895 434 891
+      C434 887 431 885 424 883L417 881
+      C408 878 404 874 404 867
+      C404 858 412 852 422 852
+      C431 852 437 855 442 860Z"/>
+    <path id="store-t" d="M506 841H515V852H531V861H515V889
+      C515 895 518 898 524 898H531V906H523
+      C511 906 506 900 506 889V861H500V852H506Z"/>
+    <path id="store-o" fill-rule="evenodd" d="M616 852
+      C632 852 644 864 644 879
+      C644 895 632 907 616 907
+      C600 907 588 895 588 879
+      C588 864 600 852 616 852Z
+      M616 860C605 860 597 868 597 879
+      C597 890 605 899 616 899
+      C627 899 635 890 635 879
+      C635 868 627 860 616 860Z"/>
+    <path id="store-r" d="M703 852H713V860
+      C717 854 724 851 731 852V862
+      C720 860 713 866 713 877V906H703Z"/>
+    <path id="store-e" fill-rule="evenodd" d="M842 883H796
+      C798 892 805 899 815 899
+      C823 899 829 894 833 889L840 894
+      C834 903 825 907 815 907
+      C799 907 787 895 787 879
+      C787 864 799 852 814 852
+      C830 852 842 864 842 879Z
+      M797 875H832
+      C830 866 824 860 815 860
+      C806 860 799 866 797 875Z"/>
+  </g>
+</svg>

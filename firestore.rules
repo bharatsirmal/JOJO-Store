@@ -1,0 +1,42 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{uid} {
+      allow read: if request.auth != null && (request.auth.uid == uid || request.auth.token.role == 'admin');
+      allow create: if false; 
+      allow update: if request.auth != null && request.auth.uid == uid 
+                    && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['role', 'uid', 'createdAt']);
+      allow delete: if request.auth != null && request.auth.token.role == 'admin';
+    }
+    
+    match /products/{productId} {
+      allow read: if resource.data.status == 'active' || (request.auth != null && request.auth.token.role == 'admin');
+      allow write: if request.auth != null && request.auth.token.role == 'admin';
+      
+      match /variants/{variantId} {
+        allow read: if get(/databases/$(database)/documents/products/$(productId)).data.status == 'active' || (request.auth != null && request.auth.token.role == 'admin');
+        allow write: if request.auth != null && request.auth.token.role == 'admin';
+      }
+    }
+    
+    match /orders/{orderId} {
+      allow read: if request.auth != null && (request.auth.uid == resource.data.customerId || request.auth.token.role == 'admin');
+      allow write: if false;
+    }
+    match /payments/{paymentId} {
+      allow read: if request.auth != null && (request.auth.uid == resource.data.customerId || request.auth.token.role == 'admin');
+      allow write: if false;
+    }
+    match /refunds/{refundId} {
+      allow read: if request.auth != null && request.auth.token.role == 'admin';
+      allow write: if false;
+    }
+    match /paymentEvents/{eventId} {
+      allow read, write: if false;
+    }
+    
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
