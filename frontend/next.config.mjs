@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    serverComponentsExternalPackages: ["firebase-admin", "jose", "jwks-rsa"],
+  },
   typescript: {
     ignoreBuildErrors: true,
   },
