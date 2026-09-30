@@ -10,14 +10,19 @@ const privateKey = process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n');
 const isConfigured = !!projectId && !!clientEmail && !!privateKey;
 
 if (getApps().length === 0 && isConfigured) {
-  initializeApp({
-    credential: cert({
-      projectId,
-      clientEmail,
-      privateKey,
-    }),
-    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  });
+  try {
+    initializeApp({
+      credential: cert({
+        projectId,
+        clientEmail,
+        privateKey,
+      }),
+      storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+    });
+    console.log("Firebase Admin successfully initialized on Vercel.");
+  } catch (error) {
+    console.error("FATAL: Firebase Admin initialization failed! Your FIREBASE_PRIVATE_KEY is likely malformed in Vercel Environment Variables.", error);
+  }
 }
 
 export const adminDb = getApps().length > 0 ? getFirestore(getApp()) : null;
