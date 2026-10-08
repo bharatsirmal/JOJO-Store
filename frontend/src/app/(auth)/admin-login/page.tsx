@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { toast } from "sonner";
 import { Shield } from "lucide-react";
 
@@ -106,6 +107,15 @@ export default function AdminLoginPage() {
                 />
                 {errors.password && <p className="text-red-400 text-xs mt-1">{errors.password.message}</p>}
               </div>
+            </div>
+
+            <div className="flex justify-end">
+              <Link
+                href="/forgot-password"
+                className="rounded-sm text-sm font-medium text-indigo-400 hover:text-indigo-300 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+              >
+                Forgot password?
+              </Link>
             </div>
 
             <Button type="submit" className="w-full h-10 rounded-md bg-[#6366f1] hover:bg-[#4f46e5] text-white font-medium mt-6" disabled={loading}>
