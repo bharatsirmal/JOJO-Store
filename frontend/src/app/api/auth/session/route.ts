@@ -13,7 +13,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Missing ID token" }, { status: 400 });
     }
 
-    if (!adminAuth) {
+    if (!adminAuth || !adminDb) {
       return NextResponse.json({ error: "Server authentication unavailable" }, { status: 503 });
     }
 
@@ -30,7 +30,30 @@ export async function POST(request: Request) {
       expiresIn: SESSION_EXPIRATION_MS,
     });
 
-    // Set cookie
+    // First-time social sign-ins also need a profile for /account.
+    // A transaction preserves existing profiles and roles during concurrent logins.
+    const userRef = adminDb.collection("users").doc(decodedToken.uid);
+    const userRole = await adminDb.runTransaction(async (transaction) => {
+      const userDoc = await transaction.get(userRef);
+      if (userDoc.exists) {
+        return userDoc.data()?.role || "customer";
+      }
+
+      const role = decodedToken.role === "admin" || decodedToken.role === "delivery_partner"
+        ? decodedToken.role
+        : "customer";
+      transaction.set(userRef, {
+        uid: decodedToken.uid,
+        email: decodedToken.email || "",
+        displayName: decodedToken.name || "",
+        photoURL: decodedToken.picture || "",
+        role,
+        createdAt: new Date().toISOString(),
+      });
+      return role;
+    });
+
+    // Only expose a session after the account profile is ready.
     cookies().set("__session", sessionCookie, {
       maxAge: SESSION_EXPIRATION_MS / 1000,
       httpOnly: true,
@@ -38,19 +61,6 @@ export async function POST(request: Request) {
       path: "/",
       sameSite: "lax",
     });
-
-    
-    // Fetch role from Firestore
-    
-    let userRole = "customer";
-    try {
-      const userDoc = await adminDb!.collection("users").doc(decodedToken.uid).get();
-      if (userDoc.exists) {
-        userRole = userDoc.data()?.role || "customer";
-      }
-    } catch (e) {
-      console.error("Failed to fetch role", e);
-    }
 
     return NextResponse.json({ success: true, role: userRole }, { status: 200 });
 

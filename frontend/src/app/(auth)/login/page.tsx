@@ -20,6 +20,38 @@ const loginSchema = z.object({
 
 type FormData = z.infer<typeof loginSchema>;
 
+class LoginError extends Error {}
+
+function loginErrorMessage(error: unknown) {
+  if (error instanceof LoginError) return error.message;
+  const code = (error as { code?: string })?.code;
+  switch (code) {
+    case "auth/invalid-credential":
+    case "auth/wrong-password":
+    case "auth/user-not-found":
+      return "Invalid email or password. Try again or reset your password.";
+    case "auth/unauthorized-domain":
+      return "Sign-in is unavailable on this website. Please contact support.";
+    case "auth/operation-not-allowed":
+      return "This sign-in method is currently unavailable. Please use email or Google.";
+    case "auth/popup-blocked":
+      return "Allow pop-ups for this website, then try signing in again.";
+    case "auth/popup-closed-by-user":
+    case "auth/cancelled-popup-request":
+      return "Sign-in was cancelled. Please try again.";
+    case "auth/account-exists-with-different-credential":
+      return "This email already uses another sign-in method. Use the method you originally signed up with.";
+    case "auth/network-request-failed":
+      return "Unable to connect. Check your internet connection and try again.";
+    case "auth/too-many-requests":
+      return "Too many sign-in attempts. Please wait and try again.";
+    case "auth/user-disabled":
+      return "This account is disabled. Please contact support.";
+    default:
+      return "Unable to sign in right now. Please try again.";
+  }
+}
+
 export default function LoginPage() {
   const router = useRouter();
   const [error, setError] = useState("");
@@ -49,7 +81,7 @@ export default function LoginPage() {
       });
 
       if (!res.ok) {
-        throw new Error("Failed to establish secure session");
+        throw new LoginError("Unable to complete sign-in. Please try again.");
       }
       
       const sessionData = await res.json();
@@ -57,7 +89,9 @@ export default function LoginPage() {
       if (sessionData.role !== "customer") {
         await auth?.signOut();
         await fetch("/api/auth/logout", { method: "POST" });
-        throw new Error("This portal is for customers only. Please use your respective portal.");
+        throw new LoginError(sessionData.role === "admin"
+          ? "This is an admin account. Please use Admin Login."
+          : "This is a delivery account. Please use Delivery Login.");
       }
 
       toast.success("Welcome back to JOJO Store!");
@@ -66,7 +100,7 @@ export default function LoginPage() {
       
     } catch (err: unknown) {
       console.error(err);
-      setError("Invalid email or password.");
+      setError(loginErrorMessage(err));
     } finally {
       setLoading(false);
     }
@@ -92,7 +126,16 @@ export default function LoginPage() {
       });
 
       if (!res.ok) {
-        throw new Error("Failed to establish secure session");
+        throw new LoginError("Unable to complete sign-in. Please try again.");
+      }
+
+      const sessionData = await res.json();
+      if (sessionData.role !== "customer") {
+        await auth.signOut();
+        await fetch("/api/auth/logout", { method: "POST" });
+        throw new LoginError(sessionData.role === "admin"
+          ? "This is an admin account. Please use Admin Login."
+          : "This is a delivery account. Please use Delivery Login.");
       }
 
       toast.success(`Welcome back, ${userCredential.user.displayName || "User"}!`);
@@ -101,12 +144,7 @@ export default function LoginPage() {
       
     } catch (err: unknown) {
       console.error(err);
-      const error = err as { code?: string };
-      if (error.code === 'auth/account-exists-with-different-credential') {
-        setError("An account already exists with the same email but different sign-in credentials.");
-      } else {
-        setError("Failed to log in with social provider.");
-      }
+      setError(loginErrorMessage(err));
     } finally {
       setLoading(false);
     }
@@ -122,7 +160,7 @@ export default function LoginPage() {
         
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <CardContent className="space-y-4 p-0">
-            {error && <div className="text-red-500 text-sm font-medium text-center">{error}</div>}
+            {error && <div role="alert" className="text-red-500 text-sm font-medium text-center">{error}</div>}
             
             <div className="space-y-4">
               <div>
