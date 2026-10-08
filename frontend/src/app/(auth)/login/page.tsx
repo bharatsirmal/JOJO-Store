@@ -95,7 +95,7 @@ export default function LoginPage() {
       }
 
       toast.success("Welcome back to JOJO Store!");
-      router.push("/account");
+      router.push("/");
       router.refresh(); 
       
     } catch (err: unknown) {
@@ -139,7 +139,7 @@ export default function LoginPage() {
       }
 
       toast.success(`Welcome back, ${userCredential.user.displayName || "User"}!`);
-      router.push("/account");
+      router.push("/");
       router.refresh(); 
       
     } catch (err: unknown) {

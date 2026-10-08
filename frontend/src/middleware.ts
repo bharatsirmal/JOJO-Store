@@ -32,7 +32,7 @@ export async function middleware(request: NextRequest) {
         if (role === 'delivery_partner') return NextResponse.redirect(new URL('/delivery', request.url));
       }
     } catch(e) {}
-    return NextResponse.redirect(new URL('/account', request.url));
+    return NextResponse.redirect(new URL('/', request.url));
   }
 
   if (session) {

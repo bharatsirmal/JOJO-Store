@@ -9,6 +9,9 @@ import { Search, ShoppingBag, Menu, X, User, LogOut, Heart } from "lucide-react"
 import { Button, buttonVariants } from "@/components/ui/button";
 import { useCartStore } from "@/lib/store/cartStore";
 import { useDialogFocus } from "@/lib/useDialogFocus";
+import { AccountPopup } from "@/components/AccountPopup";
+import { logout } from "@/lib/auth/client";
+import { toast } from "sonner";
 
 interface NavClientProps {
   user: {
@@ -21,6 +24,7 @@ export function NavClient({ user }: NavClientProps) {
   const router = useRouter();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
   const { items, setDrawerOpen } = useCartStore();
@@ -46,6 +50,11 @@ export function NavClient({ user }: NavClientProps) {
       setIsMobileOpen(false);
       router.push(`/products?q=${encodeURIComponent(searchQuery.trim())}`);
     }
+  };
+
+  const handleLogout = async () => {
+    try { await logout(); }
+    catch { toast.error("Unable to log out. Please try again."); }
   };
 
   return (
@@ -89,10 +98,10 @@ export function NavClient({ user }: NavClientProps) {
             </Link>
 
             {user ? (
-              <Link href="/account" className="text-gray-300 hover:text-white transition-colors">
+              <button type="button" onClick={() => setIsProfileOpen(true)} aria-haspopup="dialog" className="text-gray-300 hover:text-white transition-colors">
                 <User className="w-5 h-5" strokeWidth={1.5} />
                 <span className="sr-only">Account</span>
-              </Link>
+              </button>
             ) : (
               <Link href="/login" className="text-gray-300 hover:text-white transition-colors">
                 <User className="w-5 h-5" strokeWidth={1.5} />
@@ -114,14 +123,11 @@ export function NavClient({ user }: NavClientProps) {
 
         {user?.role === "admin" && (
           <div className="flex items-center gap-4">
-            <Link href="/account" className="text-gray-300 hover:text-white transition-colors">
+            <button type="button" onClick={() => setIsProfileOpen(true)} aria-haspopup="dialog" className="text-gray-300 hover:text-white transition-colors">
               <User className="w-5 h-5" strokeWidth={1.5} />
               <span className="sr-only">Account</span>
-            </Link>
-            <button onClick={async () => {
-              await fetch('/api/auth/logout', { method: 'POST' });
-              window.location.href = '/login';
-            }} className="text-gray-300 hover:text-white transition-colors">
+            </button>
+            <button onClick={handleLogout} className="text-gray-300 hover:text-white transition-colors">
               <LogOut className="w-5 h-5" strokeWidth={1.5} />
               <span className="sr-only">Logout</span>
             </button>
@@ -218,15 +224,12 @@ export function NavClient({ user }: NavClientProps) {
             
             {user ? (
               <>
-                <Link href="/account" onClick={() => setIsMobileOpen(false)} className="text-[15px] font-semibold text-gray-300 p-3 border-b border-[#222]">My Account</Link>
+                <button type="button" onClick={() => { setIsMobileOpen(false); setIsProfileOpen(true); }} aria-haspopup="dialog" className="text-left text-[15px] font-semibold text-gray-300 p-3 border-b border-[#222]">My Account</button>
                 {user.role !== "admin" && (
                   <Link href="/wishlist" onClick={() => setIsMobileOpen(false)} className="text-[15px] font-semibold text-gray-300 p-3 border-b border-[#222]">Wishlist</Link>
                 )}
                 <div className="p-3">
-                  <Button onClick={async () => {
-                    await fetch('/api/auth/logout', { method: 'POST' });
-                    window.location.href = '/login';
-                  }} variant="outline" className="w-full bg-transparent text-white border-[#333] hover:bg-[#222] hover:text-white">Logout</Button>
+                  <Button onClick={handleLogout} variant="outline" className="w-full bg-transparent text-white border-[#333] hover:bg-[#222] hover:text-white">Logout</Button>
                 </div>
               </>
             ) : (
@@ -238,6 +241,7 @@ export function NavClient({ user }: NavClientProps) {
           </motion.div>
         )}
       </AnimatePresence>
+      {mounted && isProfileOpen && <AccountPopup onClose={() => setIsProfileOpen(false)} />}
     </div>
   );
 }

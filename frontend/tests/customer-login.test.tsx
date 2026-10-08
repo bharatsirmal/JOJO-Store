@@ -29,7 +29,7 @@ describe("Customer login", () => {
   it("takes a Google customer to their account after establishing a session", async () => {
     render(<LoginPage />);
     fireEvent.click(screen.getByRole("button", { name: "Log in with Google" }));
-    await waitFor(() => expect(mocks.push).toHaveBeenCalledWith("/account"));
+    await waitFor(() => expect(mocks.push).toHaveBeenCalledWith("/"));
     expect(mocks.fetch).toHaveBeenCalledWith("/api/auth/session", expect.objectContaining({ body: JSON.stringify({ idToken: "id-token" }) }));
   });
 
@@ -56,7 +56,7 @@ describe("Customer login", () => {
     render(<LoginPage />);
     fireEvent.change(screen.getByPlaceholderText("Enter your email"), { target: { value: "customer@example.com" } });
     fireEvent.change(screen.getByPlaceholderText("Enter your password"), { target: { value: "wrong-password" } });
-    fireEvent.click(screen.getByRole("button", { name: "Log in", exact: true }));
+    fireEvent.click(screen.getByRole("button", { name: "Log in" }));
     expect((await screen.findByRole("alert")).textContent).toContain("reset your password");
     expect(mocks.fetch).not.toHaveBeenCalled();
   });

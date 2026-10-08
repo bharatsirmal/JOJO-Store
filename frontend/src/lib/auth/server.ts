@@ -18,6 +18,7 @@ export async function getCurrentUser() {
       role: data?.role || "customer",
       displayName: data?.displayName || "",
       photoURL: data?.photoURL || "",
+      phoneNumber: data?.phoneNumber || "",
       createdAt: typeof data?.createdAt === "string" ? data.createdAt : (data?.createdAt?.toDate ? data.createdAt.toDate().toISOString() : new Date().toISOString()),
       emailVerified: decodedClaims.email_verified,
     };
