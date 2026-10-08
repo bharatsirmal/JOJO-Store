@@ -1,19 +1,21 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import men from "../../public/man.jpg";
+import women from "../../public/woman.jpg";
+import footwear from "../../public/footwear.png";
+import { DeferredVideo } from "./DeferredVideo";
 import { motion } from "framer-motion";
-import { fadeUp, staggerContainer } from "@/lib/animations";
-import { ArrowDown, ArrowUpRight, ArrowRight, ShoppingBag } from "lucide-react";
+import { staggerContainer } from "@/lib/animations";
+import { ArrowRight, ShoppingBag } from "lucide-react";
 import { ProductCard } from "@/components/ProductCard";
 import { CatalogProduct } from "@/types";
 import { SweatshirtCollection } from "@/components/SweatshirtCollection";
 
 export function HomeClient({ featuredProducts }: { featuredProducts: CatalogProduct[] }) {
   return (
-    <main id="main-content" className="store-home">
-      <section className="relative w-full bg-[#0a0a0a]">
-        <img src="/home_bg.png" alt="JOJO storefront background" fetchPriority="high" className="w-full h-auto block" />
-      </section>
+    <div>
 
       {/* New Arrivals Section (Moved up!) */}
       <section className="store-section featured-section">
@@ -30,84 +32,37 @@ export function HomeClient({ featuredProducts }: { featuredProducts: CatalogProd
         )}
       </section>
 
-      {/* Bento Grid Categories Section */}
-      <section className="mb-24 px-5 sm:px-8 lg:px-12 max-w-[1400px] mx-auto scroll-mt-24" id="collections">
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-10 tracking-tight text-left uppercase">Shop by Categories</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-start">
-          
-          {/* Top Left - Men */}
-          <div className="relative rounded-[12px] overflow-hidden bg-[#e5e5e5] group h-auto aspect-auto">
-            <img src="/man.jpg" alt="Men" className="w-full h-auto object-cover object-center transition-transform duration-700 group-hover:scale-105 block" />
-            <div className="absolute inset-0 bg-black/5 transition-opacity duration-300 group-hover:bg-black/10" />
-            
-            <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-between z-10">
-              <div>
-                <p className="text-gray-500 font-medium text-sm tracking-tight mb-2">FOR MEN</p>
-                
-              </div>
-              <div>
-                <Link href="/products?category=men" className="inline-block bg-gray-500 text-white font-medium px-[18px] py-[10px] text-[16px] rounded-[10px] hover:bg-gray-600 transition-colors shadow-sm">
-                  Shop Now
-                </Link>
-              </div>
-            </div>
+      <section className="mb-24 px-5 sm:px-8 lg:px-12 max-w-[1400px] mx-auto scroll-mt-24" id="collections" aria-labelledby="categories-heading">
+        <div className="flex items-end justify-between gap-4 mb-8">
+          <div>
+            <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#81734f] mb-2">Our Collection</p>
+            <h2 id="categories-heading" className="text-2xl md:text-3xl font-semibold tracking-tight">Shop by Categories</h2>
+            <p className="text-sm text-slate-600 mt-2 max-w-lg">Find your everyday favourites, from wardrobe essentials to finishing touches.</p>
           </div>
+          <Link href="/products" className="inline-flex items-center gap-2 text-sm font-medium whitespace-nowrap shrink-0 pb-1 hover:underline">View All <ArrowRight size={16} /></Link>
+        </div>
 
-          {/* Top Right - Women */}
-          <div className="relative rounded-[12px] overflow-hidden bg-[#e5e5e5] group h-auto aspect-auto">
-            <img src="/woman.jpg" alt="Women" className="w-full h-auto object-cover object-[50%_20%] transition-transform duration-700 group-hover:scale-105 block" />
-            <div className="absolute inset-0 bg-black/5 transition-opacity duration-300 group-hover:bg-black/10" />
-            
-            <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-between z-10">
-              <div>
-                <p className="text-gray-500 font-medium text-sm tracking-tight mb-2">FOR WOMEN</p>
-                
+        <div className="grid grid-flow-col auto-cols-[76%] sm:auto-cols-[44%] md:grid-flow-row md:grid-cols-4 gap-4 lg:gap-6 overflow-x-auto snap-x snap-mandatory pb-3">
+          {[
+            { name: "Men", slug: "men", image: men, position: "object-center" },
+            { name: "Women", slug: "women", image: women, position: "object-[50%_20%]" },
+            { name: "Accessories", slug: "accessories", image: null, position: "object-center" },
+            { name: "Footwear", slug: "footwear", image: footwear, position: "object-center" },
+          ].map(category => (
+            <Link key={category.slug} href={`/products?category=${category.slug}`} aria-label={`Shop ${category.name}`} className="group min-w-0 snap-start rounded-xl overflow-hidden bg-white/60 border border-black/[0.04] transition-shadow hover:shadow-md focus-visible:outline-offset-[-3px]">
+              <div className="relative aspect-[4/5] overflow-hidden bg-[#e5e5e5]">
+                {category.image ? (
+                  <Image src={category.image} fill sizes="(max-width: 639px) 76vw, (max-width: 767px) 44vw, (max-width: 1399px) 25vw, 310px" alt={category.name} className={`object-cover ${category.position} transition-transform duration-500 motion-safe:group-hover:scale-105`} />
+                ) : (
+                  <img src="/accessories.avif" loading="lazy" decoding="async" alt={category.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-105" />
+                )}
               </div>
-              <div>
-                <Link href="/products?category=women" className="inline-block bg-gray-500 text-white font-medium px-[18px] py-[10px] text-[16px] rounded-[10px] hover:bg-gray-600 transition-colors shadow-sm">
-                  Shop Now
-                </Link>
+              <div className="px-4 py-5 lg:px-5">
+                <h3 className="font-semibold text-base text-slate-900">{category.name}</h3>
+                <span className="inline-flex items-center gap-2 mt-3 text-xs font-medium text-slate-700 group-hover:text-black">Shop Now <ArrowRight size={13} className="transition-transform motion-safe:group-hover:translate-x-1" /></span>
               </div>
-            </div>
-          </div>
-
-          {/* Bottom Left - Accessories */}
-          <div className="relative rounded-[12px] overflow-hidden bg-[#e5e5e5] group h-auto aspect-[1104/1425]">
-            <img src="/accessories.avif" alt="Accessories" className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-black/5 transition-opacity duration-300 group-hover:bg-black/10" />
-            
-            <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-between z-10">
-              <div>
-                <p className="text-gray-800 font-medium text-sm tracking-tight mb-2">FOR ACCESSORIES</p>
-                
-              </div>
-              <div>
-                <Link href="/products?category=accessories" className="inline-block bg-gray-500 text-white font-medium px-[18px] py-[10px] text-[16px] rounded-[10px] hover:bg-gray-600 transition-colors shadow-sm">
-                  Shop Now
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Right - Footwear */}
-          <div className="relative rounded-[12px] overflow-hidden bg-[#e5e5e5] group h-auto aspect-[1104/1425]">
-            <img src="/footwear.png" alt="Footwear" className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-black/5 transition-opacity duration-300 group-hover:bg-black/10" />
-            
-            <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-between z-10">
-              <div>
-                <p className="text-gray-800 font-medium text-sm tracking-tight mb-2">FOR FOOTWEAR</p>
-                
-              </div>
-              <div>
-                <Link href="/products?category=footwear" className="inline-block bg-gray-500 text-white font-medium px-[18px] py-[10px] text-[16px] rounded-[10px] hover:bg-gray-600 transition-colors shadow-sm">
-                  Shop Now
-                </Link>
-              </div>
-            </div>
-          </div>
-
+            </Link>
+          ))}
         </div>
       </section>
 
@@ -117,14 +72,7 @@ export function HomeClient({ featuredProducts }: { featuredProducts: CatalogProd
 
       {/* Full-width Screenfit Video Section with Overlaid Text */}
       <section className="relative w-full h-[80vh] md:h-[90vh] mt-20 mb-20 flex items-center justify-center overflow-hidden bg-[#0a0a0a]">
-        <video 
-          src="/video.mp4" 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        <DeferredVideo />
         {/* Subtle dark gradient overlay to ensure text readability */}
         <div className="absolute inset-0 bg-black/30" />
         
@@ -172,6 +120,6 @@ export function HomeClient({ featuredProducts }: { featuredProducts: CatalogProd
         </div>
         <div className="footer-bottom"><span>Ac {new Date().getFullYear()} JOJO Store</span><span>EVERYDAY LOOKS GOOD ON YOU.</span><a href="#main-content" className="text-link">Back to top</a></div>
       </footer>
-    </main>
+    </div>
   );
 }

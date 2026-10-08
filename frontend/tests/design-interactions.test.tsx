@@ -36,7 +36,7 @@ describe("Redesigned navigation and cart", () => {
 
   it("keeps storefront search routing and dismisses the overlay", () => {
     render(<NavClient user={null} />);
-    fireEvent.click(screen.getAllByRole("button", { name: "Search", exact: true })[0]);
+    fireEvent.click(screen.getAllByRole("button", { name: "Search" })[0]);
     const input = screen.getByRole("textbox", { name: "Search for products" });
     fireEvent.change(input, { target: { value: " blue shirt " } });
     fireEvent.submit(input.closest("form")!);

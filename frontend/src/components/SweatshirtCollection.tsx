@@ -1,33 +1,50 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, scroll, useMotionValue, useTransform } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { fadeUp, staggerContainer } from "@/lib/animations";
 import { CatalogProduct } from "@/types";
 
 export function SweatshirtCollection({ products = [] }: { products?: CatalogProduct[] }) {
+  if (products.length === 0) return null;
+  return <SweatshirtCollectionContent products={products} />;
+}
+
+function SweatshirtCollectionContent({ products }: { products: CatalogProduct[] }) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const cardCount = Math.min(products.length, 3);
+  const hasStack = cardCount > 1;
+  const transitionEnd = 0.8 / Math.max(cardCount - 1, 1);
   
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
+  const scrollYProgress = useMotionValue(0);
+
+  useEffect(() => {
+    scrollYProgress.set(0);
+    if (!hasStack) return;
+    const target = containerRef.current;
+    if (!target) return;
+
+    // Subscribe only after React attaches the actual element, and unsubscribe
+    // on unmount/refresh so a deferred ref lookup cannot outlive the section.
+    return scroll((progress: number) => scrollYProgress.set(progress), {
+      target,
+      offset: ["start start", "end end"],
+    });
+  }, [scrollYProgress, hasStack, cardCount]);
 
   // Card 1 animations
   const y1 = useTransform(scrollYProgress, [0, 0.33], [0, 0]);
-  const scale1 = useTransform(scrollYProgress, [0, 0.33], [1, 0.95]);
-  const shadow1 = useTransform(scrollYProgress, [0, 0.33], [0, 0.5]);
+  const scale1 = useTransform(scrollYProgress, [0, transitionEnd], [1, 0.95]);
+  const shadow1 = useTransform(scrollYProgress, [0, transitionEnd], [0, 0.5]);
 
   // Card 2 animations
-  const y2 = useTransform(scrollYProgress, [0, 0.33, 0.66], ["100%", "0%", "0%"]);
-  const scale2 = useTransform(scrollYProgress, [0.33, 0.66], [1, 0.95]);
-  const shadow2 = useTransform(scrollYProgress, [0.33, 0.66], [0, 0.5]);
+  const y2 = useTransform(scrollYProgress, [0, transitionEnd], ["100%", "0%"]);
+  const scale2 = useTransform(scrollYProgress, [transitionEnd, transitionEnd * 2], [1, 0.95]);
+  const shadow2 = useTransform(scrollYProgress, [transitionEnd, transitionEnd * 2], [0, 0.5]);
 
   // Card 3 animations
-  const y3 = useTransform(scrollYProgress, [0.33, 0.66], ["100%", "0%"]);
-
-  if (!products || products.length === 0) return null;
+  const y3 = useTransform(scrollYProgress, [transitionEnd, transitionEnd * 2], ["100%", "0%"]);
 
   const largeCards = products.slice(0, 3);
   const smallCards = products.slice(3, 6);
@@ -57,7 +74,7 @@ export function SweatshirtCollection({ products = [] }: { products?: CatalogProd
   };
 
   return (
-    <section className="bg-white text-black py-24 md:py-32 px-4 md:px-8 max-w-[1400px] mx-auto w-full">
+    <section className="bg-background text-black py-24 md:py-32 px-4 md:px-8 max-w-[1400px] mx-auto w-full">
       
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-8">
@@ -75,17 +92,17 @@ export function SweatshirtCollection({ products = [] }: { products?: CatalogProd
       </div>
 
       {/* Sticky Scroll Container */}
-      <div ref={containerRef} className="h-[300vh] relative">
-        <div className="sticky top-0 h-[100dvh] flex items-center justify-center overflow-hidden py-10 md:py-20">
+      <div ref={containerRef} className="relative" style={hasStack ? { height: `${cardCount * 100}dvh` } : undefined}>
+        <div className={hasStack ? "sticky top-0 h-[100dvh] flex items-center justify-center overflow-hidden py-10 md:py-20" : "relative"}>
           
           {/* Card 1 */}
           {largeCards[0] && (
-            <motion.div className="absolute inset-x-0 mx-auto w-full max-w-6xl h-[80vh] md:h-[70vh] rounded-3xl overflow-hidden text-white shadow-[0_-20px_50px_-15px_rgba(0,0,0,0.5)] origin-top z-10" style={{ backgroundColor: getProductColor(largeCards[0], "#904128"), y: y1, scale: scale1 }}>
-              <motion.div style={{ opacity: shadow1 }} className="absolute inset-0 bg-black pointer-events-none z-50 transition-opacity duration-0" />
+            <motion.div className={`${hasStack ? "absolute inset-x-0 h-[80vh] md:h-[70vh]" : "relative h-auto md:h-[70vh]"} mx-auto w-full max-w-6xl rounded-3xl overflow-hidden text-white shadow-[0_-20px_50px_-15px_rgba(0,0,0,0.5)] origin-top z-10`} style={{ backgroundColor: getProductColor(largeCards[0], "#904128"), y: hasStack ? y1 : 0, scale: hasStack ? scale1 : 1 }}>
+              <motion.div style={{ opacity: hasStack ? shadow1 : 0 }} className="absolute inset-0 bg-black pointer-events-none z-50 transition-opacity duration-0" />
               <Link href={`/products/${largeCards[0].slug}`} className="group block w-full h-full relative z-40">
                 <div className="grid grid-cols-1 md:grid-cols-2 h-full">
                   <div className="relative w-full h-[300px] md:h-full overflow-hidden flex items-center justify-center p-8 md:p-10">
-                    <img src={getProductImage(largeCards[0])} alt={largeCards[0].name} className="absolute inset-0 w-full h-full object-cover md:object-contain transition-transform duration-700 group-hover:scale-[1.15] scale-110 mix-blend-multiply" />
+                    <img loading="lazy" decoding="async" src={getProductImage(largeCards[0])} alt={largeCards[0].name} className="absolute inset-0 w-full h-full object-cover md:object-contain transition-transform duration-700 group-hover:scale-[1.15] scale-110 mix-blend-multiply" />
                   </div>
                   <div className="p-8 md:p-16 flex flex-col justify-center h-full">
                     <h3 className="text-4xl md:text-6xl font-extrabold mb-4 md:mb-6 tracking-tight uppercase" style={{ fontFamily: "Impact, sans-serif" }}>{largeCards[0].name}</h3>
@@ -104,8 +121,8 @@ export function SweatshirtCollection({ products = [] }: { products?: CatalogProd
 
           {/* Card 2 */}
           {largeCards[1] && (
-            <motion.div className="absolute inset-x-0 mx-auto w-full max-w-6xl h-[80vh] md:h-[70vh] rounded-3xl overflow-hidden text-white shadow-[0_-20px_50px_-15px_rgba(0,0,0,0.5)] origin-top z-20" style={{ backgroundColor: getProductColor(largeCards[1], "#b49d83"), y: y2, scale: scale2 }}>
-              <motion.div style={{ opacity: shadow2 }} className="absolute inset-0 bg-black pointer-events-none z-50 transition-opacity duration-0" />
+            <motion.div className="absolute inset-x-0 mx-auto w-full max-w-6xl h-[80vh] md:h-[70vh] rounded-3xl overflow-hidden text-white shadow-[0_-20px_50px_-15px_rgba(0,0,0,0.5)] origin-top z-20" style={{ backgroundColor: getProductColor(largeCards[1], "#b49d83"), y: y2, scale: cardCount > 2 ? scale2 : 1 }}>
+              <motion.div style={{ opacity: cardCount > 2 ? shadow2 : 0 }} className="absolute inset-0 bg-black pointer-events-none z-50 transition-opacity duration-0" />
               <Link href={`/products/${largeCards[1].slug}`} className="group block w-full h-full relative z-40">
                 <div className="grid grid-cols-1 md:grid-cols-2 h-full">
                   <div className="p-8 md:p-16 flex flex-col justify-center h-full order-2 md:order-1">
@@ -119,7 +136,7 @@ export function SweatshirtCollection({ products = [] }: { products?: CatalogProd
                     </div>
                   </div>
                   <div className="relative w-full h-[300px] md:h-full overflow-hidden flex items-center justify-center p-8 md:p-10 order-1 md:order-2">
-                    <img src={getProductImage(largeCards[1])} alt={largeCards[1].name} className="absolute inset-0 w-full h-full object-cover md:object-contain transition-transform duration-700 group-hover:scale-[1.15] scale-110 mix-blend-multiply" />
+                    <img loading="lazy" decoding="async" src={getProductImage(largeCards[1])} alt={largeCards[1].name} className="absolute inset-0 w-full h-full object-cover md:object-contain transition-transform duration-700 group-hover:scale-[1.15] scale-110 mix-blend-multiply" />
                   </div>
                 </div>
               </Link>
@@ -132,7 +149,7 @@ export function SweatshirtCollection({ products = [] }: { products?: CatalogProd
               <Link href={`/products/${largeCards[2].slug}`} className="group block w-full h-full relative z-40">
                 <div className="grid grid-cols-1 md:grid-cols-2 h-full">
                   <div className="relative w-full h-[300px] md:h-full overflow-hidden flex items-center justify-center p-8 md:p-10">
-                    <img src={getProductImage(largeCards[2])} alt={largeCards[2].name} className="absolute inset-0 w-full h-full object-cover md:object-contain transition-transform duration-700 group-hover:scale-[1.15] scale-110 mix-blend-multiply" />
+                    <img loading="lazy" decoding="async" src={getProductImage(largeCards[2])} alt={largeCards[2].name} className="absolute inset-0 w-full h-full object-cover md:object-contain transition-transform duration-700 group-hover:scale-[1.15] scale-110 mix-blend-multiply" />
                   </div>
                   <div className="p-8 md:p-16 flex flex-col justify-center h-full">
                     <h3 className="text-4xl md:text-6xl font-extrabold mb-4 md:mb-6 tracking-tight uppercase" style={{ fontFamily: "Impact, sans-serif" }}>{largeCards[2].name}</h3>
@@ -159,7 +176,7 @@ export function SweatshirtCollection({ products = [] }: { products?: CatalogProd
             <motion.div key={product.id} variants={fadeUp}>
               <Link href={`/products/${product.slug}`} className="group block w-full">
                 <div className="relative w-full aspect-[4/5] bg-[#f5f5f5] rounded-xl overflow-hidden mb-5 shadow-sm">
-                  <img src={getProductImage(product)} alt={product.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 mix-blend-multiply" />
+                  <img loading="lazy" decoding="async" src={getProductImage(product)} alt={product.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 mix-blend-multiply" />
                   <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div>

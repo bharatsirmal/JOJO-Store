@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidateTag } from "next/cache";
 import { adminDb } from "@/lib/firebase/admin";
 import { requireAdmin } from "@/lib/auth/server";
 import * as z from "zod";
@@ -63,6 +64,7 @@ export async function PUT(
       t.update(docRef, updateData);
     });
 
+    revalidateTag("catalog");
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error: unknown) {
     console.error("Error updating product:", error);
@@ -95,6 +97,7 @@ export async function DELETE(
     }
     
     await docRef.delete();
+    revalidateTag("catalog");
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error: unknown) {

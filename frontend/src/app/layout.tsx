@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import NextTopLoader from "nextjs-toploader";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -33,7 +34,9 @@ export default function RootLayout({
         <NextTopLoader color="#1d4ed8" initialPosition={0.08} crawlSpeed={200} height={3} crawl={true} showSpinner={false} easing="ease" speed={200} shadow="0 0 10px #1d4ed8,0 0 5px #1d4ed8" />
           <MotionProvider>
         <NavbarWrapper>
-          <Navbar />
+          <Suspense fallback={<header aria-label="Loading navigation" className="h-16 bg-[#0a0a0a] sticky top-0 z-40" />}>
+            <Navbar />
+          </Suspense>
         </NavbarWrapper>
         <CartDrawer />
         {children}

@@ -1,6 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import { HomeClient } from "../src/components/HomeClient";
+import React from "react";
+
+vi.mock("next/image", () => ({ default: ({ fill, priority, ...props }: any) => <img {...props} /> }));
 
 class IntersectionObserverMock {
   observe = vi.fn();
@@ -14,8 +17,7 @@ describe("Home Page Smoke Test", () => {
   it("renders the main heading", () => {
     render(<HomeClient featuredProducts={[]} />);
     
-    // Check for the main hero text
-    const heading = screen.getByText(/ELEVATE YOUR/i);
+    const heading = screen.getByRole("heading", { name: "New Arrivals." });
     expect(heading).toBeDefined();
   });
 });

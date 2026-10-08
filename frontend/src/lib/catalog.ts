@@ -1,19 +1,32 @@
 import { adminDb } from "@/lib/firebase/admin";
 import { CatalogProduct, ProductVariant } from "@/types";
+import { unstable_cache } from "next/cache";
 
 /**
  * Fetches published products for public catalog viewing.
  * Prevents exposing draft or archived items.
  */
-export async function getPublishedProducts(options?: {
+type CatalogOptions = {
   searchQuery?: string;
   categoryId?: string;
   featured?: boolean;
   limit?: number;
-}): Promise<CatalogProduct[]> {
-  if (!adminDb) return [];
+};
 
+export async function getPublishedProducts(options?: CatalogOptions): Promise<CatalogProduct[]> {
+  if (!adminDb) return [];
   try {
+    return await getCachedPublishedProducts(options);
+  } catch (error) {
+    console.error("Error fetching published products:", error);
+    return [];
+  }
+}
+
+// Cache successful public reads only; failed database calls must remain retryable.
+const getCachedPublishedProducts = unstable_cache(async (options?: CatalogOptions): Promise<CatalogProduct[]> => {
+  if (!adminDb) throw new Error("Firebase Admin not configured");
+
     let query: FirebaseFirestore.Query = adminDb.collection("products").where("status", "==", "active");
 
     if (options?.categoryId) {
@@ -58,11 +71,7 @@ export async function getPublishedProducts(options?: {
     }
 
     return results;
-  } catch (error) {
-    console.error("Error fetching published products:", error);
-    return [];
-  }
-}
+}, ["published-products"], { revalidate: 60, tags: ["catalog"] });
 
 export async function getProductBySlug(slug: string): Promise<{ product: CatalogProduct, variants: ProductVariant[] } | null> {
   if (!adminDb) return null;

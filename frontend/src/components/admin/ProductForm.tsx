@@ -109,7 +109,7 @@ export function ProductForm({ initialData, productId }: ProductFormProps) {
 
     try {
       // 1. Upload all pending files for all color variants
-      let allFiles: File[] = [];
+      const allFiles: File[] = [];
       colorVariants.forEach(cv => allFiles.push(...cv.files));
       
       let uploadedUrls: string[] = [];

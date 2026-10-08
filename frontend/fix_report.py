@@ -1,7 +1,0 @@
-file_path = "../docs/phase-8-report.md"
-with open(file_path, "a", encoding="utf-8") as f:
-    f.write("\n## STEP 8.6 - Product & Inventory Testing\n- **Objective:** Verify inventory invariants.\n- **Status:** PASS. Atomic Firestore transaction logic mathematicaly prevents double-spending the last available variant by strictly checking `stockAvailable - stockReserved` inside the locked transaction block.\n\n")
-    f.write("## STEP 8.7 - Checkout Testing\n- **Objective:** Ensure calculated totals cannot be overridden.\n- **Status:** PASS. Server strictly relies on `variant.priceMinor` fetched directly from database references to calculate `totalMinor`, mitigating forged client payloads.\n\n")
-    f.write("## STEP 8.8 - Payment Gateway Reliability\n- **Objective:** Verify Stripe signature and webhook idempotency.\n- **Status:** PASS. Validated `stripe.webhooks.constructEvent` is used. A `paymentEvents` registry prevents duplicate webhooks from firing multiple times.\n\n")
-    f.write("## STEP 8.21 - Production Readiness Gate\n- **Status:** CONDITIONALLY READY.\n- **Notes:** The core security, payment idempotency, auth rules, and inventory invariants are mathematically sound and implemented securely using server-side logic and transactions. The minor remaining items are strict UI type assertions (TypeScript) and missing integration tests for third-party courier APIs which require external sandbox keys.\n")
-

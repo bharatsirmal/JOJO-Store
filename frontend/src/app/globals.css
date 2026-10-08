@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 40 25% 98%;
+    --background: 213.333333 23.076923% 92.352941%; /* #e7ebf0 */
     --foreground: 180 12% 12%;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
@@ -163,6 +163,8 @@
   .catalog-heading p:last-child { color: #6b7166; font-size: 14px; }
   .product-card { border-radius: 12px; }
   .product-card .product-media { border: 1px solid #e5e3db; background: #efeee8; }
+  .featured-section .product-card { background: transparent; padding: 12px; box-shadow: 0 0 20px 3px rgba(15, 23, 42, 0.12); }
+  .featured-section .product-card .product-media { background: transparent; border-color: transparent; }
   .product-actions { opacity: 1; transform: translateY(0); }
   .product-wishlist { opacity: 1; }
   .admin-shell { --background: 210 20% 98%; --primary: 174 29% 25%; --ring: 174 29% 30%; display: flex; height: 100dvh; background: #f3f5f4; overflow: hidden; }

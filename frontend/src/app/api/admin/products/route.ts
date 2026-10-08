@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidateTag } from "next/cache";
 import { adminDb } from "@/lib/firebase/admin";
 import { requireAdmin } from "@/lib/auth/server";
 import * as z from "zod";
@@ -114,6 +115,7 @@ export async function POST(request: Request) {
       }
     });
 
+    revalidateTag("catalog");
     return NextResponse.json({ success: true, slug: validatedData.slug }, { status: 201 });
   } catch (error: unknown) {
     console.error("Error creating product:", error);
