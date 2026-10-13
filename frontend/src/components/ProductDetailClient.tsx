@@ -43,7 +43,7 @@ export function ProductDetailClient({ product, variants }: Props) {
   const addItem = useCartStore(state => state.addItem);
 
   const price = product.basePriceMinor / 100;
-  const formattedPrice = price % 1 === 0 ? `$${price}` : `$${price.toFixed(2)}`;
+  const formattedPrice = price % 1 === 0 ? `₹${price}` : `₹${price.toFixed(2)}`;
 
   const handleNextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
@@ -353,3 +353,4 @@ export function ProductDetailClient({ product, variants }: Props) {
     </div>
   );
 }
+

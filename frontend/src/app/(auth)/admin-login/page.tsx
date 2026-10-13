@@ -8,11 +8,11 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent } from "@/components/ui/card";
+import { PortalLoginCard, portalInputClass, portalIconClass, portalButtonClass } from "@/components/PortalLoginCard";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { toast } from "sonner";
-import { Shield } from "lucide-react";
+import { Mail, LockKeyhole } from "lucide-react";
 
 const loginSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -74,56 +74,20 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-[100dvh] p-4 bg-black">
-      <Card className="w-full max-w-[400px] border border-slate-800 shadow-2xl p-8 rounded-xl bg-[#0f172a] text-white">
-        <h1 className="text-2xl font-bold text-white mb-1">Sign In</h1>
-        <p className="text-slate-400 text-sm mb-8">Login to your account</p>
-        
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-          <CardContent className="space-y-4 p-0">
-            {error && <div className="bg-red-500/10 border border-red-500/20 rounded-md p-3 text-red-400 text-sm font-medium text-left">{error}</div>}
-            
-            <div className="space-y-4">
-              <div className="space-y-1.5">
-                <label className="text-sm font-medium text-slate-300">Email address</label>
-                <Input 
-                  id="email" 
-                  type="email" 
-                  {...register("email")} 
-                  placeholder="Email" 
-                  className="rounded-md px-3 h-10 bg-[#0f172a] border-slate-700 text-white placeholder:text-slate-500 focus-visible:ring-1 focus-visible:ring-indigo-500 focus-visible:border-indigo-500"
-                />
-                {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>}
-              </div>
-
-              <div className="space-y-1.5">
-                <label className="text-sm font-medium text-slate-300">Password</label>
-                <Input 
-                  id="password" 
-                  type="password" 
-                  {...register("password")} 
-                  placeholder="Password" 
-                  className="rounded-md px-3 h-10 bg-[#0f172a] border-slate-700 text-white placeholder:text-slate-500 focus-visible:ring-1 focus-visible:ring-indigo-500 focus-visible:border-indigo-500"
-                />
-                {errors.password && <p className="text-red-400 text-xs mt-1">{errors.password.message}</p>}
-              </div>
-            </div>
-
-            <div className="flex justify-end">
-              <Link
-                href="/forgot-password"
-                className="rounded-sm text-sm font-medium text-indigo-400 hover:text-indigo-300 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
-              >
-                Forgot password?
-              </Link>
-            </div>
-
-            <Button type="submit" className="w-full h-10 rounded-md bg-[#6366f1] hover:bg-[#4f46e5] text-white font-medium mt-6" disabled={loading}>
-              {loading ? "Signing in..." : "Sign in"}
-            </Button>
-          </CardContent>
-        </form>
-      </Card>
-    </div>
+    <PortalLoginCard kind="admin">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
+        {error && <div role="alert" className="rounded-[12px] bg-red-50 p-3 text-center text-xs font-medium text-red-600">{error}</div>}
+        <div>
+          <div className="relative"><Mail aria-hidden="true" className={portalIconClass} /><Input id="email" type="email" aria-label="Email address" {...register("email")} placeholder="Email" className={portalInputClass} /></div>
+          {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>}
+        </div>
+        <div>
+          <div className="relative"><LockKeyhole aria-hidden="true" className={portalIconClass} /><Input id="password" type="password" aria-label="Password" {...register("password")} placeholder="Password" className={portalInputClass} /></div>
+          {errors.password && <p className="mt-1 text-xs text-red-500">{errors.password.message}</p>}
+        </div>
+        <div className="flex justify-end pt-1"><Link href="/forgot-password" className="text-[11px] font-medium text-[#7965c5] hover:text-[#7548d2] hover:underline">Forgot password?</Link></div>
+        <Button type="submit" className={portalButtonClass} disabled={loading}>{loading ? "Signing in..." : "Sign in"}</Button>
+      </form>
+    </PortalLoginCard>
   );
 }

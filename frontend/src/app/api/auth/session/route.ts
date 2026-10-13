@@ -7,7 +7,7 @@ const SESSION_EXPIRATION_MS = 60 * 60 * 24 * 5 * 1000;
 
 export async function POST(request: Request) {
   try {
-    const { idToken } = await request.json();
+    const { idToken, rememberMe = true } = await request.json();
 
     if (!idToken) {
       return NextResponse.json({ error: "Missing ID token" }, { status: 400 });
@@ -55,7 +55,7 @@ export async function POST(request: Request) {
 
     // Only expose a session after the account profile is ready.
     cookies().set("__session", sessionCookie, {
-      maxAge: SESSION_EXPIRATION_MS / 1000,
+      ...(rememberMe === false ? {} : { maxAge: SESSION_EXPIRATION_MS / 1000 }),
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       path: "/",

@@ -4,6 +4,8 @@ import type { NextRequest } from 'next/server';
 export async function middleware(request: NextRequest) {
   const session = request.cookies.get('__session')?.value;
   const path = request.nextUrl.pathname;
+  // Public assets must load without portal redirects for signed-in staff.
+  if (path === '/jojo-store.svg' || path === '/favicon.ico' || path.startsWith('/_next/')) return NextResponse.next();
 
   const isAdminPath = path.startsWith('/admin') && path !== '/admin-login';
   const isDeliveryPath = path.startsWith('/delivery') && path !== '/delivery-login' && path !== '/delivery-register';
@@ -46,11 +48,6 @@ export async function middleware(request: NextRequest) {
       // Lock delivery_partners strictly into the delivery portal
       if (role === 'delivery_partner' && !isDeliveryPath) {
         return NextResponse.redirect(new URL('/delivery', request.url));
-      }
-
-      // Lock admins strictly into the admin portal
-      if (role === 'admin' && !isAdminPath) {
-        return NextResponse.redirect(new URL('/admin', request.url));
       }
 
       // Stop normal customers from accessing admin/delivery

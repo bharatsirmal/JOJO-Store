@@ -51,7 +51,7 @@ const getCachedPublishedProducts = unstable_cache(async (options?: CatalogOption
         categoryId: data.categoryId,
         imagePaths: data.imagePaths || [],
         basePriceMinor: data.basePriceMinor,
-        currency: data.currency || "USD",
+        currency: data.currency || "INR",
         featured: !!data.featured,
         status: data.status,
         sizes: data.sizes || [],
@@ -96,7 +96,7 @@ export async function getProductBySlug(slug: string): Promise<{ product: Catalog
       categoryId: data.categoryId,
       imagePaths: data.imagePaths || [],
       basePriceMinor: data.basePriceMinor,
-      currency: data.currency || "USD",
+      currency: data.currency || "INR",
       featured: !!data.featured,
       status: data.status,
       sizes: data.sizes || [],
@@ -133,4 +133,5 @@ export async function getProductBySlug(slug: string): Promise<{ product: Catalog
     return null;
   }
 }
+
 

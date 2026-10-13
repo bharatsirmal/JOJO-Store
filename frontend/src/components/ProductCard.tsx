@@ -20,12 +20,12 @@ export function ProductCard({ product }: ProductCardProps) {
   
   // Format price without decimals if it's a whole number
   const price = product.basePriceMinor / 100;
-  const formattedPrice = price % 1 === 0 ? `$${price}` : `$${price.toFixed(2)}`;
+  const formattedPrice = price % 1 === 0 ? `₹${price}` : `₹${price.toFixed(2)}`;
   
   let formattedOfferPrice = null;
   if (product.offerPriceMinor) {
     const offerPrice = product.offerPriceMinor / 100;
-    formattedOfferPrice = offerPrice % 1 === 0 ? `$${offerPrice}` : `$${offerPrice.toFixed(2)}`;
+    formattedOfferPrice = offerPrice % 1 === 0 ? `₹${offerPrice}` : `₹${offerPrice.toFixed(2)}`;
   }
 
   const handleQuickAdd = (e: React.MouseEvent) => {
@@ -134,3 +134,4 @@ export function ProductCard({ product }: ProductCardProps) {
     </motion.div>
   );
 }
+

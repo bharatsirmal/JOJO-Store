@@ -107,7 +107,7 @@ export function CartClient() {
                 
                 {/* Mobile Price Display */}
                 <div className="md:hidden flex justify-between items-center mt-4">
-                  <span className="font-medium">${((item.priceMinor || 0) / 100).toFixed(2)}</span>
+                  <span className="font-medium">₹{((item.priceMinor || 0) / 100).toFixed(2)}</span>
                   
                   {/* Quantity Controls Mobile */}
                   <div className="flex items-center border rounded-md">
@@ -136,12 +136,12 @@ export function CartClient() {
 
                 {/* Price Desktop */}
                 <div className="hidden md:block col-span-2 text-right text-muted-foreground">
-                  ${((item.priceMinor || 0) / 100).toFixed(2)}
+                  ₹{((item.priceMinor || 0) / 100).toFixed(2)}
                 </div>
 
                 {/* Total Desktop */}
                 <div className="hidden md:block col-span-2 text-right font-medium">
-                  ${(((item.priceMinor || 0) * item.quantity) / 100).toFixed(2)}
+                  ₹{(((item.priceMinor || 0) * item.quantity) / 100).toFixed(2)}
                 </div>
               </motion.div>
             ))}
@@ -156,7 +156,7 @@ export function CartClient() {
             <div className="space-y-4 mb-6">
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Subtotal</span>
-                <span className="font-medium">${(subtotal / 100).toFixed(2)}</span>
+                <span className="font-medium">₹{(subtotal / 100).toFixed(2)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Shipping</span>
@@ -171,7 +171,7 @@ export function CartClient() {
             <div className="border-t pt-4 mb-8">
               <div className="flex justify-between items-center text-lg font-bold">
                 <span>Estimated Total</span>
-                <span>${(subtotal / 100).toFixed(2)}</span>
+                <span>₹{(subtotal / 100).toFixed(2)}</span>
               </div>
             </div>
             
@@ -186,3 +186,4 @@ export function CartClient() {
     </div>
   );
 }
+

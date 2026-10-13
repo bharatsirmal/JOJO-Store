@@ -101,7 +101,7 @@ export async function POST(req: NextRequest) {
         shippingMinor,
         taxMinor,
         totalMinor,
-        currency: "usd",
+        currency: "inr",
         status: "pending_payment",
         reservationExpiresAt: expiresAt.toISOString(),
         createdAt: now.toISOString(),
@@ -125,3 +125,4 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: (error as Error).message || "Failed to create order" }, { status: 500 });
   }
 }
+

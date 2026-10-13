@@ -32,7 +32,10 @@ export async function PATCH(req: Request) {
     const authUpdate: any = {};
     if (displayName !== undefined) authUpdate.displayName = displayName;
     if (photoURL !== undefined) authUpdate.photoURL = photoURL;
-    if (phoneNumber !== undefined && phoneNumber.trim() !== "") authUpdate.phoneNumber = phoneNumber;
+    if (phoneNumber !== undefined) {
+      if (typeof phoneNumber !== "string" || (phoneNumber.trim() && !/^\+[1-9]\d{7,14}$/.test(phoneNumber.trim()))) return NextResponse.json({ error: "Enter a phone number with country code, such as +91 98765 43210 without spaces." }, { status: 400 });
+      authUpdate.phoneNumber = phoneNumber.trim() || null;
+    }
     
     // Update Firebase Auth
     if (Object.keys(authUpdate).length > 0) {
@@ -54,4 +57,5 @@ export async function PATCH(req: Request) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
+
 

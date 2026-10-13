@@ -5,9 +5,16 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { OrderStatus } from "@/types";
+import Link from "next/link";
 import { Check, X, Package } from "lucide-react";
 
-export default function OrderDetailActions({ orderId, currentStatus }: { orderId: string, currentStatus: OrderStatus }) {
+export default function OrderDetailActions({
+  orderId,
+  currentStatus,
+}: {
+  orderId: string;
+  currentStatus: OrderStatus;
+}) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -20,19 +27,23 @@ export default function OrderDetailActions({ orderId, currentStatus }: { orderId
         body: JSON.stringify({ status: newStatus }),
       });
 
-      if (!res.ok) throw new Error("Failed to update status");
-      
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Failed to update status");
+      }
+
       toast.success(`Order marked as ${newStatus}`);
       router.refresh();
     } catch (err) {
       console.error(err);
-      toast.error("An error occurred");
+      toast.error(
+        err instanceof Error ? err.message : "Unable to update order",
+      );
     } finally {
       setIsLoading(false);
     }
   };
 
-  
   const createShipment = async () => {
     setIsLoading(true);
     try {
@@ -43,7 +54,7 @@ export default function OrderDetailActions({ orderId, currentStatus }: { orderId
       });
 
       if (!res.ok) throw new Error("Failed to create shipment");
-      
+
       const data = await res.json();
       toast.success("Shipment created successfully!");
       router.push(`/admin/shipments/${data.shipment.id}`);
@@ -58,9 +69,9 @@ export default function OrderDetailActions({ orderId, currentStatus }: { orderId
   if (currentStatus === "pending_payment") {
     return (
       <div className="flex items-center gap-2">
-        <Button 
-          variant="outline" 
-          size="sm" 
+        <Button
+          variant="outline"
+          size="sm"
           className="text-red-600 hover:text-red-700 hover:bg-red-50"
           onClick={() => updateStatus("cancelled")}
           disabled={isLoading}
@@ -68,8 +79,8 @@ export default function OrderDetailActions({ orderId, currentStatus }: { orderId
           <X className="w-4 h-4 mr-1" />
           Cancel Order
         </Button>
-        <Button 
-          size="sm" 
+        <Button
+          size="sm"
           onClick={() => updateStatus("payment_processing")}
           disabled={isLoading}
         >
@@ -79,11 +90,11 @@ export default function OrderDetailActions({ orderId, currentStatus }: { orderId
       </div>
     );
   }
-  
+
   if (currentStatus === "payment_processing") {
     return (
-      <Button 
-        size="sm" 
+      <Button
+        size="sm"
         onClick={() => updateStatus("confirmed")}
         disabled={isLoading}
       >
@@ -93,21 +104,20 @@ export default function OrderDetailActions({ orderId, currentStatus }: { orderId
     );
   }
 
-  
   if (currentStatus === "confirmed") {
     return (
-      <Button 
-        size="sm" 
-        onClick={createShipment}
-        disabled={isLoading}
-      >
+      <Button size="sm" onClick={createShipment} disabled={isLoading}>
         <Package className="w-4 h-4 mr-1" />
         Create Shipment
       </Button>
     );
   }
 
+  if (["processing", "shipped", "delivered"].includes(currentStatus))
+    return (
+      <Link href="/admin/shipments" className="admin-text-link py-2">
+        View shipping
+      </Link>
+    );
   return null;
-
 }
-

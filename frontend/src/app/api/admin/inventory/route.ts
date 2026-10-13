@@ -4,7 +4,14 @@ import { requireAdmin } from "@/lib/auth/server";
 import * as z from "zod";
 
 const inventoryAdjustmentSchema = z.object({
-  variantId: z.string(),
+  variantId: z
+    .string()
+    .min(1)
+    .regex(/^[^/]+$/),
+  variantPath: z
+    .string()
+    .regex(/^(?:products\/[^/]+\/variants\/[^/]+|variants\/[^/]+)$/)
+    .optional(),
   adjustmentAmount: z.number().int(),
   reason: z.string().min(2),
 });
@@ -14,17 +21,31 @@ export async function POST(request: Request) {
     const user = await requireAdmin();
 
     if (!adminDb) {
-      return NextResponse.json({ error: "Firebase Admin not configured" }, { status: 500 });
+      return NextResponse.json(
+        { error: "Firebase Admin not configured" },
+        { status: 500 },
+      );
     }
 
     const body = await request.json();
-    const { variantId, adjustmentAmount, reason } = inventoryAdjustmentSchema.parse(body);
+    const { variantId, variantPath, adjustmentAmount, reason } =
+      inventoryAdjustmentSchema.parse(body);
 
     if (adjustmentAmount === 0) {
-      return NextResponse.json({ error: "Adjustment amount cannot be 0" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Adjustment amount cannot be 0" },
+        { status: 400 },
+      );
     }
 
-    const variantRef = adminDb.collection("variants").doc(variantId);
+    if (variantPath && variantPath.split("/").pop() !== variantId)
+      return NextResponse.json(
+        { error: "Variant path does not match" },
+        { status: 400 },
+      );
+    const variantRef = variantPath
+      ? adminDb.doc(variantPath)
+      : adminDb.collection("variants").doc(variantId);
     const auditLogRef = adminDb.collection("inventory_audit").doc();
 
     let newStockAvailable = 0;
@@ -39,8 +60,10 @@ export async function POST(request: Request) {
       const currentAvailable = currentData.stockAvailable || 0;
       newStockAvailable = currentAvailable + adjustmentAmount;
 
-      if (newStockAvailable < 0) {
-        throw new Error("Cannot reduce physical stock below active reservations (Available stock would be negative).");
+      if (newStockAvailable < (currentData.stockReserved || 0)) {
+        throw new Error(
+          "Cannot reduce physical stock below active reservations (Available stock would be negative).",
+        );
       }
 
       t.update(variantRef, {
@@ -51,26 +74,36 @@ export async function POST(request: Request) {
       // Step 6.18 - Audit Logging
       t.set(auditLogRef, {
         variantId,
+        variantPath: variantRef.path,
         previousQuantity: currentAvailable,
         newQuantity: newStockAvailable,
         adjustmentAmount,
         reason,
         adminUid: user.uid,
         timestamp: new Date(),
-        actionType: "inventory_adjustment"
+        actionType: "inventory_adjustment",
       });
     });
 
     return NextResponse.json({ success: true, newStockAvailable });
   } catch (error: unknown) {
     console.error("Inventory adjustment error:", error);
-    
+
     if (error instanceof z.ZodError) {
-      return NextResponse.json({ error: "Invalid request payload" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Invalid request payload" },
+        { status: 400 },
+      );
     }
 
-    const msg = error instanceof Error ? error.message : "Internal Server Error";
-    
+    const msg =
+      error instanceof Error ? error.message : "Internal Server Error";
+
+    if (msg === "Unauthorized" || msg === "Forbidden")
+      return NextResponse.json(
+        { error: msg },
+        { status: msg === "Unauthorized" ? 401 : 403 },
+      );
     if (msg.includes("Cannot reduce physical stock")) {
       return NextResponse.json({ error: msg }, { status: 400 });
     }
@@ -78,6 +111,9 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: msg }, { status: 404 });
     }
 
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 },
+    );
   }
 }

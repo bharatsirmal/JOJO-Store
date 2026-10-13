@@ -108,9 +108,9 @@ function SweatshirtCollectionContent({ products }: { products: CatalogProduct[] 
                     <h3 className="text-4xl md:text-6xl font-extrabold mb-4 md:mb-6 tracking-tight uppercase" style={{ fontFamily: "Impact, sans-serif" }}>{largeCards[0].name}</h3>
                     <p className="text-base md:text-xl opacity-90 leading-relaxed mb-6 md:mb-8 max-w-md font-medium">{largeCards[0].description || "A clean everyday layer with a calm, elevated feel."}</p>
                     <div className="flex items-center gap-4">
-                      <span className="text-3xl md:text-4xl font-extrabold">${(largeCards[0].offerPriceMinor || largeCards[0].basePriceMinor || 0) / 100}</span>
+                      <span className="text-3xl md:text-4xl font-extrabold">₹{(largeCards[0].offerPriceMinor || largeCards[0].basePriceMinor || 0) / 100}</span>
                       {largeCards[0].offerPriceMinor && (
-                        <span className="text-lg md:text-xl line-through opacity-70">${largeCards[0].basePriceMinor / 100}</span>
+                        <span className="text-lg md:text-xl line-through opacity-70">₹{largeCards[0].basePriceMinor / 100}</span>
                       )}
                     </div>
                   </div>
@@ -129,9 +129,9 @@ function SweatshirtCollectionContent({ products }: { products: CatalogProduct[] 
                     <h3 className="text-4xl md:text-6xl font-extrabold mb-4 md:mb-6 tracking-tight uppercase" style={{ fontFamily: "Impact, sans-serif" }}>{largeCards[1].name}</h3>
                     <p className="text-base md:text-xl opacity-90 leading-relaxed mb-6 md:mb-8 max-w-md font-medium">{largeCards[1].description || "A refined sweatshirt with a relaxed silhouette and muted finish."}</p>
                     <div className="flex items-center gap-4">
-                      <span className="text-3xl md:text-4xl font-extrabold">${(largeCards[1].offerPriceMinor || largeCards[1].basePriceMinor || 0) / 100}</span>
+                      <span className="text-3xl md:text-4xl font-extrabold">₹{(largeCards[1].offerPriceMinor || largeCards[1].basePriceMinor || 0) / 100}</span>
                       {largeCards[1].offerPriceMinor && (
-                        <span className="text-lg md:text-xl line-through opacity-70">${largeCards[1].basePriceMinor / 100}</span>
+                        <span className="text-lg md:text-xl line-through opacity-70">₹{largeCards[1].basePriceMinor / 100}</span>
                       )}
                     </div>
                   </div>
@@ -155,9 +155,9 @@ function SweatshirtCollectionContent({ products }: { products: CatalogProduct[] 
                     <h3 className="text-4xl md:text-6xl font-extrabold mb-4 md:mb-6 tracking-tight uppercase" style={{ fontFamily: "Impact, sans-serif" }}>{largeCards[2].name}</h3>
                     <p className="text-base md:text-xl opacity-90 leading-relaxed mb-6 md:mb-8 max-w-md font-medium">{largeCards[2].description || "A refined everyday essential with a calm, balanced presence."}</p>
                     <div className="flex items-center gap-4">
-                      <span className="text-3xl md:text-4xl font-extrabold">${(largeCards[2].offerPriceMinor || largeCards[2].basePriceMinor || 0) / 100}</span>
+                      <span className="text-3xl md:text-4xl font-extrabold">₹{(largeCards[2].offerPriceMinor || largeCards[2].basePriceMinor || 0) / 100}</span>
                       {largeCards[2].offerPriceMinor && (
-                        <span className="text-lg md:text-xl line-through opacity-70">${largeCards[2].basePriceMinor / 100}</span>
+                        <span className="text-lg md:text-xl line-through opacity-70">₹{largeCards[2].basePriceMinor / 100}</span>
                       )}
                     </div>
                   </div>
@@ -182,9 +182,9 @@ function SweatshirtCollectionContent({ products }: { products: CatalogProduct[] 
                 <div>
                   <h6 className="font-bold text-sm md:text-base tracking-wide text-black mb-1 uppercase truncate">{product.name}</h6>
                   <div className="flex items-center gap-2">
-                    <span className="font-bold text-sm md:text-base text-black">${(product.offerPriceMinor || product.basePriceMinor || 0) / 100}</span>
+                    <span className="font-bold text-sm md:text-base text-black">₹{(product.offerPriceMinor || product.basePriceMinor || 0) / 100}</span>
                     {product.offerPriceMinor && (
-                      <span className="text-sm md:text-base text-gray-500 line-through">${product.basePriceMinor / 100}</span>
+                      <span className="text-sm md:text-base text-gray-500 line-through">₹{product.basePriceMinor / 100}</span>
                     )}
                   </div>
                 </div>
@@ -196,3 +196,5 @@ function SweatshirtCollectionContent({ products }: { products: CatalogProduct[] 
     </section>
   );
 }
+
+

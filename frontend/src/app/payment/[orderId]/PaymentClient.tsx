@@ -82,26 +82,26 @@ export function PaymentClient({ order }: { order: Order }) {
                  <p className="font-medium line-clamp-1">{item.quantity}x {item.productName}</p>
                  <p className="text-muted-foreground">{item.size} {item.color}</p>
                </div>
-               <p className="font-medium">${((item.unitPriceMinor * item.quantity) / 100).toFixed(2)}</p>
+               <p className="font-medium">₹{((item.unitPriceMinor * item.quantity) / 100).toFixed(2)}</p>
              </div>
           ))}
         </div>
         <div className="border-t pt-4 space-y-3 text-sm">
           <div className="flex justify-between text-muted-foreground">
             <span>Subtotal</span>
-            <span>${(order.subtotalMinor / 100).toFixed(2)}</span>
+            <span>₹{(order.subtotalMinor / 100).toFixed(2)}</span>
           </div>
           <div className="flex justify-between text-muted-foreground">
             <span>Shipping</span>
-            <span>${(order.shippingMinor / 100).toFixed(2)}</span>
+            <span>₹{(order.shippingMinor / 100).toFixed(2)}</span>
           </div>
           <div className="flex justify-between text-muted-foreground">
             <span>Tax</span>
-            <span>${(order.taxMinor / 100).toFixed(2)}</span>
+            <span>₹{(order.taxMinor / 100).toFixed(2)}</span>
           </div>
           <div className="flex justify-between items-center text-lg font-bold border-t pt-3 mt-3">
             <span>Total to Pay</span>
-            <span>${(order.totalMinor / 100).toFixed(2)}</span>
+            <span>₹{(order.totalMinor / 100).toFixed(2)}</span>
           </div>
         </div>
       </motion.div>
@@ -166,7 +166,7 @@ function PaymentForm({ totalMinor }: { orderId: string, totalMinor: number }) {
         {isProcessing ? (
           <><Loader2 className="w-5 h-5 mr-2 animate-spin" /> Processing Payment...</>
         ) : (
-          <><ShieldCheck className="w-5 h-5 mr-2" /> Pay ${(totalMinor / 100).toFixed(2)}</>
+          <><ShieldCheck className="w-5 h-5 mr-2" /> Pay ₹{(totalMinor / 100).toFixed(2)}</>
         )}
       </Button>
       <div className="text-center">
@@ -177,3 +177,4 @@ function PaymentForm({ totalMinor }: { orderId: string, totalMinor: number }) {
     </form>
   );
 }
+

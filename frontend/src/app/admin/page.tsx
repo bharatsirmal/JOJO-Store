@@ -1,60 +1,51 @@
-
 import { DashboardOverview } from "@/components/admin/DashboardOverview";
 import { adminDb } from "@/lib/firebase/admin";
 import { requireAdmin } from "@/lib/auth/server";
-
+import { salesMetrics, adminDate } from "@/lib/admin/metrics";
 export default async function AdminDashboard() {
   await requireAdmin();
-
-  if (!adminDb) {
-    return <div className="p-8 text-red-500">Firebase Admin is not configured.</div>;
-  }
-
-  // Fetch metrics
-  const allOrdersSnap = await adminDb.collection("orders").get();
-  const productsSnap = await adminDb.collection("products").count().get();
-  const usersSnap = await adminDb.collection("users").count().get();
-
-  let totalRevenueMinor = 0;
-  const totalOrders = allOrdersSnap.size;
-  let confirmedOrders = 0;
-
-  allOrdersSnap.forEach((doc) => {
-    const data = doc.data();
-    if (data.status === "confirmed" || data.status === "shipped" || data.status === "delivered" || data.status === "paid" || data.status === "processing") {
-      confirmedOrders++;
-      totalRevenueMinor += data.totalMinor || 0;
-    }
-  });
-
-  const activeProductsCount = productsSnap.data().count;
-  const customersCount = usersSnap.data().count;
-
-  const totalRevenueFormatted = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  }).format(totalRevenueMinor / 100);
-
-  // For tables
-  const recentOrdersSnap = await adminDb.collection("orders").orderBy("createdAt", "desc").limit(5).get();
-  const recentProductsSnap = await adminDb.collection("products").orderBy("createdAt", "desc").limit(5).get();
-  
-  // Serialize complex Firestore objects (like Timestamps) to plain values (strings)
-  const serializeDoc = (doc: any) => {
-    const data = doc.data();
-    const serialized: any = { id: doc.id };
-    for (const [key, value] of Object.entries(data)) {
-      if (value && typeof (value as any).toDate === 'function') {
-        serialized[key] = (value as any).toDate().toISOString();
-      } else {
-        serialized[key] = value;
-      }
-    }
-    return serialized;
-  };
-
-  const recentOrders = recentOrdersSnap.docs.map(serializeDoc);
-  const topProducts = recentProductsSnap.docs.map(serializeDoc);
-
-  return <DashboardOverview totalRevenueFormatted={totalRevenueFormatted} totalOrders={totalOrders} activeProductsCount={activeProductsCount} customersCount={customersCount} recentOrders={recentOrders} topProducts={topProducts} />;
+  if (!adminDb) return <p>Firebase Admin is not configured.</p>;
+  const [orders, products, customers, recentOrders, recentProducts] =
+    await Promise.all([
+      adminDb
+        .collection("orders")
+        .select("status", "totalMinor", "createdAt")
+        .get(),
+      adminDb
+        .collection("products")
+        .where("status", "==", "active")
+        .count()
+        .get(),
+      adminDb.collection("users").where("role", "==", "customer").count().get(),
+      adminDb.collection("orders").orderBy("createdAt", "desc").limit(5).get(),
+      adminDb
+        .collection("products")
+        .orderBy("createdAt", "desc")
+        .limit(5)
+        .get(),
+    ]);
+  const metrics = salesMetrics(orders.docs.map((doc) => doc.data()));
+  const serialize = (doc: any) =>
+    JSON.parse(
+      JSON.stringify({
+        id: doc.id,
+        ...doc.data(),
+        createdAt: adminDate(doc.data().createdAt)?.toISOString(),
+        updatedAt: adminDate(doc.data().updatedAt)?.toISOString(),
+      }),
+    );
+  return (
+    <DashboardOverview
+      totalRevenueFormatted={new Intl.NumberFormat("en-IN", {
+        style: "currency",
+        currency: "INR",
+      }).format(metrics.revenueMinor / 100)}
+      totalOrders={orders.size}
+      activeProductsCount={products.data().count}
+      customersCount={customers.data().count}
+      salesData={metrics.salesData}
+      recentOrders={recentOrders.docs.map(serialize)}
+      topProducts={recentProducts.docs.map(serialize)}
+    />
+  );
 }

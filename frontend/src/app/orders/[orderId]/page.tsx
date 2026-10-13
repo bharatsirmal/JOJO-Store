@@ -88,7 +88,7 @@ export default async function OrderDetailPage({ params }: { params: { orderId: s
                 <div className="flex-1 text-sm">
                   <div className="flex justify-between items-start">
                     <p className="font-medium">{item.productName}</p>
-                    <p className="font-medium">${(item.unitPriceMinor / 100).toFixed(2)}</p>
+                    <p className="font-medium">₹{(item.unitPriceMinor / 100).toFixed(2)}</p>
                   </div>
                   <p className="text-muted-foreground mt-1">{item.size} {item.color}</p>
                   <p className="text-muted-foreground mt-1">Qty: {item.quantity}</p>
@@ -99,19 +99,19 @@ export default async function OrderDetailPage({ params }: { params: { orderId: s
           <div className="p-6 bg-muted/30 border-t space-y-3 text-sm">
             <div className="flex justify-between">
               <span className="text-muted-foreground">Subtotal</span>
-              <span className="font-medium">${(order.subtotalMinor / 100).toFixed(2)}</span>
+              <span className="font-medium">₹{(order.subtotalMinor / 100).toFixed(2)}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Shipping</span>
-              <span className="font-medium">${(order.shippingMinor / 100).toFixed(2)}</span>
+              <span className="font-medium">₹{(order.shippingMinor / 100).toFixed(2)}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Tax</span>
-              <span className="font-medium">${(order.taxMinor / 100).toFixed(2)}</span>
+              <span className="font-medium">₹{(order.taxMinor / 100).toFixed(2)}</span>
             </div>
             <div className="flex justify-between items-center text-lg font-bold border-t pt-3 mt-3">
               <span>Total</span>
-              <span>${(order.totalMinor / 100).toFixed(2)}</span>
+              <span>₹{(order.totalMinor / 100).toFixed(2)}</span>
             </div>
           </div>
         </div>
@@ -119,3 +119,4 @@ export default async function OrderDetailPage({ params }: { params: { orderId: s
     </div>
   );
 }
+

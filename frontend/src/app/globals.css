@@ -261,3 +261,81 @@
   .catalog-heading { padding-top: 12px; align-items: flex-start; flex-direction: column; gap: 16px; }
   .admin-page { scrollbar-gutter: auto; }
 }
+
+/* Store administration: shares the authentication form palette. */
+.store-admin { --background: 213 23% 92%; --primary: 259 64% 61%; --ring: 259 64% 61%; background: #e7ebf0; color: #333333; }
+.store-admin .admin-sidebar { background: #fff; color: #36454f; border-right: 1px solid #e5e3ed; }
+.store-admin .admin-sidebar-brand { border-color: #edeaf3; }
+.store-admin .admin-sidebar-brand img { filter: none; }
+.store-admin .admin-sidebar-caption, .store-admin .admin-sidebar-footer { color: #7b8390; }
+.store-admin .admin-sidebar-footer { border-color: #edeaf3; }
+.store-admin .admin-sidebar-footer a { color: #7548d2; }
+.store-admin .admin-nav-link { min-height: 46px; border-radius: 12px; font-size: 13px; }
+.store-admin .admin-nav-link:hover { background: #f3efff; color: #7548d2; }
+.store-admin .admin-nav-link[aria-current="page"] { background: linear-gradient(110deg,#7778f5,#9854ce); color: white; box-shadow: 0 3px 12px #7965ed30; }
+.store-admin .admin-header { height: 76px; border-color: #e7e4ed; }
+.store-admin .admin-page { padding: 28px; }
+.store-admin .admin-page > div { max-width: 1440px; margin-left: auto; margin-right: auto; }
+.store-admin .admin-page h1 { color: #100c08; font-size: 28px; letter-spacing: -.03em; }
+.store-admin .admin-welcome p { color: #6b7280; }
+.store-admin .admin-panel, .store-admin .admin-page [data-slot="card"], .store-admin .admin-page .bg-card, .store-admin .admin-page .bg-white.rounded-xl, .store-admin .admin-page .bg-white.rounded-2xl { background: #fff; border: 1px solid #e7e4ed; border-radius: 12px; box-shadow: 0 0 18px #36454f0b, 0 5px 15px #36454f06; }
+.store-admin .admin-icon { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; color: #7965ed; background: #f1edff; }
+.store-admin .admin-primary-action { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 42px; padding: 10px 16px; border-radius: 12px; background: linear-gradient(110deg,#7778f5,#9854ce); color: white; font-size: 13px; font-weight: 600; box-shadow: 0 3px 12px #7965ed25; }
+.store-admin .admin-text-link { color: #7548d2; font-weight: 500; }
+.store-admin .admin-page thead { background: #f8f6fc; }
+.store-admin .admin-page th { color: #7b748e; }
+.store-admin .admin-page tbody tr:hover { background: #faf8ff; }
+.store-admin .admin-page :is(input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),select,textarea) { border-radius: 12px; border: 1px solid #e3e1e9; background: white; color: #36454f; }
+.store-admin .admin-page button { border-radius: 12px; }
+.store-admin .admin-page button.bg-primary { background: linear-gradient(110deg,#7778f5,#9854ce); color: white; }
+.store-admin .admin-close-menu { color: #36454f; }
+.store-admin .admin-mobile-backdrop { background: #100c0870; }
+@media(max-width:640px) { .store-admin .admin-page { padding: 20px 14px; } .store-admin .admin-primary-action.hidden { display: none; } }
+.store-admin .admin-page button.bg-\[\#5c5cff\], .store-admin .admin-page button.bg-indigo-600, .store-admin .admin-page button.bg-blue-600 { background: linear-gradient(110deg,#7778f5,#9854ce); }
+.store-admin .admin-page .text-blue-600, .store-admin .admin-page .text-indigo-600 { color: #7548d2; }
+.store-admin .admin-page .bg-blue-600 { background-color: #7965ed; }
+.store-admin .admin-page .rounded-md.border { border-radius: 12px; }
+.store-admin .admin-sidebar-brand { height: 92px; padding: 8px 24px; }
+.store-admin .admin-sidebar-brand img { width: 128px; height: 76px; object-fit: contain; }
+.store-admin .admin-header-brand { width: 72px; flex-shrink: 0; }
+.store-admin .admin-header-brand img { width: 72px; height: 46px; object-fit: contain; }
+.store-admin .admin-page { overflow-x: hidden; }
+.store-admin .admin-page > div, .store-admin .admin-page form > div { min-width: 0; }
+.store-admin .admin-page .admin-panel { min-width: 0; }
+.store-admin .admin-page table { min-width: 620px; }
+.store-admin .admin-page .grid > *, .store-admin .admin-page [data-slot="card-content"] { min-width: 0; }
+.store-admin .admin-page :is(h1,h2,h3,p,td) { overflow-wrap: anywhere; }
+.store-admin .admin-page [role="dialog"] { overscroll-behavior: contain; }
+.store-admin .admin-close-menu { width: 44px; height: 44px; top: 18px; }
+@media(max-width:767px) {
+ .store-admin .admin-header { padding-left: 10px; padding-right: 12px; gap: 6px; }
+ .store-admin .admin-header > div:first-child { gap: 6px; }
+ .store-admin .admin-header-brand, .store-admin .admin-header-brand img { width: 56px; }
+ .store-admin .admin-page h1 { font-size: 24px; }
+ .store-admin .admin-page .admin-detail-heading { flex-wrap: wrap; align-items: flex-start; gap: 12px; }
+ .store-admin .admin-page .admin-detail-heading > :last-child { margin-left: 0; width: 100%; flex-wrap: wrap; }
+ .store-admin .admin-page .admin-detail-heading .flex { flex-wrap: wrap; }
+ .store-admin .admin-page .admin-detail-page { padding: 0; }
+ .store-admin .admin-page .admin-toolbar { flex-direction: column; align-items: stretch; }
+ .store-admin .admin-page .admin-toolbar > * { width: 100%; max-width: none; }
+ .store-admin .admin-page :is(button[data-slot="button"],select) { min-height: 44px; }
+ .store-admin .admin-page .admin-panel.p-6 { padding: 18px; }
+ .store-admin .admin-page .admin-product-form { flex-direction: column; }
+ .store-admin .admin-page .admin-product-form > div { width: 100%; }
+ .store-admin .admin-page .admin-product-form .grid-cols-2 { grid-template-columns: minmax(0,1fr); }
+ .store-admin .admin-page .admin-product-form .border-l { border-left: 0; padding-left: 0; padding-top: 16px; }
+ .store-admin .admin-page .admin-shipping-row { flex-direction: column; align-items: stretch; gap: 14px; }
+ .store-admin .admin-page .admin-shipping-row button { width: 100%; }
+}
+@media(min-width:768px) and (max-width:1279px) {
+ .store-admin .admin-page .admin-product-form { flex-direction: column; }
+ .store-admin .admin-page .admin-product-form > div { width: 100%; }
+}
+.store-admin .admin-page > div { animation-fill-mode: none; }
+.store-admin [role="dialog"] input { border-radius: 12px; }
+.store-admin [role="dialog"] .bg-indigo-600 { background: linear-gradient(110deg,#7778f5,#9854ce); }
+@media(max-width:479px) {
+ .store-admin .admin-product-form .flex.gap-4.pt-4 { flex-direction: column; }
+ .store-admin .admin-product-form .flex.gap-4.pt-4 button { width: 100%; }
+ .store-admin .admin-product-form .flex.justify-between.items-center { flex-wrap: wrap; gap: 12px; }
+}

@@ -2,106 +2,133 @@ import { NextResponse } from "next/server";
 import { revalidateTag } from "next/cache";
 import { adminDb } from "@/lib/firebase/admin";
 import { requireAdmin } from "@/lib/auth/server";
-import * as z from "zod";
-
-const productSchema = z.object({
-  name: z.string().min(2),
-  slug: z.string().min(2),
-  description: z.string().min(10),
-  categoryId: z.string().min(2),
-  subCategory: z.string().optional(),
-  basePriceMinor: z.number().int().min(0),
-  status: z.enum(["active", "draft", "archived"]),
-  material: z.string().optional(),
-  careInstructions: z.string().optional(),
-  featured: z.boolean().default(false),
-  isComfortSection: z.boolean().default(false),
-  sku: z.string().optional(),
-  stockQuantity: z.number().optional(),
-  brand: z.string().optional(),
-  tags: z.array(z.string()).optional(),
-  sizes: z.array(z.string()).optional(),
-  colors: z.array(z.string()).optional(),
-  colorVariants: z.array(z.object({
-    colorName: z.string(),
-    imagePaths: z.array(z.string())
-  })).optional(),
-  imagePaths: z.array(z.string()).optional(),
-  shippingReturns: z.string().optional(),
-  isNew: z.boolean().default(false),
-  isBestseller: z.boolean().default(false),
-  offerPriceMinor: z.number().int().optional(),
-});
-
+import {
+  adminProductSchema,
+  productVariantOptions,
+  variantKey,
+} from "@/lib/admin/products";
+import { adminError } from "@/lib/admin/errors";
+import { randomUUID } from "crypto";
 export async function PUT(
   request: Request,
-  { params }: { params: { productId: string } }
+  { params }: { params: { productId: string } },
 ) {
   try {
     await requireAdmin();
-
-    if (!adminDb) {
-      return NextResponse.json({ error: "Firebase Admin not configured" }, { status: 500 });
-    }
-
-    const body = await request.json();
-    const validatedData = productSchema.parse(body);
-
-    const docRef = adminDb.collection("products").doc(params.productId);
-    
+    if (!adminDb)
+      return NextResponse.json(
+        { error: "Product service unavailable" },
+        { status: 503 },
+      );
+    const result = adminProductSchema.safeParse(await request.json());
+    if (!result.success)
+      return NextResponse.json(
+        { error: result.error.issues[0].message },
+        { status: 400 },
+      );
+    const product = result.data,
+      options = productVariantOptions(product);
+    const ref = adminDb.collection("products").doc(params.productId);
+    const duplicate = await adminDb
+      .collection("products")
+      .where("slug", "==", product.slug)
+      .get();
+    if (duplicate.docs.some((doc) => doc.id !== params.productId))
+      throw Error("Product slug already exists.");
     await adminDb.runTransaction(async (t) => {
-      const doc = await t.get(docRef);
-      if (!doc.exists) {
-        throw new Error("Product not found");
+      const doc = await t.get(ref);
+      if (!doc.exists) throw Error("Product not found");
+      const existing = await t.get(ref.collection("variants"));
+      const desiredKeys = new Set(options.map(variantKey));
+      for (const v of existing.docs) {
+        if (
+          !desiredKeys.has(
+            variantKey(v.data() as { size: string; color: string }),
+          ) &&
+          (v.data().stockReserved || 0) > 0
+        )
+          throw Error(
+            "A reserved size or color cannot be removed. Complete or cancel its orders first.",
+          );
       }
-      
-      const updateData = {
-        ...validatedData,
-        imagePaths: validatedData.imagePaths || [],
+      const replaceStock =
+        product.stockQuantity !== undefined &&
+        product.stockQuantity !== doc.data()?.stockQuantity;
+      const writes = options.map((option) => {
+        const found = existing.docs.find(
+          (v) =>
+            variantKey(v.data() as { size: string; color: string }) ===
+            variantKey(option),
+        );
+        const current = found?.data();
+        const quantity =
+          found && !replaceStock
+            ? current?.stockAvailable || 0
+            : (product.stockQuantity ?? 0);
+        if (quantity < (current?.stockReserved || 0))
+          throw Error(
+            "Stock cannot be lower than reserved quantities. Adjust inventory after fulfilling orders.",
+          );
+        const variantRef =
+          found?.ref || ref.collection("variants").doc(randomUUID());
+        return {
+          ref: variantRef,
+          data: {
+            ...option,
+            id: variantRef.id,
+            productId: ref.id,
+            stockAvailable: quantity,
+            stockReserved: current?.stockReserved || 0,
+          },
+        };
+      });
+      t.update(ref, {
+        ...product,
+        currency: "INR",
+        imagePaths: product.imagePaths || [],
         updatedAt: new Date(),
-      };
-
-      t.update(docRef, updateData);
+      });
+      for (const write of writes) t.set(write.ref, write.data, { merge: true });
+      for (const old of existing.docs)
+        if (
+          !desiredKeys.has(
+            variantKey(old.data() as { size: string; color: string }),
+          )
+        )
+          t.delete(old.ref);
     });
-
     revalidateTag("catalog");
-    return NextResponse.json({ success: true }, { status: 200 });
-  } catch (error: unknown) {
-    console.error("Error updating product:", error);
-    if (error instanceof z.ZodError) {
-      return NextResponse.json({ error: "Invalid data format" }, { status: 400 });
-    }
-    if (error instanceof Error && error.message === "Product not found") {
-      return NextResponse.json({ error: error.message }, { status: 404 });
-    }
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    return adminError(error);
   }
 }
-
 export async function DELETE(
   request: Request,
-  { params }: { params: { productId: string } }
+  { params }: { params: { productId: string } },
 ) {
   try {
     await requireAdmin();
-
-    if (!adminDb) {
-      return NextResponse.json({ error: "Firebase Admin not configured" }, { status: 500 });
-    }
-
-    const docRef = adminDb.collection("products").doc(params.productId);
-    const doc = await docRef.get();
-    
-    if (!doc.exists) {
-      return NextResponse.json({ error: "Product not found" }, { status: 404 });
-    }
-    
-    await docRef.delete();
+    if (!adminDb)
+      return NextResponse.json(
+        { error: "Product service unavailable" },
+        { status: 503 },
+      );
+    const ref = adminDb.collection("products").doc(params.productId);
+    await adminDb.runTransaction(async (t) => {
+      const doc = await t.get(ref);
+      if (!doc.exists) throw Error("Product not found");
+      const variants = await t.get(ref.collection("variants"));
+      if (variants.docs.some((v) => (v.data().stockReserved || 0) > 0))
+        throw Error(
+          "This product has reserved stock. Archive it instead until its orders are completed.",
+        );
+      for (const v of variants.docs) t.delete(v.ref);
+      t.delete(ref);
+    });
     revalidateTag("catalog");
-
-    return NextResponse.json({ success: true }, { status: 200 });
-  } catch (error: unknown) {
-    console.error("Error deleting product:", error);
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    return adminError(error);
   }
 }

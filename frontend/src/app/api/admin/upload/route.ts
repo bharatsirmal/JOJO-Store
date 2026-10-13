@@ -1,3 +1,4 @@
+import { adminError } from "@/lib/admin/errors";
 import { NextResponse } from "next/server";
 import { v2 as cloudinary } from "cloudinary";
 import { requireAdmin } from "@/lib/auth/server";
@@ -11,14 +12,36 @@ cloudinary.config({
 export async function POST(req: Request) {
   try {
     await requireAdmin();
-    
+
     const formData = await req.formData();
     const files = formData.getAll("file") as File[];
-    
+
     if (!files || files.length === 0) {
-      return NextResponse.json({ error: "No files received." }, { status: 400 });
+      return NextResponse.json(
+        { error: "No files received." },
+        { status: 400 },
+      );
     }
 
+    if (
+      !process.env.CLOUDINARY_API_KEY ||
+      !process.env.CLOUDINARY_API_SECRET ||
+      !process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+    )
+      return NextResponse.json(
+        { error: "Image uploads are not configured." },
+        { status: 503 },
+      );
+    if (
+      files.some(
+        (file) =>
+          !file.type?.startsWith("image/") || file.size > 5 * 1024 * 1024,
+      )
+    )
+      return NextResponse.json(
+        { error: "Choose images smaller than 5MB." },
+        { status: 400 },
+      );
     const uploadPromises = files.map(async (file) => {
       const arrayBuffer = await file.arrayBuffer();
       const buffer = Buffer.from(arrayBuffer);
@@ -29,17 +52,17 @@ export async function POST(req: Request) {
           (error, result) => {
             if (error) reject(error);
             else resolve(result!.secure_url);
-          }
+          },
         );
         uploadStream.end(buffer);
       });
     });
 
     const urls = await Promise.all(uploadPromises);
-    
+
     return NextResponse.json({ urls });
   } catch (error: any) {
     console.error("Upload error:", error);
-    return NextResponse.json({ error: error.message || "Upload failed" }, { status: 500 });
+    return adminError(error);
   }
 }

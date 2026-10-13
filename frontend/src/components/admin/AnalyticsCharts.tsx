@@ -20,7 +20,10 @@ interface AnalyticsChartsProps {
 
 export function AnalyticsCharts({ data }: AnalyticsChartsProps) {
   const formatCurrency = (value: number) =>
-    new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(value);
+    new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+    }).format(value);
 
   return (
     <div className="w-full h-80">
@@ -29,51 +32,64 @@ export function AnalyticsCharts({ data }: AnalyticsChartsProps) {
           data={data}
           margin={{
             top: 20,
-            right: 30,
-            left: 20,
+            right: 0,
+            left: 0,
             bottom: 5,
           }}
         >
-          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
-          <XAxis 
-            dataKey="date" 
-            tickFormatter={(tick) => new Date(tick).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
-            stroke="#888888" 
-            fontSize={12} 
-            tickLine={false} 
-            axisLine={false} 
+          <CartesianGrid
+            strokeDasharray="3 3"
+            vertical={false}
+            stroke="#e5e7eb"
           />
-          <YAxis 
-            yAxisId="left" 
-            tickFormatter={(tick) => `$${tick}`}
-            stroke="#888888" 
-            fontSize={12} 
-            tickLine={false} 
-            axisLine={false} 
+          <XAxis
+            dataKey="date"
+            tickFormatter={(tick) =>
+              new Date(tick).toLocaleDateString(undefined, {
+                month: "short",
+                day: "numeric",
+              })
+            }
+            stroke="#888888"
+            fontSize={12}
+            tickLine={false}
+            axisLine={false}
           />
-          <YAxis 
-            yAxisId="right" 
-            orientation="right" 
-            stroke="#888888" 
-            fontSize={12} 
-            tickLine={false} 
-            axisLine={false} 
+          <YAxis
+            yAxisId="left"
+            tickFormatter={(tick) => `₹${tick}`}
+            stroke="#888888"
+            fontSize={12}
+            tickLine={false}
+            axisLine={false}
           />
-          <Tooltip 
+          <YAxis
+            yAxisId="right"
+            orientation="right"
+            allowDecimals={false}
+            stroke="#888888"
+            fontSize={12}
+            tickLine={false}
+            axisLine={false}
+          />
+          <Tooltip
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             formatter={(value: any, name: any) => {
-              if (name === "Revenue") return [formatCurrency(Number(value) || 0), name];
+              if (name === "Revenue")
+                return [formatCurrency(Number(value) || 0), name];
               return [value, name];
             }}
-            labelFormatter={(label: unknown) => new Date(String(label)).toLocaleDateString()}
-            contentStyle={{ borderRadius: '8px', border: '1px solid #e5e7eb' }}
+            labelFormatter={(label: unknown) =>
+              new Date(String(label)).toLocaleDateString()
+            }
+            contentStyle={{ borderRadius: "12px", border: "1px solid #e5e7eb" }}
           />
           <Line
             yAxisId="left"
             type="monotone"
             dataKey="revenue"
             name="Revenue"
-            stroke="#0f172a"
+            stroke="#7965ed"
             strokeWidth={3}
             activeDot={{ r: 8 }}
           />
@@ -82,7 +98,7 @@ export function AnalyticsCharts({ data }: AnalyticsChartsProps) {
             type="monotone"
             dataKey="orders"
             name="Orders"
-            stroke="#64748b"
+            stroke="#c295df"
             strokeWidth={3}
           />
         </LineChart>

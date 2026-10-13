@@ -46,10 +46,10 @@ describe("Redesigned navigation and cart", () => {
   it("preserves cart quantity and subtotal while supporting Escape", async () => {
     useCartStore.setState({ isDrawerOpen: true, items: [{ productId: "test", variantId: "medium", productName: "Test Hoodie", priceMinor: 5000, quantity: 1 }] });
     render(<CartDrawer />);
-    expect(screen.getAllByText("$50.00", { selector: "span" })).toHaveLength(2);
+    expect(screen.getAllByText("₹50.00", { selector: "span" })).toHaveLength(2);
     fireEvent.click(screen.getByRole("button", { name: "Increase quantity" }));
     expect(useCartStore.getState().items[0].quantity).toBe(2);
-    expect(screen.getByText("$100.00")).toBeDefined();
+    expect(screen.getByText("₹100.00")).toBeDefined();
     fireEvent.click(screen.getByRole("button", { name: "Decrease quantity" }));
     expect(useCartStore.getState().items[0].quantity).toBe(1);
     fireEvent.keyDown(document, { key: "Escape" });

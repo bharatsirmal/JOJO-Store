@@ -21,11 +21,11 @@ vi.mock("@/lib/firebase/admin", () => ({
 
 import { POST } from "../src/app/api/auth/session/route";
 
-function signInRequest() {
+function signInRequest(rememberMe?: boolean) {
   return new Request("https://store.example/api/auth/session", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ idToken: "verified-token" }),
+    body: JSON.stringify({ idToken: "verified-token", rememberMe }),
   });
 }
 
@@ -61,6 +61,17 @@ describe("Sign-in session", () => {
     const response = await POST(signInRequest());
     expect(await response.json()).toEqual({ success: true, role: "admin" });
     expect(mocks.set).not.toHaveBeenCalled();
+  });
+
+  it("uses a browser-session cookie when Remember me is unchecked", async () => {
+    await POST(signInRequest(false));
+    expect(mocks.cookieSet.mock.calls[0][2]).not.toHaveProperty("maxAge");
+    expect(mocks.cookieSet.mock.calls[0][2]).toMatchObject({ httpOnly: true, sameSite: "lax" });
+  });
+
+  it("uses a persistent cookie when Remember me is checked", async () => {
+    await POST(signInRequest(true));
+    expect(mocks.cookieSet.mock.calls[0][2]).toHaveProperty("maxAge", 5 * 24 * 60 * 60);
   });
 
   it("retains a verified privileged claim when recovering a missing profile", async () => {

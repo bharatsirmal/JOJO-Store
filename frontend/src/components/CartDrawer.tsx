@@ -112,7 +112,7 @@ export function CartDrawer() {
                           <div>
                             <div className="flex justify-between items-start">
                               <h3 className="font-medium line-clamp-1">{item.productName}</h3>
-                              <span className="font-semibold ml-2">${((item.priceMinor || 0) / 100).toFixed(2)}</span>
+                              <span className="font-semibold ml-2">₹{((item.priceMinor || 0) / 100).toFixed(2)}</span>
                             </div>
                             <p className="text-sm text-muted-foreground">
                               {item.size && `Size: ${item.size}`} {item.color && `| Color: ${item.color}`}
@@ -156,7 +156,7 @@ export function CartDrawer() {
               <div className="border-t p-4 bg-muted/20 space-y-4">
                 <div className="flex justify-between text-base font-medium">
                   <span>Subtotal</span>
-                  <span>${(subtotal / 100).toFixed(2)}</span>
+                  <span>₹{(subtotal / 100).toFixed(2)}</span>
                 </div>
                 <p className="text-xs text-muted-foreground">
                   Shipping and taxes calculated at checkout.
@@ -173,3 +173,4 @@ export function CartDrawer() {
     </AnimatePresence>
   );
 }
+
