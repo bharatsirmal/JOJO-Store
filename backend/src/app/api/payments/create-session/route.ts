@@ -11,14 +11,17 @@ export async function POST(req: NextRequest) {
     }
 
     if (!adminAuth || !adminDb) {
-      return NextResponse.json({ error: "Firebase Admin is not configured" }, { status: 500 });
+      return NextResponse.json(
+        { error: "Firebase Admin is not configured" },
+        { status: 500 },
+      );
     }
 
     const decoded = await adminAuth.verifySessionCookie(sessionCookie, true);
-    
+
     const body = await req.json();
     const { orderId } = body;
-    
+
     if (!orderId) {
       return NextResponse.json({ error: "Missing order ID" }, { status: 400 });
     }
@@ -37,32 +40,46 @@ export async function POST(req: NextRequest) {
     }
 
     if (order.status !== "pending_payment") {
-      return NextResponse.json({ error: `Order is not eligible for payment (Current status: ${order.status})` }, { status: 400 });
+      return NextResponse.json(
+        {
+          error: `Order is not eligible for payment (Current status: ${order.status})`,
+        },
+        { status: 400 },
+      );
     }
-    
-    if (order.reservationExpiresAt && new Date(order.reservationExpiresAt) < new Date()) {
+
+    if (
+      order.reservationExpiresAt &&
+      new Date(order.reservationExpiresAt) < new Date()
+    ) {
       // Note: A real system would attempt to reclaim/validate stock here if expired,
       // but to be safe we'll reject it to prevent a payment for out-of-stock items.
-      return NextResponse.json({ error: "Order reservation expired. Please restart checkout." }, { status: 400 });
+      return NextResponse.json(
+        { error: "Order reservation expired. Please restart checkout." },
+        { status: 400 },
+      );
     }
 
     // 3. Generate Stripe Payment Intent (Idempotent per order)
     // We use `intent_${order.id}` as the idempotency key so multiple clicks don't create multiple intents
     const intentIdempotencyKey = `intent_${order.id}`;
     let paymentIntent;
-    
+
     try {
       paymentIntent = await createPaymentIntent(order, intentIdempotencyKey);
     } catch (stripeErr: unknown) {
       console.error("Stripe error:", stripeErr);
-      return NextResponse.json({ error: "Payment gateway unavailable" }, { status: 503 });
+      return NextResponse.json(
+        { error: "Payment gateway unavailable" },
+        { status: 503 },
+      );
     }
 
     // 4. Create internal payment tracking record
     const paymentId = paymentIntent.id;
     const paymentRef = adminDb.collection("payments").doc(paymentId);
-    
-    // We don't use runTransaction here because we ALREADY called an external API (Stripe) 
+
+    // We don't use runTransaction here because we ALREADY called an external API (Stripe)
     // which violates Firestore retriable transaction rules. So we just set it.
     const now = new Date().toISOString();
     const paymentRecord: PaymentRecord = {
@@ -83,11 +100,13 @@ export async function POST(req: NextRequest) {
     // 5. Return Client Secret to frontend
     return NextResponse.json({
       clientSecret: paymentIntent.client_secret,
-      paymentId: paymentIntent.id
+      paymentId: paymentIntent.id,
     });
-
   } catch (error: unknown) {
     console.error("Session creation failed:", error);
-    return NextResponse.json({ error: (error as Error).message || "Internal Server Error" }, { status: 500 });
+    return NextResponse.json(
+      { error: (error as Error).message || "Internal Server Error" },
+      { status: 500 },
+    );
   }
 }

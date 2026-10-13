@@ -17,7 +17,10 @@ export const stripe = process.env.STRIPE_SECRET_KEY
     })
   : null;
 
-export async function createPaymentIntent(order: Order, idempotencyKey: string) {
+export async function createPaymentIntent(
+  order: Order,
+  idempotencyKey: string,
+) {
   if (!stripe) {
     throw new Error("Stripe is not configured in this environment.");
   }
@@ -39,7 +42,7 @@ export async function createPaymentIntent(order: Order, idempotencyKey: string) 
     },
     {
       idempotencyKey,
-    }
+    },
   );
 
   return paymentIntent;

@@ -6,11 +6,17 @@ export async function getCurrentUser() {
   if (!sessionCookie || !adminAuth || !adminDb) return null;
 
   try {
-    const decodedClaims = await adminAuth.verifySessionCookie(sessionCookie, true);
-    const userDoc = await adminDb.collection("users").doc(decodedClaims.uid).get();
-    
+    const decodedClaims = await adminAuth.verifySessionCookie(
+      sessionCookie,
+      true,
+    );
+    const userDoc = await adminDb
+      .collection("users")
+      .doc(decodedClaims.uid)
+      .get();
+
     if (!userDoc.exists) return null;
-    
+
     const data = userDoc.data();
     return {
       uid: decodedClaims.uid,
@@ -19,7 +25,12 @@ export async function getCurrentUser() {
       displayName: data?.displayName || "",
       photoURL: data?.photoURL || "",
       phoneNumber: data?.phoneNumber || "",
-      createdAt: typeof data?.createdAt === "string" ? data.createdAt : (data?.createdAt?.toDate ? data.createdAt.toDate().toISOString() : new Date().toISOString()),
+      createdAt:
+        typeof data?.createdAt === "string"
+          ? data.createdAt
+          : data?.createdAt?.toDate
+            ? data.createdAt.toDate().toISOString()
+            : new Date().toISOString(),
       emailVerified: decodedClaims.email_verified,
     };
   } catch (error) {
@@ -38,4 +49,3 @@ export async function requireAdmin() {
   }
   return user;
 }
-

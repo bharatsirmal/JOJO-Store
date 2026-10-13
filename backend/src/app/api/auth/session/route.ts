@@ -14,15 +14,21 @@ export async function POST(request: Request) {
     }
 
     if (!adminAuth || !adminDb) {
-      return NextResponse.json({ error: "Server authentication unavailable" }, { status: 503 });
+      return NextResponse.json(
+        { error: "Server authentication unavailable" },
+        { status: 503 },
+      );
     }
 
     // Verify the token
     const decodedToken = await adminAuth.verifyIdToken(idToken);
-    
+
     // Check session creation conditions (e.g., token recently generated)
     if (new Date().getTime() / 1000 - decodedToken.auth_time > 5 * 60) {
-      return NextResponse.json({ error: "Recent sign-in required" }, { status: 401 });
+      return NextResponse.json(
+        { error: "Recent sign-in required" },
+        { status: 401 },
+      );
     }
 
     // Create session cookie
@@ -39,9 +45,11 @@ export async function POST(request: Request) {
         return userDoc.data()?.role || "customer";
       }
 
-      const role = decodedToken.role === "admin" || decodedToken.role === "delivery_partner"
-        ? decodedToken.role
-        : "customer";
+      const role =
+        decodedToken.role === "admin" ||
+        decodedToken.role === "delivery_partner"
+          ? decodedToken.role
+          : "customer";
       transaction.set(userRef, {
         uid: decodedToken.uid,
         email: decodedToken.email || "",
@@ -62,8 +70,10 @@ export async function POST(request: Request) {
       sameSite: "lax",
     });
 
-    return NextResponse.json({ success: true, role: userRole }, { status: 200 });
-
+    return NextResponse.json(
+      { success: true, role: userRole },
+      { status: 200 },
+    );
   } catch (error) {
     console.error("Session creation error:", error);
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

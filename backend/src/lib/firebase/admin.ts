@@ -1,11 +1,13 @@
-import { getApps, initializeApp, cert, getApp } from 'firebase-admin/app';
-import { getFirestore } from 'firebase-admin/firestore';
-import { getAuth } from 'firebase-admin/auth';
-import { getStorage } from 'firebase-admin/storage';
+import { getApps, initializeApp, cert, getApp } from "firebase-admin/app";
+import { getFirestore } from "firebase-admin/firestore";
+import { getAuth } from "firebase-admin/auth";
+import { getStorage } from "firebase-admin/storage";
 
-const projectId = process.env.FIREBASE_PROJECT_ID || process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
+const projectId =
+  process.env.FIREBASE_PROJECT_ID ||
+  process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
 const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
-const privateKey = process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n');
+const privateKey = process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n");
 
 const isConfigured = !!projectId && !!clientEmail && !!privateKey;
 
@@ -17,11 +19,16 @@ if (getApps().length === 0 && isConfigured) {
         clientEmail,
         privateKey,
       }),
-      storageBucket: process.env.FIREBASE_STORAGE_BUCKET || process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+      storageBucket:
+        process.env.FIREBASE_STORAGE_BUCKET ||
+        process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
     });
     console.log("Firebase Admin successfully initialized on Vercel.");
   } catch (error) {
-    console.error("FATAL: Firebase Admin initialization failed! Your FIREBASE_PRIVATE_KEY is likely malformed in Vercel Environment Variables.", error);
+    console.error(
+      "FATAL: Firebase Admin initialization failed! Your FIREBASE_PRIVATE_KEY is likely malformed in Vercel Environment Variables.",
+      error,
+    );
   }
 }
 

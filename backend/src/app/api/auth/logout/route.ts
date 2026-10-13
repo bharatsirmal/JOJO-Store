@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export async function POST() {
   try {
     const sessionCookie = cookies().get("__session")?.value;
-    
+
     if (sessionCookie && adminAuth) {
       // Optional: Verify cookie and revoke all tokens for the user
       // Note: This forcefully logs the user out of all sessions.

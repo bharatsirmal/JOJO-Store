@@ -36,12 +36,14 @@ export interface CancellationResult {
 
 export interface CourierProvider {
   name: string;
-  
-  checkServiceability(input: ServiceabilityInput): Promise<ServiceabilityResult>;
-  
+
+  checkServiceability(
+    input: ServiceabilityInput,
+  ): Promise<ServiceabilityResult>;
+
   createShipment(input: ShipmentInput): Promise<ShipmentResult>;
-  
+
   getTracking(reference: string): Promise<TrackingResult>;
-  
+
   cancelShipment?(reference: string): Promise<CancellationResult>;
 }

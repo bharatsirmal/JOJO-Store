@@ -1,5 +1,36 @@
-import {NextResponse} from "next/server";
-import {adminAuth,adminDb} from "@/lib/firebase/admin";
-import {requireAdmin} from "@/lib/auth/server";
-import {adminError} from "@/lib/admin/errors";
-export async function POST(request:Request){try{await requireAdmin();if(!adminAuth||!adminDb)return NextResponse.json({error:"Delivery approval unavailable"},{status:503});const {targetUid}=await request.json();if(typeof targetUid!=="string"||!targetUid)throw Error("Choose a delivery applicant.");const ref=adminDb.collection("users").doc(targetUid),doc=await ref.get();if(!doc.exists)throw Error("User not found");if(doc.data()?.role==="delivery_partner")return NextResponse.json({success:true});if(doc.data()?.role!=="delivery_pending")throw Error("Only pending delivery applicants can be approved.");const user=await adminAuth.getUser(targetUid);await adminAuth.setCustomUserClaims(targetUid,{...user.customClaims,role:"delivery_partner"});await ref.update({role:"delivery_partner",updatedAt:new Date().toISOString()});return NextResponse.json({success:true});}catch(error){return adminError(error)}}
+import { NextResponse } from "next/server";
+import { adminAuth, adminDb } from "@/lib/firebase/admin";
+import { requireAdmin } from "@/lib/auth/server";
+import { adminError } from "@/lib/admin/errors";
+export async function POST(request: Request) {
+  try {
+    await requireAdmin();
+    if (!adminAuth || !adminDb)
+      return NextResponse.json(
+        { error: "Delivery approval unavailable" },
+        { status: 503 },
+      );
+    const { targetUid } = await request.json();
+    if (typeof targetUid !== "string" || !targetUid)
+      throw Error("Choose a delivery applicant.");
+    const ref = adminDb.collection("users").doc(targetUid),
+      doc = await ref.get();
+    if (!doc.exists) throw Error("User not found");
+    if (doc.data()?.role === "delivery_partner")
+      return NextResponse.json({ success: true });
+    if (doc.data()?.role !== "delivery_pending")
+      throw Error("Only pending delivery applicants can be approved.");
+    const user = await adminAuth.getUser(targetUid);
+    await adminAuth.setCustomUserClaims(targetUid, {
+      ...user.customClaims,
+      role: "delivery_partner",
+    });
+    await ref.update({
+      role: "delivery_partner",
+      updatedAt: new Date().toISOString(),
+    });
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    return adminError(error);
+  }
+}

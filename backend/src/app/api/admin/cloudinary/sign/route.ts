@@ -4,7 +4,9 @@ import { v2 as cloudinary } from "cloudinary";
 
 // Configure Cloudinary backend SDK using the environment variables
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME || process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+  cloud_name:
+    process.env.CLOUDINARY_CLOUD_NAME ||
+    process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
   secure: true,
@@ -26,7 +28,7 @@ export async function POST(request: Request) {
         timestamp,
         folder,
       },
-      process.env.CLOUDINARY_API_SECRET!
+      process.env.CLOUDINARY_API_SECRET!,
     );
 
     return NextResponse.json({
@@ -34,10 +36,15 @@ export async function POST(request: Request) {
       signature,
       folder,
       apiKey: process.env.CLOUDINARY_API_KEY,
-      cloudName: process.env.CLOUDINARY_CLOUD_NAME || process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+      cloudName:
+        process.env.CLOUDINARY_CLOUD_NAME ||
+        process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
     });
   } catch (error: unknown) {
     console.error("Cloudinary sign error:", error);
-    return NextResponse.json({ error: "Unauthorized or server error" }, { status: 401 });
+    return NextResponse.json(
+      { error: "Unauthorized or server error" },
+      { status: 401 },
+    );
   }
 }

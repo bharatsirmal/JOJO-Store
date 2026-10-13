@@ -1,4 +1,4 @@
-export type UserRole = 'customer' | 'admin' | 'delivery_partner';
+export type UserRole = "customer" | "admin" | "delivery_partner";
 
 export interface UserProfile {
   uid: string;
@@ -7,27 +7,52 @@ export interface UserProfile {
   createdAt: string;
 }
 
-export interface CartItem { productId: string; variantId: string; quantity: number; addedAt?: string; productName?: string; size?: string; color?: string; imagePath?: string; priceMinor?: number; }
+export interface CartItem {
+  productId: string;
+  variantId: string;
+  quantity: number;
+  addedAt?: string;
+  productName?: string;
+  size?: string;
+  color?: string;
+  imagePath?: string;
+  priceMinor?: number;
+}
 
-export interface Order { id: string; customerId: string; items: OrderItem[]; shippingAddress: ShippingAddress; subtotalMinor: number; discountMinor: number; shippingMinor: number; taxMinor: number; totalMinor: number; currency: string; status: OrderStatus; reservationExpiresAt?: string; createdAt: string; updatedAt: string; }
+export interface Order {
+  id: string;
+  customerId: string;
+  items: OrderItem[];
+  shippingAddress: ShippingAddress;
+  subtotalMinor: number;
+  discountMinor: number;
+  shippingMinor: number;
+  taxMinor: number;
+  totalMinor: number;
+  currency: string;
+  status: OrderStatus;
+  reservationExpiresAt?: string;
+  createdAt: string;
+  updatedAt: string;
+}
 
-export type ShipmentStatus = 
-  | 'fulfillment_pending'
-  | 'packing'
-  | 'ready_for_shipping'
-  | 'booking_pending'
-  | 'booked'
-  | 'pickup_scheduled'
-  | 'picked_up'
-  | 'in_transit'
-  | 'out_for_delivery'
-  | 'delivered'
-  | 'delivery_failed'
-  | 'return_initiated'
-  | 'returning'
-  | 'returned'
-  | 'cancelled'
-  | 'exception';
+export type ShipmentStatus =
+  | "fulfillment_pending"
+  | "packing"
+  | "ready_for_shipping"
+  | "booking_pending"
+  | "booked"
+  | "pickup_scheduled"
+  | "picked_up"
+  | "in_transit"
+  | "out_for_delivery"
+  | "delivered"
+  | "delivery_failed"
+  | "return_initiated"
+  | "returning"
+  | "returned"
+  | "cancelled"
+  | "exception";
 
 export interface TrackingEvent {
   id: string;
@@ -59,7 +84,7 @@ export interface DeliveryAssignment {
   id: string;
   shipmentId: string;
   deliveryPartnerId: string;
-  status: 'assigned' | 'accepted' | 'rejected' | 'completed' | 'revoked';
+  status: "assigned" | "accepted" | "rejected" | "completed" | "revoked";
   assignedAt: string;
   updatedAt: string;
 }
@@ -102,7 +127,6 @@ export interface ProductVariant {
   stockAvailable: number;
   stockReserved: number;
 }
-
 
 export interface ShippingAddress {
   id?: string;
@@ -148,9 +172,6 @@ export interface CheckoutQuote {
   expiresAt: string;
 }
 
-
-
-
 export type PaymentStatus =
   | "created"
   | "pending"
@@ -184,4 +205,3 @@ export interface RefundRecord {
   status: "pending" | "succeeded" | "failed";
   createdAt: string;
 }
-

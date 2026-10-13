@@ -17,14 +17,16 @@ export async function POST(req: Request) {
     });
 
     // 2. Set custom claim for delivery_pending (Requires Admin approval to become delivery_partner)
-    await adminAuth!.setCustomUserClaims(userRecord.uid, { role: "delivery_pending" });
+    await adminAuth!.setCustomUserClaims(userRecord.uid, {
+      role: "delivery_pending",
+    });
 
     // 3. Save to Firestore users collection
     await adminDb!.collection("users").doc(userRecord.uid).set({
       email: userRecord.email,
       role: "delivery_pending",
       createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
+      updatedAt: new Date().toISOString(),
     });
 
     return NextResponse.json({ success: true, uid: userRecord.uid });
@@ -33,4 +35,3 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
-

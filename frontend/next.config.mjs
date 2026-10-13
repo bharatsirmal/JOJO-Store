@@ -1,8 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async rewrites() {
-    const backend = process.env.NEXT_PUBLIC_BACKEND_URL || (process.env.NODE_ENV === "production" ? "https://jojo-store-backend.vercel.app" : "http://localhost:4000");
-    return { beforeFiles: [{ source: "/api/:path*", destination: `${backend}/api/:path*` }], afterFiles: [], fallback: [] };
+    const backend =
+      process.env.NEXT_PUBLIC_BACKEND_URL ||
+      (process.env.NODE_ENV === "production"
+        ? "https://jojo-store-backend.vercel.app"
+        : "http://localhost:4000");
+    return {
+      beforeFiles: [
+        { source: "/api/:path*", destination: `${backend}/api/:path*` },
+      ],
+      afterFiles: [],
+      fallback: [],
+    };
   },
   typescript: {
     ignoreBuildErrors: false,
@@ -20,7 +30,7 @@ const nextConfig = {
           {
             key: "Cross-Origin-Embedder-Policy",
             value: "unsafe-none",
-          }
+          },
         ],
       },
     ];
@@ -28,9 +38,9 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'res.cloudinary.com',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "/**",
       },
     ],
   },

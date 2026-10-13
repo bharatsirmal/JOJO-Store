@@ -15,7 +15,7 @@ export async function POST(req: Request) {
     // Check if user already has a role in Firestore
     const userDoc = await adminDb!.collection("users").doc(uid).get();
     let currentRole = "customer";
-    
+
     if (userDoc.exists) {
       currentRole = userDoc.data()?.role || "customer";
     }
@@ -24,14 +24,22 @@ export async function POST(req: Request) {
     // Do not downgrade them if they are already an admin or delivery_partner
     if (currentRole === "customer" || !userDoc.exists) {
       await adminAuth!.setCustomUserClaims(uid, { role: "delivery_pending" });
-      
-      await adminDb!.collection("users").doc(uid).set({
-        email: decodedToken.email || "",
-        displayName: decodedToken.name || "",
-        role: "delivery_pending",
-        createdAt: userDoc.exists ? userDoc.data()?.createdAt : new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-      }, { merge: true });
+
+      await adminDb!
+        .collection("users")
+        .doc(uid)
+        .set(
+          {
+            email: decodedToken.email || "",
+            displayName: decodedToken.name || "",
+            role: "delivery_pending",
+            createdAt: userDoc.exists
+              ? userDoc.data()?.createdAt
+              : new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+          },
+          { merge: true },
+        );
     }
 
     return NextResponse.json({ success: true });
@@ -40,4 +48,3 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
-
