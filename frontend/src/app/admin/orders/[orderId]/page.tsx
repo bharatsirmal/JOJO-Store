@@ -1,6 +1,6 @@
 import { adminDate } from "@/lib/admin/metrics";
 import { requireAdmin } from "@/lib/auth/server";
-import { adminDb } from "@/lib/firebase/admin";
+import { adminDb } from "@/lib/backend/db";
 import { Order } from "@/types";
 import { notFound } from "next/navigation";
 const formatPrice = (minor: number) =>

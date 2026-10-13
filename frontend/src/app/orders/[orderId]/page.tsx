@@ -1,5 +1,5 @@
 import { getCurrentUser } from "@/lib/auth/server";
-import { adminDb } from "@/lib/firebase/admin";
+import { adminDb } from "@/lib/backend/db";
 import { notFound, redirect } from "next/navigation";
 import { Order } from "@/types";
 import { CheckCircle2, Package, MapPin, Truck } from "lucide-react";

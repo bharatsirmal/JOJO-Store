@@ -1,32 +1,20 @@
 import { cookies } from "next/headers";
-import { adminAuth, adminDb } from "@/lib/firebase/admin";
+import { backendRequest } from "@/lib/backend/request";
+import { cache } from "react";
 
-export async function getCurrentUser() {
+type SessionUser = {uid:string;email?:string;role:string;displayName:string;photoURL:string;phoneNumber:string;createdAt:string;emailVerified?:boolean};
+
+export const getCurrentUser = cache(async ():Promise<SessionUser|null> => {
   const sessionCookie = cookies().get("__session")?.value;
-  if (!sessionCookie || !adminAuth || !adminDb) return null;
+  if (!sessionCookie) return null;
 
   try {
-    const decodedClaims = await adminAuth.verifySessionCookie(sessionCookie, true);
-    const userDoc = await adminDb.collection("users").doc(decodedClaims.uid).get();
-    
-    if (!userDoc.exists) return null;
-    
-    const data = userDoc.data();
-    return {
-      uid: decodedClaims.uid,
-      email: decodedClaims.email,
-      role: data?.role || "customer",
-      displayName: data?.displayName || "",
-      photoURL: data?.photoURL || "",
-      phoneNumber: data?.phoneNumber || "",
-      createdAt: typeof data?.createdAt === "string" ? data.createdAt : (data?.createdAt?.toDate ? data.createdAt.toDate().toISOString() : new Date().toISOString()),
-      emailVerified: decodedClaims.email_verified,
-    };
+    return await backendRequest<SessionUser>("/api/auth/profile");
   } catch (error) {
     console.error("Error verifying session cookie:", error);
     return null;
   }
-}
+});
 
 export async function requireAdmin() {
   const user = await getCurrentUser();

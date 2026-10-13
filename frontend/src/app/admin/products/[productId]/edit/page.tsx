@@ -1,4 +1,4 @@
-import { adminDb } from "@/lib/firebase/admin";
+import { adminDb } from "@/lib/backend/db";
 import { requireAdmin } from "@/lib/auth/server";
 import { ProductForm } from "@/components/admin/ProductForm";
 import { notFound } from "next/navigation";

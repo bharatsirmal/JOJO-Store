@@ -1,4 +1,4 @@
-import { adminDb } from "@/lib/firebase/admin";
+import { adminDb } from "@/lib/backend/db";
 import { requireAdmin } from "@/lib/auth/server";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { adminDb } from "@/lib/firebase/admin";
+import { adminDb } from "@/lib/backend/db";
 import { requireAdmin } from "@/lib/auth/server";
 export default async function AdminCategoriesPage({
   searchParams,

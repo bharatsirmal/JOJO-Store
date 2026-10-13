@@ -1,4 +1,4 @@
-import { adminDb } from "@/lib/firebase/admin";
+import { adminDb } from "@/lib/backend/db";
 import { getCurrentUser } from "@/lib/auth/server";
 import { TrackingClient } from "@/components/TrackingClient";
 import { Shipment, Order } from "@/types";

@@ -1,4 +1,4 @@
-import { adminDb } from "@/lib/firebase/admin";
+import { adminDb } from "@/lib/backend/db";
 import { requireAdmin } from "@/lib/auth/server";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { salesMetrics } from "@/lib/admin/metrics";

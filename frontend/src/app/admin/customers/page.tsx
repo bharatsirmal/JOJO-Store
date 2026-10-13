@@ -1,4 +1,4 @@
-import { adminDb } from "@/lib/firebase/admin";
+import { adminDb } from "@/lib/backend/db";
 import { requireAdmin } from "@/lib/auth/server";
 import { Users, Mail, Shield, User, Search, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";

@@ -1,31 +1,17 @@
-"use server";
+"use client";
 
-import { adminDb } from "@/lib/firebase/admin";
-import { FieldValue } from "firebase-admin/firestore";
-import "server-only";
+import { auth } from "@/lib/firebase/client";
 
 export async function createCustomerProfile(uid: string, email: string, displayName: string) {
-  if (!adminDb) {
-    console.warn("Firebase Admin DB not initialized. Skipping profile creation.");
+  if (!auth?.currentUser || auth.currentUser.uid !== uid) {
     return { success: false, error: "Firebase configuration unavailable" };
   }
 
   try {
-    const userRef = adminDb.collection("users").doc(uid);
-    const userDoc = await userRef.get();
-
-    // Idempotent creation
-    if (!userDoc.exists) {
-      await userRef.set({
-        uid,
-        email,
-        displayName,
-        role: "customer",
-        createdAt: FieldValue.serverTimestamp(),
-        updatedAt: FieldValue.serverTimestamp(),
-      });
-    }
-    return { success: true };
+    const idToken=await auth.currentUser.getIdToken();
+    const response=await fetch("/api/auth/register-profile",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({idToken,displayName})});
+    const result=await response.json();
+    return response.ok?{success:true}:{success:false,error:result.error||"Profile creation failed"};
   } catch (error) {
     console.error("Error creating customer profile:", error);
     return { success: false, error: "Profile creation failed" };

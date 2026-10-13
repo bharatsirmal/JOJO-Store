@@ -1,4 +1,4 @@
-import { adminDb } from "@/lib/firebase/admin";
+import { publicDb as adminDb } from "@/lib/backend/db";
 import { CatalogProduct, ProductVariant } from "@/types";
 import { unstable_cache } from "next/cache";
 
@@ -27,7 +27,7 @@ export async function getPublishedProducts(options?: CatalogOptions): Promise<Ca
 const getCachedPublishedProducts = unstable_cache(async (options?: CatalogOptions): Promise<CatalogProduct[]> => {
   if (!adminDb) throw new Error("Firebase Admin not configured");
 
-    let query: FirebaseFirestore.Query = adminDb.collection("products").where("status", "==", "active");
+    let query = adminDb.collection("products").where("status", "==", "active");
 
     if (options?.categoryId) {
       query = query.where("categoryId", "==", options.categoryId);
@@ -60,8 +60,8 @@ const getCachedPublishedProducts = unstable_cache(async (options?: CatalogOption
         isNew: !!data.isNew,
         isBestseller: !!data.isBestseller,
         offerPriceMinor: data.offerPriceMinor,
-        createdAt: data.createdAt?.toDate?.()?.toISOString() || new Date().toISOString(),
-        updatedAt: data.updatedAt?.toDate?.()?.toISOString() || new Date().toISOString(),
+        createdAt: data.createdAt || new Date().toISOString(),
+        updatedAt: data.updatedAt || new Date().toISOString(),
       } as CatalogProduct;
     });
 
@@ -108,8 +108,8 @@ export async function getProductBySlug(slug: string): Promise<{ product: Catalog
       isNew: !!data.isNew,
       isBestseller: !!data.isBestseller,
       offerPriceMinor: data.offerPriceMinor,
-      createdAt: data.createdAt?.toDate?.()?.toISOString() || new Date().toISOString(),
-      updatedAt: data.updatedAt?.toDate?.()?.toISOString() || new Date().toISOString(),
+      createdAt: data.createdAt || new Date().toISOString(),
+      updatedAt: data.updatedAt || new Date().toISOString(),
     };
 
     const variantsSnapshot = await adminDb.collection(`products/${doc.id}/variants`).get();

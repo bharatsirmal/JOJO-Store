@@ -1,6 +1,6 @@
 import { adminDate } from "@/lib/admin/metrics";
 import { requireAdmin } from "@/lib/auth/server";
-import { adminDb, adminAuth } from "@/lib/firebase/admin";
+import { adminDb, adminAuth } from "@/lib/backend/db";
 import { notFound } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";

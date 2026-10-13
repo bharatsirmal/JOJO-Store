@@ -1,5 +1,5 @@
 import { getCurrentUser } from "@/lib/auth/server";
-import { adminDb } from "@/lib/firebase/admin";
+import { adminDb } from "@/lib/backend/db";
 import { notFound, redirect } from "next/navigation";
 import { Order } from "@/types";
 import { PaymentClient } from "./PaymentClient";
@@ -23,7 +23,7 @@ export default async function PaymentPage({ params }: { params: { orderId: strin
     notFound();
   }
 
-  const order = orderDoc.data() as Order;
+  const order = { ...orderDoc.data(), id: orderDoc.id } as Order;
   if (order.customerId !== user.uid) {
     return (
       <div className="container mx-auto px-4 py-16 text-center">

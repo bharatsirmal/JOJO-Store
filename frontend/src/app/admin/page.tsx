@@ -1,5 +1,5 @@
 import { DashboardOverview } from "@/components/admin/DashboardOverview";
-import { adminDb } from "@/lib/firebase/admin";
+import { adminDb } from "@/lib/backend/db";
 import { requireAdmin } from "@/lib/auth/server";
 import { salesMetrics, adminDate } from "@/lib/admin/metrics";
 export default async function AdminDashboard() {
