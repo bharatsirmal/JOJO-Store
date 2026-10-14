@@ -18,7 +18,7 @@ export function HomeClient({ featuredProducts }: { featuredProducts: CatalogProd
     <div>
 
       {/* New Arrivals Section (Moved up!) */}
-      <section className="store-section featured-section">
+      <section id="new-arrivals" className="store-section featured-section scroll-mt-20">
         <div className="section-heading">
           <div><p className="eyebrow">LATEST DROPS</p><h2>New Arrivals.</h2></div>
           <Link href="/products" className="text-link">Shop All <ArrowRight size={17} /></Link>
