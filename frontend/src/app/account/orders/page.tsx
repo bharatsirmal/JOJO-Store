@@ -1,8 +1,9 @@
-export default function Page() {
-  return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Orders (Phase 1 Placeholder)</h1>
-      <p className="text-muted-foreground">This feature is scheduled for a future phase.</p>
-    </div>
-  );
+import { getCurrentUser } from "@/lib/auth/server";
+import { redirect } from "next/navigation";
+import { MyOrders } from "@/components/MyOrders";
+export const dynamic = "force-dynamic";
+export const metadata = { title: "My Orders | JOJO Store" };
+export default async function OrdersPage() {
+  if (!(await getCurrentUser())) redirect("/login");
+  return <MyOrders />;
 }

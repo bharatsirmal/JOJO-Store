@@ -25,6 +25,10 @@ export async function createPaymentIntent(
     throw new Error("Stripe is not configured in this environment.");
   }
 
+  if (order.paymentIntentId) {
+    return stripe.paymentIntents.retrieve(order.paymentIntentId);
+  }
+
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create(
     {

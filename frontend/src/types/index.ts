@@ -9,7 +9,7 @@ export interface UserProfile {
 
 export interface CartItem { productId: string; variantId: string; quantity: number; addedAt?: string; productName?: string; size?: string; color?: string; imagePath?: string; priceMinor?: number; }
 
-export interface Order { id: string; customerId: string; items: OrderItem[]; shippingAddress: ShippingAddress; subtotalMinor: number; discountMinor: number; shippingMinor: number; taxMinor: number; totalMinor: number; currency: string; status: OrderStatus; reservationExpiresAt?: string; createdAt: string; updatedAt: string; }
+export interface Order { id: string; customerId: string; items: OrderItem[]; shippingAddress: ShippingAddress; subtotalMinor: number; discountMinor: number; shippingMinor: number; taxMinor: number; totalMinor: number; currency: string; status: OrderStatus; reservationExpiresAt?: string; paymentIntentId?: string; inventoryFinalizedAt?: string; paymentReviewRequired?: boolean; paymentReviewReason?: string; createdAt: string; updatedAt: string; }
 
 export type ShipmentStatus = 
   | 'fulfillment_pending'

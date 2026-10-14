@@ -81,6 +81,7 @@ export default async function AdminOrderDetailPage({
         </div>
       </div>
 
+      {order.paymentReviewRequired && <div role="alert" className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-amber-900"><strong>Payment requires review.</strong> {order.paymentReviewReason} Check the payment in Stripe before refunding or fulfilling this order.</div>}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="md:col-span-2 space-y-6">
           <Card>

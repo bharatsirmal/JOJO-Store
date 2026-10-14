@@ -32,7 +32,7 @@ export default async function PaymentPage({ params }: { params: { orderId: strin
     );
   }
 
-  if (order.status !== "pending_payment") {
+  if (order.status !== "pending_payment" || order.paymentReviewRequired) {
     redirect(`/orders/${order.id}`); // Redirect to order details if already paid or cancelled
   }
 

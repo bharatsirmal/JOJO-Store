@@ -3,6 +3,7 @@ import { adminDb } from "@/lib/backend/db";
 import { notFound, redirect } from "next/navigation";
 import { Order } from "@/types";
 import { CheckCircle2, Package, MapPin, Truck } from "lucide-react";
+import Link from "next/link";
 
 export default async function OrderDetailPage({ params }: { params: { orderId: string } }) {
   const user = await getCurrentUser();
@@ -19,7 +20,7 @@ export default async function OrderDetailPage({ params }: { params: { orderId: s
     notFound();
   }
 
-  const order = orderDoc.data() as Order;
+  const order = { ...orderDoc.data(), id: orderDoc.id } as Order;
   if (order.customerId !== user.uid && user.role !== "admin") {
     // Prevent access to other users' orders
     return (
@@ -33,6 +34,7 @@ export default async function OrderDetailPage({ params }: { params: { orderId: s
   return (
     <div className="bg-muted/30 min-h-[100dvh] py-12">
       <div className="container mx-auto px-4 max-w-3xl">
+        <Link href="/my-orders" className="mb-6 inline-flex text-sm font-medium underline">Back to My Orders</Link>
         <div className="bg-background rounded-xl p-8 shadow-sm border text-center mb-8">
           <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
             <CheckCircle2 className="w-8 h-8" />
@@ -49,6 +51,7 @@ export default async function OrderDetailPage({ params }: { params: { orderId: s
           </div>
         </div>
 
+        {order.paymentReviewRequired && <div role="alert" className="bg-amber-50 border border-amber-200 rounded-xl p-6 mb-8">Your payment needs review. Please contact the store before paying again.</div>}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <div className="bg-background rounded-xl p-6 shadow-sm border">
             <h3 className="font-bold mb-4 flex items-center gap-2"><MapPin className="w-4 h-4" /> Shipping Address</h3>

@@ -32,6 +32,10 @@ export interface Order {
   currency: string;
   status: OrderStatus;
   reservationExpiresAt?: string;
+  paymentIntentId?: string;
+  inventoryFinalizedAt?: string;
+  paymentReviewRequired?: boolean;
+  paymentReviewReason?: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -178,6 +182,7 @@ export type PaymentStatus =
   | "authorized"
   | "captured"
   | "failed"
+  | "requires_review"
   | "cancelled"
   | "refunded"
   | "partially_refunded";
