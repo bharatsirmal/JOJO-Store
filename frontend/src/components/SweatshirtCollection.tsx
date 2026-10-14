@@ -97,12 +97,12 @@ function SweatshirtCollectionContent({ products }: { products: CatalogProduct[] 
           
           {/* Card 1 */}
           {largeCards[0] && (
-            <motion.div className={`${hasStack ? "absolute inset-x-0 h-[80vh] md:h-[70vh]" : "relative h-auto md:h-[70vh]"} mx-auto w-full max-w-6xl rounded-3xl overflow-hidden text-white shadow-[0_-20px_50px_-15px_rgba(0,0,0,0.5)] origin-top z-10`} style={{ backgroundColor: getProductColor(largeCards[0], "#904128"), y: hasStack ? y1 : 0, scale: hasStack ? scale1 : 1 }}>
+            <motion.div className={`${hasStack ? "absolute inset-x-0 h-[80vh] md:h-[70vh]" : "relative h-auto md:h-[70vh]"} mx-auto w-full max-w-6xl rounded-[15px] overflow-hidden text-white shadow-[0_-20px_50px_-15px_rgba(0,0,0,0.5)] origin-top z-10`} style={{ backgroundColor: getProductColor(largeCards[0], "#904128"), y: hasStack ? y1 : 0, scale: hasStack ? scale1 : 1 }}>
               <motion.div style={{ opacity: hasStack ? shadow1 : 0 }} className="absolute inset-0 bg-black pointer-events-none z-50 transition-opacity duration-0" />
               <Link href={`/products/${largeCards[0].slug}`} className="group block w-full h-full relative z-40">
                 <div className="grid grid-cols-1 md:grid-cols-2 h-full">
                   <div className="relative w-full h-[300px] md:h-full overflow-hidden flex items-center justify-center p-8 md:p-10">
-                    <img loading="lazy" decoding="async" src={getProductImage(largeCards[0])} alt={largeCards[0].name} className="absolute inset-0 w-full h-full object-cover md:object-contain transition-transform duration-700 group-hover:scale-[1.15] scale-110 mix-blend-multiply" />
+                    <img loading="lazy" decoding="async" src={getProductImage(largeCards[0])} alt={largeCards[0].name} className="w-full h-full object-contain transition-transform duration-500 motion-safe:group-hover:scale-[1.03] mix-blend-multiply" />
                   </div>
                   <div className="p-8 md:p-16 flex flex-col justify-center h-full">
                     <h3 className="text-4xl md:text-6xl font-extrabold mb-4 md:mb-6 tracking-tight uppercase" style={{ fontFamily: "Impact, sans-serif" }}>{largeCards[0].name}</h3>
@@ -121,7 +121,7 @@ function SweatshirtCollectionContent({ products }: { products: CatalogProduct[] 
 
           {/* Card 2 */}
           {largeCards[1] && (
-            <motion.div className="absolute inset-x-0 mx-auto w-full max-w-6xl h-[80vh] md:h-[70vh] rounded-3xl overflow-hidden text-white shadow-[0_-20px_50px_-15px_rgba(0,0,0,0.5)] origin-top z-20" style={{ backgroundColor: getProductColor(largeCards[1], "#b49d83"), y: y2, scale: cardCount > 2 ? scale2 : 1 }}>
+            <motion.div className="absolute inset-x-0 mx-auto w-full max-w-6xl h-[80vh] md:h-[70vh] rounded-[15px] overflow-hidden text-white shadow-[0_-20px_50px_-15px_rgba(0,0,0,0.5)] origin-top z-20" style={{ backgroundColor: getProductColor(largeCards[1], "#b49d83"), y: y2, scale: cardCount > 2 ? scale2 : 1 }}>
               <motion.div style={{ opacity: cardCount > 2 ? shadow2 : 0 }} className="absolute inset-0 bg-black pointer-events-none z-50 transition-opacity duration-0" />
               <Link href={`/products/${largeCards[1].slug}`} className="group block w-full h-full relative z-40">
                 <div className="grid grid-cols-1 md:grid-cols-2 h-full">
@@ -136,7 +136,7 @@ function SweatshirtCollectionContent({ products }: { products: CatalogProduct[] 
                     </div>
                   </div>
                   <div className="relative w-full h-[300px] md:h-full overflow-hidden flex items-center justify-center p-8 md:p-10 order-1 md:order-2">
-                    <img loading="lazy" decoding="async" src={getProductImage(largeCards[1])} alt={largeCards[1].name} className="absolute inset-0 w-full h-full object-cover md:object-contain transition-transform duration-700 group-hover:scale-[1.15] scale-110 mix-blend-multiply" />
+                    <img loading="lazy" decoding="async" src={getProductImage(largeCards[1])} alt={largeCards[1].name} className="w-full h-full object-contain transition-transform duration-500 motion-safe:group-hover:scale-[1.03] mix-blend-multiply" />
                   </div>
                 </div>
               </Link>
@@ -145,11 +145,11 @@ function SweatshirtCollectionContent({ products }: { products: CatalogProduct[] 
 
           {/* Card 3 */}
           {largeCards[2] && (
-            <motion.div className="absolute inset-x-0 mx-auto w-full max-w-6xl h-[80vh] md:h-[70vh] rounded-3xl overflow-hidden text-white shadow-[0_-20px_50px_-15px_rgba(0,0,0,0.5)] origin-top z-30" style={{ backgroundColor: getProductColor(largeCards[2], "#214668"), y: y3 }}>
+            <motion.div className="absolute inset-x-0 mx-auto w-full max-w-6xl h-[80vh] md:h-[70vh] rounded-[15px] overflow-hidden text-white shadow-[0_-20px_50px_-15px_rgba(0,0,0,0.5)] origin-top z-30" style={{ backgroundColor: getProductColor(largeCards[2], "#214668"), y: y3 }}>
               <Link href={`/products/${largeCards[2].slug}`} className="group block w-full h-full relative z-40">
                 <div className="grid grid-cols-1 md:grid-cols-2 h-full">
                   <div className="relative w-full h-[300px] md:h-full overflow-hidden flex items-center justify-center p-8 md:p-10">
-                    <img loading="lazy" decoding="async" src={getProductImage(largeCards[2])} alt={largeCards[2].name} className="absolute inset-0 w-full h-full object-cover md:object-contain transition-transform duration-700 group-hover:scale-[1.15] scale-110 mix-blend-multiply" />
+                    <img loading="lazy" decoding="async" src={getProductImage(largeCards[2])} alt={largeCards[2].name} className="w-full h-full object-contain transition-transform duration-500 motion-safe:group-hover:scale-[1.03] mix-blend-multiply" />
                   </div>
                   <div className="p-8 md:p-16 flex flex-col justify-center h-full">
                     <h3 className="text-4xl md:text-6xl font-extrabold mb-4 md:mb-6 tracking-tight uppercase" style={{ fontFamily: "Impact, sans-serif" }}>{largeCards[2].name}</h3>
