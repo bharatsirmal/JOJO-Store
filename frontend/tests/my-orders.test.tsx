@@ -23,7 +23,7 @@ const fixture = [
     ],
     status: "confirmed",
     paymentStatus: "captured",
-    shipmentStatus: "delivered",
+    shipmentStatus: "packing",
     totalMinor: 23100,
     currency: "inr",
     createdAt: "2026-01-01",
@@ -60,7 +60,7 @@ it("shows purchased products, INR totals, payment and delivery statuses with wor
   render(<MyOrders />);
   await screen.findByText("Cotton Shirt");
   expect(screen.getByText("Paid")).toBeTruthy();
-  expect(screen.getByText("Delivered")).toBeTruthy();
+  expect(screen.getByText("Packing")).toBeTruthy();
   expect(screen.getAllByText("₹231.00")).toHaveLength(2);
   expect(
     screen.getAllByRole("link", { name: "View order" })[0].getAttribute("href"),
@@ -121,4 +121,58 @@ it("lets the customer retry a failed load and refresh existing orders", async ()
   await screen.findByText("Cotton Shirt");
   fireEvent.click(screen.getByRole("button", { name: "Refresh" }));
   await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(3));
+});
+
+it("moves delivered shipments out of My Orders into Order History with their payment and tracking details", async () => {
+  fetchMock.mockResolvedValue(
+    Response.json({
+      orders: [{ ...fixture[0], shipmentStatus: "delivered" }, fixture[1]],
+    }),
+  );
+  const { rerender } = render(<MyOrders />);
+  await screen.findByText("Blue Jeans");
+  expect(screen.queryByText("Cotton Shirt")).toBeNull();
+  expect(
+    screen.getByRole("link", { name: "Order History" }).getAttribute("href"),
+  ).toBe("/order-history");
+  rerender(<MyOrders view="history" />);
+  expect(screen.getByText("Cotton Shirt")).toBeTruthy();
+  expect(screen.queryByText("Blue Jeans")).toBeNull();
+  expect(screen.getByText("Completed")).toBeTruthy();
+  expect(screen.getByText("Paid")).toBeTruthy();
+  expect(
+    screen.getByRole("link", { name: "Track order" }).getAttribute("href"),
+  ).toBe("/orders/paid-order/tracking");
+  expect(
+    screen.queryByRole("link", { name: "Check / complete payment" }),
+  ).toBeNull();
+});
+
+it("uses a delivered order status even when shipment information is missing", async () => {
+  fetchMock.mockResolvedValue(
+    Response.json({
+      orders: [{ ...fixture[0], status: "delivered", shipmentStatus: null }],
+    }),
+  );
+  const { rerender } = render(<MyOrders />);
+  await screen.findByText("No active orders");
+  expect(screen.queryByText("Cotton Shirt")).toBeNull();
+  rerender(<MyOrders view="history" />);
+  expect(screen.getByText("Cotton Shirt")).toBeTruthy();
+});
+
+it("does not treat packing or out-for-delivery as completed", async () => {
+  fetchMock.mockResolvedValue(
+    Response.json({
+      orders: [
+        fixture[0],
+        { ...fixture[1], shipmentStatus: "out_for_delivery" },
+      ],
+    }),
+  );
+  const { rerender } = render(<MyOrders />);
+  await screen.findByText("Cotton Shirt");
+  expect(screen.getByText("Blue Jeans")).toBeTruthy();
+  rerender(<MyOrders view="history" />);
+  expect(screen.getByText("No completed orders yet")).toBeTruthy();
 });

@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Package, RefreshCw, Search, CreditCard, Truck } from "lucide-react";
 import type { Order } from "@/types";
+import { isCompletedOrder } from "@/lib/customer-orders";
 
 export type CustomerOrder = Pick<
   Order,
@@ -41,7 +42,8 @@ const money = (value: number) =>
     value / 100,
   );
 
-export function MyOrders() {
+export function MyOrders({ view = "active" }: { view?: "active" | "history" }) {
+  const history = view === "history";
   const [orders, setOrders] = useState<CustomerOrder[]>([]);
   const [loading, setLoading] = useState(true),
     [error, setError] = useState("");
@@ -76,7 +78,10 @@ export function MyOrders() {
     return () => controller.abort();
   }, [revision]);
   const query = search.trim().toLowerCase();
-  const visible = orders.filter(
+  const scopedOrders = orders.filter(
+    (order) => isCompletedOrder(order) === history,
+  );
+  const visible = scopedOrders.filter(
     (order) =>
       (filter === "all" ||
         (filter === "paid"
@@ -94,10 +99,12 @@ export function MyOrders() {
         <header className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold text-[#100c08]">
-              My Orders
+              {history ? "Order History" : "My Orders"}
             </h1>
             <p className="mt-1 text-sm text-slate-600">
-              Your purchases, payments and delivery updates
+              {history
+                ? "Your completed purchases, payments and delivery details"
+                : "Your active purchases, payments and delivery updates"}
             </p>
           </div>
           <button
@@ -109,6 +116,22 @@ export function MyOrders() {
             Refresh
           </button>
         </header>
+        <nav aria-label="Order pages" className="flex flex-wrap gap-2">
+          <Link
+            href="/my-orders"
+            aria-current={!history ? "page" : undefined}
+            className={`rounded-xl px-4 py-2 text-sm font-semibold ${!history ? "bg-[#36454f] text-white" : "border border-slate-300 bg-white"}`}
+          >
+            My Orders
+          </Link>
+          <Link
+            href="/order-history"
+            aria-current={history ? "page" : undefined}
+            className={`rounded-xl px-4 py-2 text-sm font-semibold ${history ? "bg-[#36454f] text-white" : "border border-slate-300 bg-white"}`}
+          >
+            Order History
+          </Link>
+        </nav>
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-wrap gap-2" aria-label="Filter orders">
             {[
@@ -155,12 +178,22 @@ export function MyOrders() {
           <div className="rounded-xl bg-white p-10 text-center shadow-[0_0_20px_rgba(0,0,0,0.07)]">
             <Package className="mx-auto mb-4 h-10 w-10 text-slate-400" />
             <h2 className="text-xl font-semibold">
-              {orders.length ? "No matching orders" : "No orders yet"}
+              {scopedOrders.length
+                ? "No matching orders"
+                : history
+                  ? "No completed orders yet"
+                  : orders.length
+                    ? "No active orders"
+                    : "No orders yet"}
             </h2>
             <p className="my-3 text-sm text-slate-500">
-              {orders.length
+              {scopedOrders.length
                 ? "Try another search or filter."
-                : "Your products and payment updates will appear here after checkout."}
+                : history
+                  ? "Orders appear here automatically once delivered."
+                  : orders.length
+                    ? "Your completed purchases are saved in Order History."
+                    : "Your products and payment updates will appear here after checkout."}
             </p>
             <Link
               href="/products"
@@ -173,6 +206,7 @@ export function MyOrders() {
           <div className="space-y-5">
             {visible.map((order) => {
               const canPay =
+                !history &&
                 order.status === "pending_payment" &&
                 !paid.has(order.paymentStatus) &&
                 order.paymentStatus !== "requires_review" &&
@@ -197,7 +231,7 @@ export function MyOrders() {
                       </p>
                     </div>
                     <span className="self-start rounded-full bg-slate-100 px-3 py-1 text-xs font-medium">
-                      {label(order.status)}
+                      {history ? "Completed" : label(order.status)}
                     </span>
                   </div>
                   <div className="space-y-4 p-5 sm:p-6">

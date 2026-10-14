@@ -115,7 +115,7 @@ export function HomeClient({ featuredProducts }: { featuredProducts: CatalogProd
       <footer className="store-footer">
         <div className="footer-grid"><div><Link href="/" className="footer-wordmark">JOJO<span>Ar</span></Link><p>Modern fashion for the everyday.<br />A wardrobe that feels like you.</p></div>
           <div><h3>THE COLLECTION</h3><Link href="/products?category=new">New Arrivals</Link><Link href="/products?category=women">Women</Link><Link href="/products?category=men">Men</Link><Link href="/products">Shop All</Link></div>
-          <div><h3>YOUR JOJO</h3><Link href="/account">My Account</Link><Link href="/account/orders">My Orders</Link><Link href="/wishlist">Wishlist</Link><Link href="/cart">Shopping Bag</Link></div>
+          <div><h3>YOUR JOJO</h3><Link href="/account">My Account</Link><Link href="/account/orders">My Orders</Link><Link href="/order-history">Order History</Link><Link href="/wishlist">Wishlist</Link><Link href="/cart">Shopping Bag</Link></div>
           <div><h3>HELP & INFORMATION</h3><Link href="#">Shipping & Returns</Link><Link href="#">Size Guide</Link><Link href="#">Contact Us</Link><div className="footer-legal"><Link href="#">Privacy Policy</Link><Link href="#">Terms of Service</Link></div></div>
         </div>
         <div className="footer-bottom"><span>Ac {new Date().getFullYear()} JOJO Store</span><span>EVERYDAY LOOKS GOOD ON YOU.</span><a href="#main-content" className="text-link">Back to top</a></div>

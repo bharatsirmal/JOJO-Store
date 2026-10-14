@@ -102,8 +102,9 @@ export function AccountPopup({ onClose }: { onClose: () => void }) {
             <div><dt className="text-slate-500">Member since</dt><dd className="mt-1">{new Date(profile.createdAt).toLocaleDateString()}</dd></div>
             <div className="sm:col-span-2"><dt className="text-slate-500">Account ID</dt><dd className="mt-1 break-all text-xs">{profile.uid}</dd></div>
           </dl>
-          <div className="mt-6 flex items-center justify-between gap-3 border-t border-slate-200 pt-5">
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 pt-5">
             <Link href="/my-orders" onClick={onClose} className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-medium">My Orders</Link>
+            <Link href="/order-history" onClick={onClose} className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-medium">Order History</Link>
             <Button type="button" variant="destructive" disabled={busy} onClick={handleLogout}>Logout</Button>
           </div>
         </>}
