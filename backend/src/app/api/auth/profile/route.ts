@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { adminAuth, adminDb } from "@/lib/firebase/admin";
+import { adminAuth, adminDb } from "@/config/firebase";
 import { cookies } from "next/headers";
-import { getCurrentUser } from "@/lib/auth/server";
+import { getCurrentUser } from "@/services/auth";
 
 export async function GET() {
   const user = await getCurrentUser();

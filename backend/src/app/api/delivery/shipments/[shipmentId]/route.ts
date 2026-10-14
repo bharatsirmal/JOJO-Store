@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { getCurrentUser } from "@/lib/auth/server";
-import { adminDb } from "@/lib/firebase/admin";
+import { getCurrentUser } from "@/services/auth";
+import { adminDb } from "@/config/firebase";
 import { ShipmentStatus } from "@/types";
 
 export async function PATCH(

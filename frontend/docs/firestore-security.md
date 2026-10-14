@@ -13,5 +13,6 @@
 - **Product Assets (`/products/{imageId}`)**: Publicly readable, writeable only by Admins.
 - **Private User Assets (`/users/{uid}/{fileName}`)**: Readable/writeable only by the authenticated owner or an Admin.
 
-## Security Testing
-- We use `@firebase/rules-unit-testing` and Vitest to run local emulator tests on the defined rulesets to prevent regression.
+## Security Configuration
+- Firestore and Storage rules remain in the repository root and are configured in `firebase.json`.
+- API authorization and customer ownership checks are implemented in the backend application source.

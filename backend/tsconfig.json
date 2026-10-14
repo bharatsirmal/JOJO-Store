@@ -22,5 +22,5 @@
     "src/**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "tests"]
+  "exclude": ["node_modules"]
 }

@@ -1,1 +1,1 @@
-export { paymentWebhook as POST } from "@/lib/payments/webhook-handler";
+export { paymentWebhook as POST } from "@/services/payments/webhook-handler";

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { adminDb } from "@/lib/firebase/admin";
-import { getCurrentUser } from "@/lib/auth/server";
+import { adminDb } from "@/config/firebase";
+import { getCurrentUser } from "@/services/auth";
 import { readAccess } from "@/lib/read-policy";
 const schema = z.object({
   path: z.string(),

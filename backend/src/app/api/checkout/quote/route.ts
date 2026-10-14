@@ -1,1 +1,1 @@
-export { quoteCheckout as POST } from "@/lib/payments/checkout-handlers";
+export { quoteCheckout as POST } from "@/services/payments/checkout-handlers";

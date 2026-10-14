@@ -2,35 +2,37 @@
   "name": "jojo-store-backend",
   "description": "Private API service for JOJO Store",
   "version": "1.0.0",
+  "main": "server.js",
   "scripts": {
     "build": "node node_modules/next/dist/bin/next build",
-    "dev": "node node_modules/next/dist/bin/next dev -p 4000",
-    "test": "vitest run",
-    "start": "node node_modules/next/dist/bin/next start -p 4000",
+    "dev": "node server.js --dev",
+    "start": "node server.js",
     "typecheck": "tsc --noEmit"
   },
   "engines": {
     "node": "22"
   },
   "dependencies": {
+    "cloudinary": "^2.11.0",
+    "firebase-admin": "^12.1.0",
     "next": "14.2.35",
+    "nodemailer": "^10.0.10",
     "react": "^18",
     "react-dom": "^18",
-    "cloudinary": "^2.11.0",
-    "nodemailer": "^10.0.10",
     "stripe": "^22.6.2",
-    "zod": "^4.6.5",
-    "firebase-admin": "^12.1.0"
+    "zod": "^4.6.5"
   },
   "devDependencies": {
+    "@types/node": "^22",
+    "@types/nodemailer": "^8.0.2",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/nodemailer": "^8.0.2",
-    "vitest": "^5.0.1",
-    "jsdom": "^30.1.0",
-    "@types/node": "^22",
     "typescript": "^5.4.5"
   },
   "private": true,
-  "overrides": { "jwks-rsa": { "jose": "^5.10.0" } }
+  "overrides": {
+    "jwks-rsa": {
+      "jose": "^5.10.0"
+    }
+  }
 }

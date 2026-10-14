@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getCurrentUser } from "@/lib/auth/server";
-import { adminDb } from "@/lib/firebase/admin";
-import { stripe } from "@/lib/payments/stripe";
-import { applyPaymentEvent } from "@/lib/payments/events";
+import { getCurrentUser } from "@/services/auth";
+import { adminDb } from "@/config/firebase";
+import { stripe } from "@/services/payments/stripe";
+import { applyPaymentEvent } from "@/services/payments/events";
 import type Stripe from "stripe";
 export async function GET(req: NextRequest) {
   const user = await getCurrentUser();

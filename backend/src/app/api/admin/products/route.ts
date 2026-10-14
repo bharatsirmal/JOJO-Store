@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 import { revalidateTag } from "next/cache";
-import { adminDb } from "@/lib/firebase/admin";
-import { requireAdmin } from "@/lib/auth/server";
+import { adminDb } from "@/config/firebase";
+import { requireAdmin } from "@/services/auth";
 import {
   adminProductSchema,
   productVariantOptions,
-} from "@/lib/admin/products";
-import { adminError } from "@/lib/admin/errors";
+} from "@/services/admin/products";
+import { adminError } from "@/services/admin/errors";
 export async function POST(request: Request) {
   try {
     const user = await requireAdmin();

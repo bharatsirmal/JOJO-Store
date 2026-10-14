@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { adminDb } from "@/lib/firebase/admin";
-import { requireAdmin } from "@/lib/auth/server";
+import { adminDb } from "@/config/firebase";
+import { requireAdmin } from "@/services/auth";
 import * as z from "zod";
 
 const inventoryAdjustmentSchema = z.object({

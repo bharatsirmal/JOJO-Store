@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireAdmin } from "@/lib/auth/server";
+import { requireAdmin } from "@/services/auth";
 import { v2 as cloudinary } from "cloudinary";
 
 // Configure Cloudinary backend SDK using the environment variables

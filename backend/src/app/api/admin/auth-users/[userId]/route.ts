@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { requireAdmin } from "@/lib/auth/server";
-import { adminAuth } from "@/lib/firebase/admin";
-import { adminError } from "@/lib/admin/errors";
+import { requireAdmin } from "@/services/auth";
+import { adminAuth } from "@/config/firebase";
+import { adminError } from "@/services/admin/errors";
 export async function GET(
   _request: Request,
   { params }: { params: { userId: string } },

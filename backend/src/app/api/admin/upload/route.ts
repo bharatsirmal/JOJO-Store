@@ -1,7 +1,7 @@
-import { adminError } from "@/lib/admin/errors";
+import { adminError } from "@/services/admin/errors";
 import { NextResponse } from "next/server";
 import { v2 as cloudinary } from "cloudinary";
-import { requireAdmin } from "@/lib/auth/server";
+import { requireAdmin } from "@/services/auth";
 
 cloudinary.config({
   cloud_name:

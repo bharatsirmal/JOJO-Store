@@ -1,1 +1,1 @@
-export { paymentSession as POST } from "@/lib/payments/session-handler";
+export { paymentSession as POST } from "@/services/payments/session-handler";

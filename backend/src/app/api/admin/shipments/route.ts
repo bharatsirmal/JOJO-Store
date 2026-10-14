@@ -1,7 +1,7 @@
-import { adminError } from "@/lib/admin/errors";
+import { adminError } from "@/services/admin/errors";
 import { NextResponse } from "next/server";
-import { requireAdmin } from "@/lib/auth/server";
-import { ShipmentService } from "@/lib/delivery/shipment-service";
+import { requireAdmin } from "@/services/auth";
+import { ShipmentService } from "@/services/delivery/shipment-service";
 
 export async function POST(req: Request) {
   try {

@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JOJO Store frontend
 
-## Getting Started
+The frontend uses Next.js App Router, React, TypeScript and Tailwind CSS.
+The separate backend uses Next.js API routes and starts through `backend/server.js`.
+Both applications are deployed separately on Vercel.
 
-First, run the development server:
+## Project layout
 
-```bash
+- `src/app/`: pages and layouts.
+- `src/components/`: storefront, account and admin UI components.
+- `src/lib/`: frontend helpers, authentication, backend requests and cart state.
+- `src/types/`: frontend data types.
+- `public/`: images, logo and video used by the website.
+- `docs/`: development, architecture and security references.
+
+## Local development
+
+Start the backend from the repository root:
+
+```sh
+cd backend
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+In another terminal start the frontend:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+cd frontend
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Frontend: http://localhost:3000. Backend: http://localhost:4000.
 
-## Learn More
+Use `frontend/.env.local` for public browser configuration and the backend URL.
+Use `backend/.env.local` for private Firebase Admin, Stripe and other server credentials.
+Do not put private credentials into frontend environment variables or commit environment files.
 
-To learn more about Next.js, take a look at the following resources:
+## Verification
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Run `npm run lint` from `frontend` for frontend code checks, and
+`npm run typecheck` from `backend` for backend TypeScript checks.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Run `npm run build` in each app folder to produce a deployment build.
+For a self-hosted backend production server, run `npm run build` followed by
+`npm start` from `backend`. Vercel uses the existing Next.js framework configuration.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Dependencies, generated builds and deployment metadata belong in `node_modules/`,
+`.next/` and `.vercel/`; these ignored folders are needed by the development/deployment tools.

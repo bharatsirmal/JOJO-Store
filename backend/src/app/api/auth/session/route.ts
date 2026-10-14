@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { adminAuth, adminDb } from "@/lib/firebase/admin";
+import { adminAuth, adminDb } from "@/config/firebase";
 import { NextResponse } from "next/server";
 
 // 5 days in milliseconds

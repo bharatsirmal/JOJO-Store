@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { getCurrentUser } from "@/lib/auth/server";
-import { adminDb } from "@/lib/firebase/admin";
+import { getCurrentUser } from "@/services/auth";
+import { adminDb } from "@/config/firebase";
 import type { Order, PaymentRecord } from "@/types";
 
 export const dynamic = "force-dynamic";
